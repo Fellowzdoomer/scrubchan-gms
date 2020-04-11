@@ -5,40 +5,39 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound">
-    <sounds name="Music">
-      <sound>sound\bgmJingle</sound>
-      <sound>sound\bgmCalmCity</sound>
-      <sound>sound\bgmStageSelect</sound>
-      <sound>sound\bgmPoisonWoman</sound>
-      <sound>sound\bgmDebug</sound>
-      <sound>sound\bgmMenuTheme</sound>
-      <sound>sound\bgmBoss</sound>
-      <sound>sound\musicSpecificallySelectedForABlankMenu</sound>
-      <sound>sound\bgmVictory</sound>
-      <sound>sound\bgmFillerWily</sound>
-      <sound>sound\bgmQuintTheme</sound>
-      <sound>sound\bgmLimbo</sound>
-      <sound>sound\bgmMetalMan</sound>
-    </sounds>
-    <sounds name="SFX">
-      <sound>sound\sndMenuNavigate</sound>
+    <sounds name="Sounds">
       <sound>sound\sndBusterShot</sound>
-      <sound>sound\sndTeleport</sound>
-      <sound>sound\sndDeny</sound>
-      <sound>sound\sfxExplosion4</sound>
-      <sound>sound\sndExplosion</sound>
-      <sound>sound\sndMenuToggle</sound>
+      <sound>sound\sndCharge</sound>
       <sound>sound\sndDeath</sound>
+      <sound>sound\sndDeny</sound>
+      <sound>sound\sndDoor</sound>
+      <sound>sound\sndEnemyHit</sound>
+      <sound>sound\sndExplosion</sound>
+      <sound>sound\sndMenuNavigate</sound>
+      <sound>sound\sndMenuSelect</sound>
       <sound>sound\sndMenuSelect1</sound>
       <sound>sound\sndMenuSelect3</sound>
-      <sound>sound\sndMenuSelect</sound>
-      <sound>sound\sndRecoverHP</sound>
-      <sound>sound\sndEnemyHit</sound>
+      <sound>sound\sndMenuToggle</sound>
       <sound>sound\sndPlayerHit</sound>
-      <sound>sound\sndSpear</sound>
       <sound>sound\sndPlayerLand</sound>
-      <sound>sound\sndCharge</sound>
-      <sound>sound\sndDoor</sound>
+      <sound>sound\sndRecoverHP</sound>
+      <sound>sound\sndSpear</sound>
+      <sound>sound\sndTeleport</sound>
+    </sounds>
+    <sounds name="Music">
+      <sound>sound\bgmBoss</sound>
+      <sound>sound\bgmCalmCity</sound>
+      <sound>sound\bgmDebug</sound>
+      <sound>sound\bgmFillerWily</sound>
+      <sound>sound\bgmJingle</sound>
+      <sound>sound\bgmLimbo</sound>
+      <sound>sound\bgmMenuTheme</sound>
+      <sound>sound\bgmMetalMan</sound>
+      <sound>sound\bgmPoisonWoman</sound>
+      <sound>sound\bgmQuintTheme</sound>
+      <sound>sound\bgmStageSelect</sound>
+      <sound>sound\bgmVictory</sound>
+      <sound>sound\musicSpecificallySelectedForABlankMenu</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
@@ -63,21 +62,10 @@
     </sprites>
     <sprites name="EditorSpecific">
       <sprite>sprites\cam</sprite>
-      <sprite>sprites\sectionBorderU</sprite>
-      <sprite>sprites\sectionBorderD</sprite>
-      <sprite>sprites\sectionBorderL</sprite>
-      <sprite>sprites\sectionBorderR</sprite>
       <sprite>sprites\sectionMoveU</sprite>
       <sprite>sprites\sectionMoveD</sprite>
       <sprite>sprites\sectionMoveL</sprite>
       <sprite>sprites\sectionMoveR</sprite>
-      <sprite>sprites\sprWallUp</sprite>
-      <sprite>sprites\sprWallLeft</sprite>
-      <sprite>sprites\sprWallRight</sprite>
-      <sprite>sprites\sprGoCameraL</sprite>
-      <sprite>sprites\sprGoCameraR</sprite>
-      <sprite>sprites\sprStopCameraR</sprite>
-      <sprite>sprites\sprStopCameraL</sprite>
       <sprite>sprites\sprCamStop</sprite>
       <sprite>sprites\sprCamGo</sprite>
       <sprite>sprites\sprTeleportIn</sprite>
@@ -119,10 +107,6 @@
       <sprite>sprites\sprPoison</sprite>
       <sprite>sprites\sprBossDoor</sprite>
       <sprite>sprites\sprLadder</sprite>
-      <sprite>sprites\sprDoor1Open</sprite>
-      <sprite>sprites\sprDoor1Close</sprite>
-      <sprite>sprites\sprDoor2Open</sprite>
-      <sprite>sprites\sprDoor2Close</sprite>
       <sprite>sprites\sprTopSolid</sprite>
     </sprites>
     <sprites name="Items">
@@ -147,7 +131,6 @@
       </sprites>
     </sprites>
     <sprites name="Misc.">
-      <sprite>sprites\sprWIPTIles</sprite>
       <sprite>sprites\sprUnknown</sprite>
       <sprite>sprites\sprWinCondition</sprite>
       <sprite>sprites\sprUnknownHue</sprite>
@@ -221,14 +204,12 @@
       </sprites>
     </sprites>
     <sprite>sprites\sprCrossNailTest</sprite>
-    <sprite>sprites\sprControllerTestPS</sprite>
-    <sprite>sprites\sprControllerButton</sprite>
+    <sprite>sprites\sprControllerPlaystation</sprite>
+    <sprite>sprites\sprControllerXBox</sprite>
     <sprite>sprites\sprBlankWeapon</sprite>
     <sprite>sprites\sprScrnBorder</sprite>
     <sprite>sprites\sprite142</sprite>
     <sprite>sprites\sprFloorGuardian</sprite>
-    <sprite>sprites\sprite144</sprite>
-    <sprite>sprites\sprite146</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="Tilesets">
@@ -440,8 +421,6 @@
       <object>objects\objCheckpoint</object>
       <object>objects\objStartLevel</object>
       <object>objects\obj_tile_animator</object>
-      <object>objects\objCamLeft</object>
-      <object>objects\objCamRight</object>
       <object>objects\switchGrav</object>
       <object>objects\objReflect</object>
       <object>objects\objLoadDataObj</object>
