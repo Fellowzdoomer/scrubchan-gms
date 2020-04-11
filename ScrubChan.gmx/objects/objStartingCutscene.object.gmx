@@ -71,10 +71,8 @@ alphaVal = 0;
 
 kSkip = keyboard_check_released(ord("Z")) || keyboard_check_released(ord("X"))
 
-if kSkip
-{
-room_goto(rmTitleScreen)
-}
+if kSkip room_goto(rmTitleScreen);
+
 slideTimer += 1;
 
 introCutscene0();

@@ -57,11 +57,11 @@
     <instance objName="objMugshot" x="48" y="32" name="inst_4E330790" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objMugshot" x="176" y="160" name="inst_53343D20" locked="0" code="shot = 2;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objMugshot" x="112" y="160" name="inst_5544BB76" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objMugshot" x="176" y="96" name="inst_79502DB1" locked="0" code="shot = 9;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objMugshot" x="48" y="160" name="inst_E6DB1FFE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objMugshot" x="176" y="96" name="inst_79502DB1" locked="0" code="shot = 9;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objMugshot" x="48" y="160" name="inst_E6DB1FFE" locked="0" code="shot = 5;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objMugshot" x="48" y="96" name="inst_B1423842" locked="0" code="shot = 1;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objMugshot" x="112" y="32" name="inst_A93CDA20" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objMugshot" x="176" y="32" name="inst_C4A01266" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objMugshot" x="176" y="32" name="inst_C4A01266" locked="0" code="shot = 4;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objStgMusic" x="0" y="0" name="inst_874D0536" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>

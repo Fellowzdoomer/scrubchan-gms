@@ -112,34 +112,15 @@ else
 }
 
 // Sliding code
-        if (kSlide) || (kSlideGP)
-        {
-            if (place_meeting(x,y+1,objSolid))
-            {
-                if (!place_meeting(x+16,y,objSolid)) or (!place_meeting(x-16,y,objSolid))
-                {
-                    isSliding = true
-                }
-            }
-            
-        }
-
-// camera
-/*if global.followPlayer
+if (kSlide) || (kSlideGP)
 {
-    view_xview[0] = x-128;
-}*/
-
-// testing
-
-if keyboard_check_released(ord('U'))
-{
-    show_debug_message(string(isGrounded))
-    if place_meeting(x,y+1,objSolid)
+    if (place_meeting(x,y+1,objSolid))
     {
-        show_debug_message("is touching ground")
-        if !isGrounded show_debug_message("isGrounded not set to true.")
-    }
+        if (!place_meeting(x+16,y,objSolid)) or (!place_meeting(x-16,y,objSolid))
+        {
+        isSliding = true
+        }
+    }    
 }
 
 if keyboard_check_released(vk_numpad5)
@@ -157,6 +138,7 @@ if keyboard_check_released(vk_numpad5)
     }
 }
 
+// debug FreeForm/NoClip mode
 if freeformMode
 {
     if keyboard_check_released(vk_numpad8)

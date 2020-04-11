@@ -98,6 +98,7 @@
       <sprite>sprites\sprPauseButton</sprite>
       <sprite>sprites\sprPauseButtonDebug</sprite>
       <sprite>sprites\sprPauseButtonIdle</sprite>
+      <sprite>sprites\sprScrnBorder</sprite>
     </sprites>
     <sprites name="Collision">
       <sprite>sprites\sprSolid</sprite>
@@ -207,7 +208,6 @@
     <sprite>sprites\sprControllerPlaystation</sprite>
     <sprite>sprites\sprControllerXBox</sprite>
     <sprite>sprites\sprBlankWeapon</sprite>
-    <sprite>sprites\sprScrnBorder</sprite>
     <sprite>sprites\sprite142</sprite>
     <sprite>sprites\sprFloorGuardian</sprite>
   </sprites>
@@ -241,7 +241,6 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="Player">
-      <script>scripts\pInit.gml</script>
       <script>scripts\playerTeleportInitial.gml</script>
       <script>scripts\playerAnimation.gml</script>
       <script>scripts\playerCheckGround.gml</script>

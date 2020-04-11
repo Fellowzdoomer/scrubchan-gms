@@ -19,7 +19,7 @@ if string_pos("play", parseTxt)
    switch cArgument
    {
         case "intro":
-             room_goto(rmIntroCutscene)
+            room_goto(rmIntroCutscene)
    }
 }
 
@@ -127,11 +127,11 @@ if string_pos("enemyAI", txt)
 {
     if instance_exists(prtEnemy)
     {
-    with prtEnemy
-    {
-    enemyTimer = 50;
-    attack = real(objConsole.parseNum);
-    }
+        with prtEnemy
+        {
+        enemyTimer = 50;
+        attack = real(objConsole.parseNum);
+        }
     }
 }
 
@@ -147,5 +147,21 @@ if string_pos("wy",txt)
     show_debug_message(string(parseNum))
     
     objPlayer.y -= real(parseNum)
+}
+
+// Noclip
+if string_pos("noclip", txt)
+{
+    if !freeformMode
+    {
+        objPlayer.freeformMode = true;
+        show_debug_message("Freeform Mode Active");
+    }
+    else
+    {
+        objPlayer.freeformMode = false;
+        objPlayer.push = 0;
+        show_debug_message("Freeform Mode Deactive");
+    }
 }
 

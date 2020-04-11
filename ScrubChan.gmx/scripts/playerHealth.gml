@@ -111,15 +111,15 @@ else if (place_meeting(x,y,objQuint))
 // invulnerability counter
 if invulnerable == true
 {
-invulnTimer += 1;
-
-if invulnTimer % 2 == 0 {visible = false; } else {visible = true; }
-if invulnTimer == 128
-{
-    visible = true;
-    invulnerable = false;
-    invulnTimer = 0;
-}
+    invulnTimer += 1;
+    
+    if invulnTimer % 2 == 0 {visible = false; } else {visible = true; }
+    if invulnTimer == 128
+    {
+        visible = true;
+        invulnerable = false;
+        invulnTimer = 0;
+    }
 }
 
 // knockback counter
@@ -136,7 +136,7 @@ if isKnockedBack
 }
 
 
-// dead code
+// Game over code
 
 if global.playerHP <= 0
 {
@@ -149,12 +149,12 @@ if global.playerHP <= 0
     {
         if global.playerLives > 0 room_goto(rmCheckpointRedirect);
         else room_goto(rmStageSelect);
-    global.playerHP = 28;
-    deathTimer = 0;
-    invulnerable = false;
-    invulnTimer = 0;
-    didTeleport = false;
-    visible = true;
+        global.playerHP = 28;
+        deathTimer = 0;
+        invulnerable = false;
+        invulnTimer = 0;
+        didTeleport = false;
+        visible = true;
     }
 }
 

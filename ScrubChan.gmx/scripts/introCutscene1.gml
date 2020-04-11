@@ -54,4 +54,9 @@ if picFrame == 1
     {
     strFrame = "STRING CHEESE";
     }
+    
+     if slideTimer >= 905
+    {
+    strFrame = "MORE STRINGS##YAY!";
+    }
 }
