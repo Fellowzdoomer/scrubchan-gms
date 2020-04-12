@@ -47,16 +47,24 @@ if picFrame == 1
     
     if slideTimer >= 505
     {
-    strFrame = "TO CELEBRATE, A SPECIAL##CEREMONY WAS PLANNED##FOR THIS SPECIAL MOMENT...";
+    strFrame = "TO CELEBRATE, A ##CEREMONY WAS PLANNED##FOR THIS SPECIAL MOMENT...";
     }
     
     if slideTimer >= 705
     {
-    strFrame = "STRING CHEESE";
+    strFrame = "BIJUU MIKE:##HELLO EVERYBODY! I AM##SO HAPPY YOU GUYS ARE HERE!";
     }
     
-     if slideTimer >= 905
+    if slideTimer >= 905
     {
-    strFrame = "MORE STRINGS##YAY!";
+    strFrame = "##I NEVER WOULD HAVE THOUGHT##OUR HUMBLE LITTLE COMMUNITY";
+    }
+    if slideTimer >= 1105
+    {
+    strFrame = "##WOULD GROW SO QUICKLY.##I AM SO PROUD OF ALL THE";
+    }
+    if slideTimer >= 1305
+    {
+    strFrame = "##HARDSHIPS WE HAVE MANAGED##TO OVERCOME...";
     }
 }
