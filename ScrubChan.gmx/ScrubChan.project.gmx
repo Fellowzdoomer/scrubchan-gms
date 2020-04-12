@@ -208,8 +208,9 @@
     <sprite>sprites\sprControllerPlaystation</sprite>
     <sprite>sprites\sprControllerXBox</sprite>
     <sprite>sprites\sprBlankWeapon</sprite>
-    <sprite>sprites\sprite142</sprite>
     <sprite>sprites\sprFloorGuardian</sprite>
+    <sprite>sprites\sprFillerLimbo</sprite>
+    <sprite>sprites\sprFillerSpriteForBoss</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="Tilesets">
@@ -446,10 +447,6 @@
       <object>objects\objEnemyHPBar2</object>
       <object>objects\objEnemyHPBar3</object>
       <object>objects\objMugshot</object>
-      <object>objects\objSBorderL</object>
-      <object>objects\objSBorderR</object>
-      <object>objects\objSBorderU</object>
-      <object>objects\objSBorderD</object>
       <object>objects\objBossIntro</object>
       <object>objects\objText</object>
       <object>objects\objSBorderML</object>
@@ -481,8 +478,6 @@
     <room>rooms\rmCheckpointRedirect</room>
     <room>rooms\rmDisclaimer</room>
     <rooms name="Menu">
-      <room>rooms\arbitraryCode</room>
-      <room>rooms\arbitraryMultiplayer</room>
       <room>rooms\rmDebugMenu</room>
       <room>rooms\rmMainMenu</room>
       <room>rooms\rmKeyboardBind</room>
@@ -504,14 +499,12 @@
       <room>rooms\rmDoesNotExist</room>
       <room>rooms\rmBossDoorTest</room>
       <room>rooms\rmBossTestingChamber</room>
-      <room>rooms\rmBossAI</room>
       <room>rooms\rmScreenTest1</room>
       <room>rooms\rmTestingChamber</room>
       <room>rooms\rmTestController</room>
+    </rooms>
+    <rooms name="Cutscenes">
       <room>rooms\rmIntroCutscene</room>
-      <room>rooms\rmTestMovement</room>
-      <room>rooms\camerTest</room>
-      <room>rooms\camer</room>
     </rooms>
   </rooms>
   <help>
