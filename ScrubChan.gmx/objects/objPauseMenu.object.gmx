@@ -25,8 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if room = rmBossAI instance_destroy()
-visible = false;
+            <string>visible = false;
 global.inMenu = false;
 global.menuChoice = 1;
 global.subMenuChoice = 1;
@@ -100,7 +99,7 @@ arrowDir = 1
         {
             if currentArea == "main"
             {
-                if global.menuChoice == 4 global.menuChoice = 1
+                if global.menuChoice == 3 global.menuChoice = 1
                 else global.menuChoice += 1;
             }
             else
@@ -118,7 +117,7 @@ arrowDir = 1
         {
             if currentArea == "main"
             {
-                if global.menuChoice == 1 global.menuChoice = 4
+                if global.menuChoice == 1 global.menuChoice = 3
                 else global.menuChoice -= 1;
             }
             else
@@ -253,7 +252,7 @@ visible = global.inMenu;
 draw_set_halign(fa_left);
 draw_set_color(c_white);
 
-draw_sprite(screensize,0,view_xview[0],view_yview[0]);
+draw_sprite(sprPauseMenuBackdrop,image_index,view_xview[0],view_yview[0]);
 draw_sprite(sprPauseMenuTop,image_index,view_xview[0]+64,view_yview[0]);
 draw_text(view_xview[0]+84, view_yview[0]+6,"SYSTEM.MENU");
 
@@ -263,12 +262,10 @@ if currentArea == "main"
     if global.menuChoice == 1 draw_sprite(sprPauseButton,image_index,view_xview[0],view_yview[0]+48); else draw_sprite(sprPauseButtonIdle,image_index,view_xview[0],view_yview[0]+48);
     if global.menuChoice == 2 draw_sprite(sprPauseButton,image_index,view_xview[0],view_yview[0]+72); else draw_sprite(sprPauseButtonIdle,image_index,view_xview[0],view_yview[0]+72);
     if global.menuChoice == 3 draw_sprite(sprPauseButton,image_index,view_xview[0],view_yview[0]+96); else draw_sprite(sprPauseButtonIdle,image_index,view_xview[0],view_yview[0]+96);
-    if global.menuChoice == 4 draw_sprite(sprPauseButtonDebug,image_index,view_xview[0],view_yview[0]+120); else draw_sprite(sprPauseButtonIdle,image_index,view_xview[0],view_yview[0]+120);
     
     draw_text(view_xview[0]+4,view_yview[0]+53,"WEAPONS");
     draw_text(view_xview[0]+4,view_yview[0]+77,"ITEMS");
     draw_text(view_xview[0]+4,view_yview[0]+101,"SETTINGS");
-    draw_text(view_xview[0]+4,view_yview[0]+125,"ACE MENU");
     
     /*// Player + Lives
     draw_sprite(sprPlayer,0,view_xview[0] + 24, view_yview[0] + 28);

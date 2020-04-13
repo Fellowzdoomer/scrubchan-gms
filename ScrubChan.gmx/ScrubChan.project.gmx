@@ -74,31 +74,28 @@
     </sprites>
     <sprites name="GUI">
       <sprite>sprites\sprFont</sprite>
-      <sprite>sprites\sprHealthBarEmpty</sprite>
-      <sprite>sprites\sprHealthBarFull</sprite>
-      <sprite>sprites\sprEnergyPrimary</sprite>
-      <sprite>sprites\sprEnergySecondary</sprite>
       <sprite>sprites\sprMugshots</sprite>
       <sprite>sprites\sprStageMarker</sprite>
       <sprite>sprites\sprStageSelectMarker</sprite>
-      <sprite>sprites\sprPauseMenu</sprite>
-      <sprite>sprites\sprOpeningCutscene</sprite>
+      <sprite>sprites\sprPauseMenuBackdrop</sprite>
+      <sprite>sprites\sprOpeningCutsceneTemplate</sprite>
       <sprite>sprites\sprMenuArrow</sprite>
       <sprite>sprites\sprMenuArrow2</sprite>
       <sprite>sprites\sprLogo</sprite>
-      <sprite>sprites\sprLogod</sprite>
-      <sprite>sprites\sprChat</sprite>
       <sprite>sprites\sprConsole</sprite>
-      <sprite>sprites\sprSpriteDebugConsole</sprite>
-      <sprite>sprites\sprEnergyPausePrimary</sprite>
-      <sprite>sprites\sprEnergyPauseSecondary</sprite>
-      <sprite>sprites\sprEnergyPauseEmpty</sprite>
-      <sprite>sprites\screensize</sprite>
       <sprite>sprites\sprPauseMenuTop</sprite>
       <sprite>sprites\sprPauseButton</sprite>
-      <sprite>sprites\sprPauseButtonDebug</sprite>
       <sprite>sprites\sprPauseButtonIdle</sprite>
       <sprite>sprites\sprScrnBorder</sprite>
+      <sprites name="EnergyLevels">
+        <sprite>sprites\sprHealthBarFull</sprite>
+        <sprite>sprites\sprHealthBarEmpty</sprite>
+        <sprite>sprites\sprEnergyPrimary</sprite>
+        <sprite>sprites\sprEnergySecondary</sprite>
+        <sprite>sprites\sprEnergyPausePrimary</sprite>
+        <sprite>sprites\sprEnergyPauseSecondary</sprite>
+        <sprite>sprites\sprEnergyPauseEmpty</sprite>
+      </sprites>
     </sprites>
     <sprites name="Collision">
       <sprite>sprites\sprSolid</sprite>
@@ -209,8 +206,17 @@
     <sprite>sprites\sprControllerXBox</sprite>
     <sprite>sprites\sprBlankWeapon</sprite>
     <sprite>sprites\sprFloorGuardian</sprite>
-    <sprite>sprites\sprFillerLimbo</sprite>
-    <sprite>sprites\sprFillerSpriteForBoss</sprite>
+    <sprites name="BossTemp">
+      <sprite>sprites\sprFillerLimboBox</sprite>
+      <sprite>sprites\sprFillerCodeBox</sprite>
+      <sprite>sprites\sprFillerGasolineBox</sprite>
+      <sprite>sprites\sprFillerContrivanceBox</sprite>
+      <sprite>sprites\sprFillerPrismarineBox</sprite>
+      <sprite>sprites\sprFillerShredBox</sprite>
+      <sprite>sprites\sprFillerPoisonBox</sprite>
+      <sprite>sprites\sprFillerSurgeBox</sprite>
+    </sprites>
+    <sprite>sprites\sprControllerDPad</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="Tilesets">
@@ -323,7 +329,6 @@
         <object>objects\objCodeWomanCursor</object>
       </objects>
       <object>objects\objConsole</object>
-      <object>objects\objSpriteDebugConsole</object>
       <object>objects\objTitleScreen</object>
       <object>objects\objStartingCutscene</object>
       <object>objects\objReadyTxt</object>
@@ -331,12 +336,12 @@
       <object>objects\objHealthBar</object>
       <object>objects\objMarker</object>
       <object>objects\objStageSelect</object>
-      <object>objects\objChat</object>
     </objects>
     <objects name="Enemy">
       <objects name="Parent">
         <object>objects\prtEnemy</object>
         <object>objects\prtEnemyShot</object>
+        <object>objects\prtBossParent</object>
       </objects>
       <objects name="Bosses">
         <objects name="MetalManTestDummy">
@@ -370,15 +375,9 @@
       </objects>
     </objects>
     <objects name="Menu">
-      <object>objects\objACEMenu</object>
-      <object>objects\objACEMenu2</object>
-      <object>objects\objACEMenuPage2</object>
-      <object>objects\objMultiplayerSelect</object>
       <object>objects\objMainMenu</object>
       <object>objects\objKeyboardBinding</object>
       <object>objects\objPauseMenu</object>
-      <object>objects\objDebugMenu</object>
-      <object>objects\objDebugMenu2</object>
     </objects>
     <objects name="Collision">
       <object>objects\objSolid</object>
@@ -478,7 +477,6 @@
     <room>rooms\rmCheckpointRedirect</room>
     <room>rooms\rmDisclaimer</room>
     <rooms name="Menu">
-      <room>rooms\rmDebugMenu</room>
       <room>rooms\rmMainMenu</room>
       <room>rooms\rmKeyboardBind</room>
       <room>rooms\rmTitleScreen</room>
@@ -501,7 +499,6 @@
       <room>rooms\rmBossTestingChamber</room>
       <room>rooms\rmScreenTest1</room>
       <room>rooms\rmTestingChamber</room>
-      <room>rooms\rmTestController</room>
     </rooms>
     <rooms name="Cutscenes">
       <room>rooms\rmIntroCutscene</room>

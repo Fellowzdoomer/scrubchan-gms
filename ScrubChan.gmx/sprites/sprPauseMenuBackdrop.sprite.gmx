@@ -20,6 +20,6 @@
   <width>256</width>
   <height>224</height>
   <frames>
-    <frame index="0">images\sprPauseMenu_0.png</frame>
+    <frame index="0">images\sprPauseMenuBackdrop_0.png</frame>
   </frames>
 </sprite>

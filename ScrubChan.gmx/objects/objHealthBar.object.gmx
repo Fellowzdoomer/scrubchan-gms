@@ -51,12 +51,11 @@ weaponEnergy = global.playerWepEnergy;
             <kind>1</kind>
             <string>switch room
 {
-    case rmDebugMenu:
     case rmMainMenu:
     case rmStageSelect:
          with self.id instance_destroy();
 }
-{
+
 switch global.weapon
 {
     case 1:
@@ -84,7 +83,7 @@ switch global.weapon
          weaponEnergy = global.wpe_weapon8;
          break;
 }
-}
+
 </string>
           </argument>
         </arguments>
