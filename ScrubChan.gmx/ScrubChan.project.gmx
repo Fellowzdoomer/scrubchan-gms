@@ -73,20 +73,6 @@
       <sprite>sprites\sprCameraDest</sprite>
     </sprites>
     <sprites name="GUI">
-      <sprite>sprites\sprFont</sprite>
-      <sprite>sprites\sprMugshots</sprite>
-      <sprite>sprites\sprStageMarker</sprite>
-      <sprite>sprites\sprStageSelectMarker</sprite>
-      <sprite>sprites\sprPauseMenuBackdrop</sprite>
-      <sprite>sprites\sprOpeningCutsceneTemplate</sprite>
-      <sprite>sprites\sprMenuArrow</sprite>
-      <sprite>sprites\sprMenuArrow2</sprite>
-      <sprite>sprites\sprLogo</sprite>
-      <sprite>sprites\sprConsole</sprite>
-      <sprite>sprites\sprPauseMenuTop</sprite>
-      <sprite>sprites\sprPauseButton</sprite>
-      <sprite>sprites\sprPauseButtonIdle</sprite>
-      <sprite>sprites\sprScrnBorder</sprite>
       <sprites name="EnergyLevels">
         <sprite>sprites\sprHealthBarFull</sprite>
         <sprite>sprites\sprHealthBarEmpty</sprite>
@@ -95,6 +81,30 @@
         <sprite>sprites\sprEnergyPausePrimary</sprite>
         <sprite>sprites\sprEnergyPauseSecondary</sprite>
         <sprite>sprites\sprEnergyPauseEmpty</sprite>
+      </sprites>
+      <sprites name="PauseMenu">
+        <sprite>sprites\sprPauseMenuBackdrop</sprite>
+        <sprite>sprites\sprPauseMenuTop</sprite>
+        <sprite>sprites\sprPauseButton</sprite>
+        <sprite>sprites\sprPauseButtonIdle</sprite>
+      </sprites>
+      <sprites name="StageSelect">
+        <sprite>sprites\sprMugshots</sprite>
+        <sprite>sprites\sprStageSelectMarker</sprite>
+        <sprite>sprites\sprStageMarker</sprite>
+      </sprites>
+      <sprite>sprites\sprFont</sprite>
+      <sprite>sprites\sprOpeningCutsceneTemplate</sprite>
+      <sprite>sprites\sprMenuArrow</sprite>
+      <sprite>sprites\sprMenuArrow2</sprite>
+      <sprite>sprites\sprLogo</sprite>
+      <sprite>sprites\sprConsole</sprite>
+      <sprite>sprites\sprScrnBorder</sprite>
+      <sprites name="ControllerGUI">
+        <sprite>sprites\sprControllerPlaystation</sprite>
+        <sprite>sprites\sprControllerXBox</sprite>
+        <sprite>sprites\sprDPadLR</sprite>
+        <sprite>sprites\sprDPadUD</sprite>
       </sprites>
     </sprites>
     <sprites name="Collision">
@@ -201,11 +211,6 @@
         <sprite>sprites\sprLimboIdle</sprite>
       </sprites>
     </sprites>
-    <sprite>sprites\sprCrossNailTest</sprite>
-    <sprite>sprites\sprControllerPlaystation</sprite>
-    <sprite>sprites\sprControllerXBox</sprite>
-    <sprite>sprites\sprBlankWeapon</sprite>
-    <sprite>sprites\sprFloorGuardian</sprite>
     <sprites name="BossTemp">
       <sprite>sprites\sprFillerLimboBox</sprite>
       <sprite>sprites\sprFillerCodeBox</sprite>
@@ -216,7 +221,9 @@
       <sprite>sprites\sprFillerPoisonBox</sprite>
       <sprite>sprites\sprFillerSurgeBox</sprite>
     </sprites>
-    <sprite>sprites\sprControllerDPad</sprite>
+    <sprite>sprites\sprCrossNailTest</sprite>
+    <sprite>sprites\sprBlankWeapon</sprite>
+    <sprite>sprites\sprFloorGuardian</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="Tilesets">
@@ -244,6 +251,8 @@
     <background>background\background11</background>
     <background>background\bgmWilyFortress</background>
     <background>background\metalman</background>
+    <background>background\bgGrid1</background>
+    <background>background\bgGrid2</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -350,9 +359,12 @@
         </objects>
         <objects name="Quint">
           <object>objects\objQuint</object>
-          <object>objects\objLimboWoman</object>
           <object>objects\objQuintChargeShot</object>
           <object>objects\objQuintShot</object>
+        </objects>
+        <objects name="FillerAI">
+          <object>objects\objLimboWoman</object>
+          <object>objects\objLimboWomanAI</object>
         </objects>
       </objects>
       <objects name="TestEnemies">

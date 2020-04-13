@@ -184,7 +184,7 @@ if global.bossHP &lt;= 0
             with objPlayer lockInput = true; sprite_index=sprPlayer;
             audio_play_sound(bgmVictory,0,false);
         }
-        else if enemyTimer == 480 room_goto(arbitraryC0ode);
+        else if enemyTimer == 480 room_goto(rmStageSelect);
     }
     else
     {
