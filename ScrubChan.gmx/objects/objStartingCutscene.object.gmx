@@ -104,7 +104,7 @@ draw_set_color(c_white);
 draw_set_alpha(alphaVal);
 draw_set_halign(fa_center)
 
-draw_sprite(sprOpeningCutscene, picFrame, 0,0);
+//draw_sprite(sprOpeningCutscene, picFrame, 0,0);
 draw_text((view_xview[0]+textX),(view_yview[0]+textY),strFrame);
 </string>
           </argument>

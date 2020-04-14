@@ -39,6 +39,9 @@
       <sound>sound\bgmVictory</sound>
       <sound>sound\musicSpecificallySelectedForABlankMenu</sound>
     </sounds>
+    <sounds name="DemoMusic">
+      <sound>sound\bgmSimulationSelection</sound>
+    </sounds>
   </sounds>
   <sprites name="sprites">
     <sprites name="Player">
@@ -93,6 +96,12 @@
         <sprite>sprites\sprStageSelectMarker</sprite>
         <sprite>sprites\sprStageMarker</sprite>
       </sprites>
+      <sprites name="ControllerGUI">
+        <sprite>sprites\sprControllerPlaystation</sprite>
+        <sprite>sprites\sprControllerXBox</sprite>
+        <sprite>sprites\sprDPadLR</sprite>
+        <sprite>sprites\sprDPadUD</sprite>
+      </sprites>
       <sprite>sprites\sprFont</sprite>
       <sprite>sprites\sprOpeningCutsceneTemplate</sprite>
       <sprite>sprites\sprMenuArrow</sprite>
@@ -100,11 +109,8 @@
       <sprite>sprites\sprLogo</sprite>
       <sprite>sprites\sprConsole</sprite>
       <sprite>sprites\sprScrnBorder</sprite>
-      <sprites name="ControllerGUI">
-        <sprite>sprites\sprControllerPlaystation</sprite>
-        <sprite>sprites\sprControllerXBox</sprite>
-        <sprite>sprites\sprDPadLR</sprite>
-        <sprite>sprites\sprDPadUD</sprite>
+      <sprites name="Simulation">
+        <sprite>sprites\sprMetalSimulation</sprite>
       </sprites>
     </sprites>
     <sprites name="Collision">
@@ -224,6 +230,8 @@
     <sprite>sprites\sprCrossNailTest</sprite>
     <sprite>sprites\sprBlankWeapon</sprite>
     <sprite>sprites\sprFloorGuardian</sprite>
+    <sprite>sprites\sprite134</sprite>
+    <sprite>sprites\blackScreenTransition</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="Tilesets">
@@ -275,8 +283,13 @@
       <script>scripts\betterConsoleScript.gml</script>
     </scripts>
     <scripts name="Cutscenes">
-      <script>scripts\introCutscene1.gml</script>
-      <script>scripts\introCutscene0.gml</script>
+      <scripts name="Intro">
+        <script>scripts\introCutscene0.gml</script>
+        <script>scripts\introCutscene1.gml</script>
+      </scripts>
+      <scripts name="DemoIntro">
+        <script>scripts\demoIntroCutscene0.gml</script>
+      </scripts>
     </scripts>
     <scripts name="Enemy">
       <script>scripts\enemyGravity.gml</script>
@@ -339,7 +352,6 @@
       </objects>
       <object>objects\objConsole</object>
       <object>objects\objTitleScreen</object>
-      <object>objects\objStartingCutscene</object>
       <object>objects\objReadyTxt</object>
       <object>objects\objGUIDraw</object>
       <object>objects\objHealthBar</object>
@@ -478,11 +490,16 @@
       <object>objects\objTestController</object>
       <object>objects\redirect</object>
     </objects>
+    <objects name="Cutscenes">
+      <object>objects\objStartingCutscene</object>
+      <object>objects\objDemoCutscene</object>
+    </objects>
     <object>objects\objSectionSwitch</object>
     <object>objects\objScrnBorder</object>
     <object>objects\objSpikePit</object>
     <object>objects\objFloorGuardian</object>
     <object>objects\objEnemyPathBarrier</object>
+    <object>objects\objSimulationControl</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rmInit</room>
@@ -514,6 +531,10 @@
     </rooms>
     <rooms name="Cutscenes">
       <room>rooms\rmIntroCutscene</room>
+      <room>rooms\rmDemoIntroCutscene</room>
+    </rooms>
+    <rooms name="DemoStages">
+      <room>rooms\rmSimulationSelect</room>
     </rooms>
   </rooms>
   <help>

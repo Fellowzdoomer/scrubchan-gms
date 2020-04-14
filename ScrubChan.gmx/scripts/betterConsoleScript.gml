@@ -20,6 +20,8 @@ if string_pos("play", parseTxt)
    {
         case "intro":
             room_goto(rmIntroCutscene)
+        case "demointro":
+            room_goto(rmDemoIntroCutscene);
    }
 }
 
