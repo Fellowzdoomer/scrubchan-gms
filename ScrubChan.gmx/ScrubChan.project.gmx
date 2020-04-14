@@ -23,6 +23,7 @@
       <sound>sound\sndRecoverHP</sound>
       <sound>sound\sndSpear</sound>
       <sound>sound\sndTeleport</sound>
+      <sound>sound\sndTeleportOut</sound>
     </sounds>
     <sounds name="Music">
       <sound>sound\bgmBoss</sound>
@@ -41,6 +42,7 @@
     </sounds>
     <sounds name="DemoMusic">
       <sound>sound\bgmSimulationSelection</sound>
+      <sound>sound\bgmDemoMetal</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
@@ -244,6 +246,7 @@
       <background>background\bkg_animtile_water</background>
       <background>background\bkg_animtile_water_1</background>
       <background>background\bkg_animtile_water_2</background>
+      <background>background\tstMetal</background>
       <background>background\bkg_animtile_water_3</background>
       <background>background\tstLimboBeta</background>
     </backgrounds>
@@ -500,6 +503,7 @@
     <object>objects\objFloorGuardian</object>
     <object>objects\objEnemyPathBarrier</object>
     <object>objects\objSimulationControl</object>
+    <object>objects\transitionControl</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rmInit</room>
@@ -517,6 +521,7 @@
       <room>rooms\stgPoison</room>
       <room>rooms\stgLimbo</room>
       <room>rooms\stgMetalMan</room>
+      <room>rooms\stgDemoMetal</room>
     </rooms>
     <rooms name="Misc">
       <room>rooms\rmStarting</room>
