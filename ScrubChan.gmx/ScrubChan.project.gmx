@@ -246,9 +246,9 @@
       <background>background\bkg_animtile_water</background>
       <background>background\bkg_animtile_water_1</background>
       <background>background\bkg_animtile_water_2</background>
-      <background>background\tstMetal</background>
       <background>background\bkg_animtile_water_3</background>
       <background>background\tstLimboBeta</background>
+      <background>background\tstMetal</background>
     </backgrounds>
     <backgrounds name="Backgrounds">
       <background>background\background7</background>
