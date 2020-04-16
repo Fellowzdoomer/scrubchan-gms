@@ -5,8 +5,8 @@
   <tileheight>16</tileheight>
   <tilexoff>0</tilexoff>
   <tileyoff>0</tileyoff>
-  <tilehsep>1</tilehsep>
-  <tilevsep>1</tilevsep>
+  <tilehsep>0</tilehsep>
+  <tilevsep>0</tilevsep>
   <HTile>-1</HTile>
   <VTile>-1</VTile>
   <TextureGroups>
