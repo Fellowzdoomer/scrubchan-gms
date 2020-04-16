@@ -65,7 +65,7 @@ if kWepLeft or kWepLeftGP
     if global.weapon > 0 global.weapon -= 1; 
     instance_create(x,y,objWeaponIcon)
 }
-if kWepRight  or kWepRightGP
+if kWepRight or kWepRightGP
 {
     if global.weapon < 8 global.weapon += 1;
     instance_create(x,y,objWeaponIcon)

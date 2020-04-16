@@ -513,6 +513,7 @@
     <object>objects\objSimulationControl</object>
     <object>objects\transitionControl</object>
     <object>objects\objWeaponIcon</object>
+    <object>objects\objWeaponSelectRThumb</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rmInit</room>

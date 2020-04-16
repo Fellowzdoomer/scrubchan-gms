@@ -108,6 +108,10 @@ h_move = gamepad_axis_value(0,gp_axislh);
 v_move = gamepad_axis_value(0,gp_axislv);
 move = 0;
 
+rh_move = gamepad_axis_value(0,gp_axisrh);
+rv_move = gamepad_axis_value(0,gp_axisrv);
+
+
 placeTileObjects();
 </string>
           </argument>
@@ -177,6 +181,15 @@ if keyboard_check_released(ord("9")) show_debug_message(string(view_yview[0]) + 
     
 h_move = gamepad_axis_value(0,gp_axislh);
 v_move = gamepad_axis_value(0,gp_axislv);
+
+rh_move = gamepad_axis_value(0,gp_axisrh);
+rv_move = gamepad_axis_value(0,gp_axisrv);
+
+if rh_move &gt; 0.2 or rh_move &lt; -0.2 or rv_move &gt; 0.2 or rv_move &lt; -0.2
+{
+    if !instance_exists(objWeaponSelectRThumb) instance_create(x,y,objWeaponSelectRThumb);
+}
+
 if (didTeleport == false) { 
     playerTeleportInitial(); }
 else
