@@ -158,7 +158,7 @@
       <sprite>sprites\sprTeleportMarker</sprite>
     </sprites>
     <sprites name="WeaponIcon">
-      <sprite>sprites\sprWeaponIcon</sprite>
+      <sprite>sprites\sprWeaponIcons</sprite>
     </sprites>
     <sprites name="Weapons">
       <sprite>sprites\sprTestWeapon2</sprite>
@@ -251,19 +251,23 @@
       <background>background\tstMetal</background>
     </backgrounds>
     <backgrounds name="Backgrounds">
-      <background>background\background7</background>
-      <background>background\bgStageSelect</background>
-      <background>background\bgMenu</background>
-      <background>background\bgCode</background>
-      <background>background\bgDebugMenu</background>
+      <backgrounds name="GUI">
+        <background>background\background7</background>
+        <background>background\bgDebugMenu</background>
+        <background>background\bgMenu</background>
+        <background>background\bgCode</background>
+        <background>background\bgStageSelect</background>
+        <background>background\halfscreen</background>
+        <background>background\halfscreen240</background>
+      </backgrounds>
+      <backgrounds name="Level">
+        <background>background\bgGrid1</background>
+        <background>background\bgGrid2</background>
+      </backgrounds>
     </backgrounds>
-    <background>background\halfscreen</background>
-    <background>background\halfscreen240</background>
     <background>background\background11</background>
     <background>background\bgmWilyFortress</background>
     <background>background\metalman</background>
-    <background>background\bgGrid1</background>
-    <background>background\bgGrid2</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -507,6 +511,7 @@
     <object>objects\objEnemyPathBarrier</object>
     <object>objects\objSimulationControl</object>
     <object>objects\transitionControl</object>
+    <object>objects\objWeaponIcon</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rmInit</room>

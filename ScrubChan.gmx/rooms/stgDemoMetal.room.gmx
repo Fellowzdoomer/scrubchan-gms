@@ -10,7 +10,8 @@
   <persistent>0</persistent>
   <colour>0</colour>
   <showcolour>-1</showcolour>
-  <code>audio_play_sound(bgmDemoMetal,9,true);</code>
+  <code>audio_stop_all();
+audio_play_sound(bgmDemoMetal,9,true);</code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
@@ -56,7 +57,11 @@
     <instance objName="objSolid" x="240" y="176" name="inst_E86F638F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objGameControl" x="0" y="0" name="inst_7802D816" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objSolid" x="368" y="176" name="inst_4A2B8EFD" locked="0" code="" scaleX="1" scaleY="3" colour="4294967295" rotation="0"/>
-    <instance objName="objPlayer" x="112" y="180" name="inst_CA2512C5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objPlayer" x="128" y="180" name="inst_CA2512C5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="smoothStart" x="144" y="-32" name="inst_4B009CFC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="smoothStop" x="112" y="-16" name="inst_EFF9983D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="smoothStop" x="336" y="0" name="inst_9ED2F6CE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="smoothStart" x="304" y="0" name="inst_313B2929" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tstMetal" x="0" y="192" w="80" h="16" xo="0" yo="0" id="10001151" name="inst_1FF01B1C" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

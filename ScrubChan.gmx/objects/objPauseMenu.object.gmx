@@ -295,7 +295,7 @@ if currentArea == "weapons"
     
     for (i = 1; i &lt;= global.playerHP; i += 1)
     {
-        draw_sprite(sprWeaponIcon, 0, view_xview[0] +116, view_yview[0] + 28)
+        draw_sprite(sprWeaponIcons, 0, view_xview[0] +116, view_yview[0] + 28)
         draw_sprite_ext(sprEnergyPausePrimary,0,view_xview[0]+87+(sprite_get_width(sprEnergyPauseEmpty)+i*2),view_yview[0]+38, image_xscale,image_yscale,image_angle,make_color_rgb(252, 228, 160),image_alpha);
         draw_sprite_ext(sprEnergyPauseSecondary,0,view_xview[0]+87+(sprite_get_width(sprEnergyPauseEmpty)+i*2),view_yview[0]+38, image_xscale,image_yscale,image_angle,c_white,image_alpha);
     }
@@ -308,7 +308,7 @@ if currentArea == "weapons"
         
         for (i = 1; i &lt;= global.wpe_weapon1; i += 1)
         {
-            draw_sprite(sprWeaponIcon, 0, view_xview[0] + 116, view_yview[0] + 48)
+            draw_sprite(sprWeaponIcons, 0, view_xview[0] + 116, view_yview[0] + 48)
             draw_sprite_ext(sprEnergyPausePrimary,0,view_xview[0]+87+(sprite_get_width(sprEnergyPauseEmpty)+i*2),view_yview[0]+58, image_xscale,image_yscale,image_angle,make_color_rgb(252, 228, 160),image_alpha);
             draw_sprite_ext(sprEnergyPauseSecondary,0,view_xview[0]+87+(sprite_get_width(sprEnergyPauseEmpty)+i*2),view_yview[0]+58, image_xscale,image_yscale,image_angle,c_white,image_alpha);
         }
@@ -322,7 +322,7 @@ if currentArea == "weapons"
         
         for (i = 1; i &lt;= global.wpe_weapon2; i += 1)
         {
-            draw_sprite(sprWeaponIcon, 0, view_xview[0] + 116, view_yview[0] + 68)
+            draw_sprite(sprWeaponIcons, 0, view_xview[0] + 116, view_yview[0] + 68)
             draw_sprite_ext(sprEnergyPausePrimary,0,view_xview[0]+87+(sprite_get_width(sprEnergyPauseEmpty)+i*2),view_yview[0]+78, image_xscale,image_yscale,image_angle,make_color_rgb(252, 228, 160),image_alpha);
             draw_sprite_ext(sprEnergyPauseSecondary,0,view_xview[0]+87+(sprite_get_width(sprEnergyPauseEmpty)+i*2),view_yview[0]+78, image_xscale,image_yscale,image_angle,c_white,image_alpha);
         }
@@ -336,7 +336,7 @@ if currentArea == "weapons"
         
         for (i = 1; i &lt;= global.wpe_weapon3; i += 1)
         {
-            draw_sprite(sprWeaponIcon, 0, view_xview[0] + 116, view_yview[0] + 88)
+            draw_sprite(sprWeaponIcons, 0, view_xview[0] + 116, view_yview[0] + 88)
             draw_sprite_ext(sprEnergyPausePrimary,0,view_xview[0]+87+(sprite_get_width(sprEnergyPauseEmpty)+i*2),view_yview[0]+98, image_xscale,image_yscale,image_angle,make_color_rgb(252, 228, 160),image_alpha);
             draw_sprite_ext(sprEnergyPauseSecondary,0,view_xview[0]+87+(sprite_get_width(sprEnergyPauseEmpty)+i*2),view_yview[0]+98, image_xscale,image_yscale,image_angle,c_white,image_alpha);
         }
@@ -350,7 +350,7 @@ if currentArea == "weapons"
         
         for (i = 1; i &lt;= global.wpe_weapon4; i += 1)
         {
-            draw_sprite(sprWeaponIcon, 0, view_xview[0] + 116, view_yview[0] + 108)
+            draw_sprite(sprWeaponIcons, 0, view_xview[0] + 116, view_yview[0] + 108)
             draw_sprite_ext(sprEnergyPausePrimary,0,view_xview[0]+87+(sprite_get_width(sprEnergyPauseEmpty)+i*2),view_yview[0]+118, image_xscale,image_yscale,image_angle,make_color_rgb(252, 228, 160),image_alpha);
             draw_sprite_ext(sprEnergyPauseSecondary,0,view_xview[0]+87+(sprite_get_width(sprEnergyPauseEmpty)+i*2),view_yview[0]+118, image_xscale,image_yscale,image_angle,c_white,image_alpha);
         }
@@ -364,7 +364,7 @@ if currentArea == "weapons"
         
         for (i = 1; i &lt;= global.wpe_weapon5; i += 1)
         {
-            draw_sprite(sprWeaponIcon, 0, view_xview[0] + 116, view_yview[0] + 128)
+            draw_sprite(sprWeaponIcons, 0, view_xview[0] + 116, view_yview[0] + 128)
             draw_sprite_ext(sprEnergyPausePrimary,0,view_xview[0]+87+(sprite_get_width(sprEnergyPauseEmpty)+i*2),view_yview[0]+138, image_xscale,image_yscale,image_angle,make_color_rgb(252, 228, 160),image_alpha);
             draw_sprite_ext(sprEnergyPauseSecondary,0,view_xview[0]+87+(sprite_get_width(sprEnergyPauseEmpty)+i*2),view_yview[0]+138, image_xscale,image_yscale,image_angle,c_white,image_alpha);
         }
@@ -378,7 +378,7 @@ if currentArea == "weapons"
         
         for (i = 1; i &lt;= global.wpe_weapon6; i += 1)
         {
-            draw_sprite(sprWeaponIcon, 0, view_xview[0] + 116, view_yview[0] + 148)
+            draw_sprite(sprWeaponIcons, 0, view_xview[0] + 116, view_yview[0] + 148)
             draw_sprite_ext(sprEnergyPausePrimary,0,view_xview[0]+87+(sprite_get_width(sprEnergyPauseEmpty)+i*2),view_yview[0]+158, image_xscale,image_yscale,image_angle,make_color_rgb(252, 228, 160),image_alpha);
             draw_sprite_ext(sprEnergyPauseSecondary,0,view_xview[0]+87+(sprite_get_width(sprEnergyPauseEmpty)+i*2),view_yview[0]+158, image_xscale,image_yscale,image_angle,c_white,image_alpha);
         }
@@ -392,7 +392,7 @@ if currentArea == "weapons"
         
         for (i = 1; i &lt;= global.wpe_weapon7; i += 1)
         {
-            draw_sprite(sprWeaponIcon, 0, view_xview[0] + 116, view_yview[0] + 168)
+            draw_sprite(sprWeaponIcons, 0, view_xview[0] + 116, view_yview[0] + 168)
             draw_sprite_ext(sprEnergyPausePrimary,0,view_xview[0]+87+(sprite_get_width(sprEnergyPauseEmpty)+i*2),view_yview[0]+178, image_xscale,image_yscale,image_angle,make_color_rgb(252, 228, 160),image_alpha);
             draw_sprite_ext(sprEnergyPauseSecondary,0,view_xview[0]+87+(sprite_get_width(sprEnergyPauseEmpty)+i*2),view_yview[0]+178, image_xscale,image_yscale,image_angle,c_white,image_alpha);
         }
@@ -406,7 +406,7 @@ if currentArea == "weapons"
         
         for (i = 1; i &lt;= global.wpe_weapon8; i += 1)
         {
-            draw_sprite(sprWeaponIcon, 0, view_xview[0] + 116, view_yview[0] + 188)
+            draw_sprite(sprWeaponIcons, 0, view_xview[0] + 116, view_yview[0] + 188)
             draw_sprite_ext(sprEnergyPausePrimary,0,view_xview[0]+87+(sprite_get_width(sprEnergyPauseEmpty)+i*2),view_yview[0]+198, image_xscale,image_yscale,image_angle,make_color_rgb(252, 228, 160),image_alpha);
             draw_sprite_ext(sprEnergyPauseSecondary,0,view_xview[0]+87+(sprite_get_width(sprEnergyPauseEmpty)+i*2),view_yview[0]+198, image_xscale,image_yscale,image_angle,c_white,image_alpha);
         }

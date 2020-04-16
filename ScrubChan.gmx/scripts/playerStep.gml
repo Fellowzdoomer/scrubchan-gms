@@ -1,9 +1,9 @@
 // Keyboard
-kLeft = -keyboard_check(global.mLeftBind);
-kRight = keyboard_check(global.mRightBind) || gamepad_button_check(0, gp_padr);
+kLeft = -keyboard_check(global.mLeftBind)
+kRight = keyboard_check(global.mRightBind)
 kJump = keyboard_check_pressed(global.mJump);
 kJumpHold = keyboard_check(global.mJump);
-kUp = keyboard_check(global.mUp);
+kUp = keyboard_check(global.mUp)
 kUpPressed = keyboard_check_pressed(global.mUp);
 kDown = keyboard_check(global.mDown);
 
@@ -23,11 +23,16 @@ kSlideGP = gamepad_button_check_pressed(0,gp_face3);
 kWepLeftGP = gamepad_button_check_pressed(0,gp_shoulderl);
 kWepRightGP = gamepad_button_check_pressed(0,gp_shoulderr);
 
-// cheap workaround for jump
+// cheap workaround for controls
 if gamepad_is_connected(0)
 {
     if kJumpGP kJump = 1;
     if kJumpHoldGP kJumpHold = 1;
+    if gamepad_button_check(0,gp_padl) kLeft = -1;
+    if gamepad_button_check(0,gp_padr) kRight = 1;
+    if gamepad_button_check(0,gp_padu) kUp = 1;
+    if gamepad_button_check_pressed(0,gp_padu) kUpPressed = 1;
+    if gamepad_button_check(0,gp_padd) kDown = 1;
 }
 
 if keyboard_check_released(ord("G")) show_debug_message(string(global.playerLives));
@@ -46,13 +51,24 @@ if (kShoot) && !isSliding or (kShootGP) && !isSliding
 }
 
 // Weapon Toggling
+if kWepLeft or kWepLeftGP or kWepRight or kWepRightGP
+{
+    if instance_exists(objWeaponIcon)
+    {
+        with objWeaponIcon instance_destroy();
+    }
+    audio_play_sound(sndMenuNavigate,0,false);
+}
+
 if kWepLeft or kWepLeftGP
 {
     if global.weapon > 0 global.weapon -= 1; 
+    instance_create(x,y,objWeaponIcon)
 }
 if kWepRight  or kWepRightGP
 {
     if global.weapon < 8 global.weapon += 1;
+    instance_create(x,y,objWeaponIcon)
 }
 if kWepLeft || kWepRight show_debug_message(string(global.weapon))
 if kWepLeft && kWepRight global.weapon = 0;
