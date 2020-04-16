@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_speed = 0;
+            <string>if instance_exists(objWeaponSelectRThumb) with objWeaponSelectRThumb instance_destroy();
+image_speed = 0;
 image_index = global.weapon;
 timer = 0;
 maxTime = 90;
