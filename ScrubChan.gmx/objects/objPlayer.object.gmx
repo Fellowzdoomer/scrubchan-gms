@@ -107,6 +107,8 @@ kDown = 0;
 h_move = gamepad_axis_value(0,gp_axislh);
 v_move = gamepad_axis_value(0,gp_axislv);
 move = 0;
+
+placeTileObjects();
 </string>
           </argument>
         </arguments>

@@ -82,6 +82,8 @@ global.weplocked8 = true;
 global.maxBusterShot = 3;
 global.gameDifficulty = "easy";
 
+readTileObjects();
+
 window_set_caption("Scrub-Chan: The Fight for Scrubville!");
 
 

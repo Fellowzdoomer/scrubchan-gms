@@ -330,6 +330,9 @@
     <scripts name="Misc">
       <script>scripts\playSFX.gml</script>
     </scripts>
+    <script>scripts\readTileObjects.gml</script>
+    <script>scripts\tile_get_type.gml</script>
+    <script>scripts\placeTileObjects.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shd_WhiteSprite.shader</shader>
