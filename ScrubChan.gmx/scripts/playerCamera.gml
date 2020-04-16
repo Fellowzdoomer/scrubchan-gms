@@ -44,9 +44,21 @@ if (place_meeting(x,y,objBossDoor))
 }
 
 if (place_meeting(x,y,smoothStart)) camIsMoving = true;
-if (place_meeting(x,y,smoothStop)) camIsMoving = false;
+if (place_meeting(x,y,smoothStop))
+{
+    camIsMoving = false;
+    view_xview[0] = round(view_xview[0]);
+    if view_xview[0] < 0 view_xview[0] = 0;
+    checkCameraPos();
+}
 
-if camIsMoving view_xview[0] = x - 128.5;
+if keyboard_check_released(ord("Q"))
+{
+    show_debug_message(string(view_xview[0]) + " raw cam");
+    show_debug_message(string(round(view_xview[0])) + " rounded cam");
+}
+
+if camIsMoving view_xview[0] = x - 128;
 
 if (place_meeting(x-1,y,smoothStop) and camIsMoving) view_xview[0] -= 1;
 else if (place_meeting(x+1,y,smoothStop) and camIsMoving) view_xview[0] += 1;
