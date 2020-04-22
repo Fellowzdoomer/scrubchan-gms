@@ -56,6 +56,11 @@ audio_play_sound(bgmDemoMetal,9,true);</code>
     <instance objName="objPlayer" x="128" y="176" name="inst_C0904D79" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="smoothStart" x="144" y="0" name="inst_C95B79B4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="smoothStop" x="112" y="0" name="inst_32AC9734" locked="0" code="snapToX = 0;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objSpikePit" x="512" y="224" name="inst_F6F52E6D" locked="0" code="" scaleX="4" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objSpikePit" x="608" y="224" name="inst_18CECC40" locked="0" code="" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objSpikePit" x="672" y="224" name="inst_4E208C76" locked="0" code="" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objSpikePit" x="736" y="224" name="inst_D393A3D0" locked="0" code="" scaleX="4" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objSpikePit" x="896" y="224" name="inst_A1BF4A60" locked="0" code="" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tstMetal" x="16" y="192" w="32" h="32" xo="16" yo="64" id="10001208" name="inst_524417CE" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -121,12 +126,10 @@ audio_play_sound(bgmDemoMetal,9,true);</code>
     <tile bgName="tstMetal" x="576" y="160" w="32" h="32" xo="16" yo="64" id="10001325" name="inst_A30D6CF0" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tstMetal" x="704" y="192" w="32" h="32" xo="16" yo="64" id="10001329" name="inst_F2113B1F" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tstMetal" x="704" y="160" w="32" h="32" xo="16" yo="64" id="10001330" name="inst_BD740374" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tstMetal" x="544" y="192" w="32" h="32" xo="16" yo="64" id="10001337" name="inst_66823F30" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tstMetal" x="608" y="192" w="32" h="32" xo="16" yo="64" id="10001338" name="inst_45D78784" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tstMetal" x="672" y="192" w="32" h="32" xo="16" yo="64" id="10001343" name="inst_E00A9B9E" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tstMetal" x="736" y="192" w="32" h="32" xo="16" yo="64" id="10001344" name="inst_74E73563" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tstMetal" x="640" y="192" w="32" h="32" xo="16" yo="64" id="10001338" name="inst_45D78784" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tstMetal" x="640" y="160" w="32" h="32" xo="16" yo="64" id="10001343" name="inst_E00A9B9E" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tstMetal" x="640" y="128" w="32" h="32" xo="16" yo="64" id="10001344" name="inst_74E73563" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tstMetal" x="800" y="192" w="32" h="32" xo="16" yo="64" id="10001345" name="inst_1982D925" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tstMetal" x="832" y="160" w="32" h="32" xo="16" yo="64" id="10001347" name="inst_D31ECC23" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tstMetal" x="832" y="192" w="32" h="32" xo="16" yo="64" id="10001348" name="inst_A627DA1A" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tstMetal" x="864" y="192" w="32" h="32" xo="16" yo="64" id="10001350" name="inst_4A60B836" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tstMetal" x="0" y="48" w="16" h="16" xo="96" yo="80" id="10001352" name="inst_8F6F88BC" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

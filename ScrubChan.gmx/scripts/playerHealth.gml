@@ -147,8 +147,9 @@ if global.playerHP <= 0
     if deathTimer == 1 { audio_stop_all(); instance_create(x,y,objExplosionSpawner); global.playerLives -= 1; }
     else if deathTimer == 210
     {
-        if global.playerLives > 0 room_goto(rmCheckpointRedirect);
-        else room_goto(rmStageSelect);
+        if global.playerLives > 0 room_restart();
+        // else room_goto(rmStageSelect);
+        else room_goto(rmSimulationSelect);
         global.playerHP = 28;
         deathTimer = 0;
         invulnerable = false;
