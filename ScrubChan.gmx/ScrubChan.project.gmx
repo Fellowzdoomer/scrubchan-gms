@@ -44,6 +44,7 @@
       <sound>sound\bgmSimulationSelection</sound>
       <sound>sound\bgmDemoMetal</sound>
       <sound>sound\bgmDemoCut</sound>
+      <sound>sound\bgmDemoBoss</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
