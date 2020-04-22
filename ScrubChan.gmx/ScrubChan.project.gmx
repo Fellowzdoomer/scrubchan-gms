@@ -43,6 +43,7 @@
     <sounds name="DemoMusic">
       <sound>sound\bgmSimulationSelection</sound>
       <sound>sound\bgmDemoMetal</sound>
+      <sound>sound\bgmDemoCut</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
