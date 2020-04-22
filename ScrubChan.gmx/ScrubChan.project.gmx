@@ -531,7 +531,6 @@
       <room>rooms\stgPoison</room>
       <room>rooms\stgLimbo</room>
       <room>rooms\stgMetalMan</room>
-      <room>rooms\stgDemoMetal</room>
     </rooms>
     <rooms name="Misc">
       <room>rooms\rmStarting</room>
@@ -550,6 +549,7 @@
     </rooms>
     <rooms name="DemoStages">
       <room>rooms\rmSimulationSelect</room>
+      <room>rooms\stgDemoMetal</room>
     </rooms>
   </rooms>
   <help>
