@@ -40,6 +40,7 @@ arrowY = 0;
 arrowTimer = 0;
 arrowDir = 1
 
+screenres = "1X";
 </string>
           </argument>
         </arguments>
@@ -423,6 +424,21 @@ if currentArea == "utility"
     draw_text(view_xview[0]+176,view_yview[0]+42,"0");
     draw_sprite(sprETank,0,view_xview[0]+144,view_yview[0]+53);
     draw_text(view_xview[0]+176,view_yview[0]+53,"0");
+}
+
+// Settings
+if currentArea == "settings"
+{
+    draw_text(view_xview[0]+128,view_yview[0]+36,"WINDOW SCALE");
+    if (window_get_fullscreen())
+    {
+        screenres = "FULLSCREEN";
+    }
+    else
+    {
+        screenres = "1X";
+    }
+    draw_text(view_xview[0]+128,view_yview[0]+48,screenres);
 }
 
 // Drawing arrow

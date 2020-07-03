@@ -36,6 +36,7 @@ isHit = false;
 enemyTimer2 = 0;
 hitTimer = 5;
 
+attack = 0;
 global.bossHP = 0;
 global.bossHP2 = 0;
 global.bossHP3 = 0;
@@ -69,6 +70,7 @@ enemyTimer = 0;
 grav = 0.2;
 jumpspeed = 4.64;
 vsp = 0;
+vsp_cap = 7;
 hsp = 0;
 
 facePlayer = true;
@@ -76,9 +78,9 @@ saveValue = 0;
 
 // start
 
-sprite_index = sprQuintTeleportIn;
+/*sprite_index = sprQuintTeleportIn;
 image_speed = 0;
-image_index = 0;
+image_index = 0;*/
 </string>
           </argument>
         </arguments>

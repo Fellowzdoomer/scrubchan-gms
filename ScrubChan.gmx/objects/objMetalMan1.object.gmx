@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>prtBossParent</parentName>
+  <parentName>prtEnemy</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,14 +25,27 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_inherited();
+            <string>didDeathExplosion = false;
+
+didIntroduction = false;
+didDesperation = false;
+got_tDest = false;
+landed = false;
+global.bossHP = 0;
+instance_create(0,0,objEnemyHPBar);
+
+tDestX = 0;
+tDestY = 0;
+isHit=false;
+attack = 0;
+sprite_index = sprMetalRun
+image_speed = 10/60;
 
 // [Damage Values]]
 
 dmg_BusterShot = 1;
 
 /*
-dmg_wep1
 dmg_wep2
 dmg_wep3
 dmg_wep4
@@ -42,9 +55,14 @@ dmg_wep7
 dmg_wep8
 */
 
-sprite_index = sprMetalRun
-image_speed = 10/60;
+isAlive = true;
 
+enemyTimer = 0;
+
+grav = 0.2;
+jumpspeed = 4.64;
+vsp = 0;
+hsp = 0;
 </string>
           </argument>
         </arguments>
@@ -139,6 +157,12 @@ if global.bossHP &lt;= 0
     isAlive = false;
     visible = false;
     
+    /*if enemyTimer == 1
+    {
+        if instance_exists(objEnemyHPBar) with objEnemyHPBar instance_destroy();
+        enemyTimer = 0;
+    }*/
+    
     if instance_exists(objTeleportMarker)
     {
         with objTeleportMarker
@@ -189,18 +213,6 @@ if isAlive == true &amp; !global.inMenu
         {
             with objBusterShot.id { audio_play_sound(sndEnemyHit, 9, false); instance_destroy(); }
             global.bossHP -= dmg_BusterShot;
-            
-            if !isHit isHit = true;
-        }
-        
-        if isHit
-        {
-            enemyTimer2 += 1;
-            if enemyTimer2 &gt;= hitTimer
-            {
-                enemyTimer2 = 0;
-                isHit = false;
-            }
         }
     }
 
@@ -210,39 +222,13 @@ if isAlive == true &amp; !global.inMenu
 
 if !global.inMenu and isAlive
 {
-
-if attack == 1 b_metalManJump();
-else if attack == 2 b_metalManJump();
-else if attack == 3 b_metalManJump();
+if attack == 1 b_metalManLowJump();
+else if attack == 2 b_metalManMidJump();
+else if attack == 3 b_metalManHighJump();
 else if attack == 4 b_metalManDesperation();
-
 }
 
 y += vsp;
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>event_inherited();
 </string>
           </argument>
         </arguments>

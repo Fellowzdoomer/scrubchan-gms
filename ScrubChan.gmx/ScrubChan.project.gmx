@@ -220,6 +220,7 @@
         <sprite>sprites\sprLimboPose</sprite>
         <sprite>sprites\sprLimboIdle</sprite>
       </sprites>
+      <sprite>sprites\cutmansprites</sprite>
     </sprites>
     <sprites name="BossTemp">
       <sprite>sprites\sprFillerLimboBox</sprite>
@@ -316,6 +317,9 @@
         <script>scripts\b_quintRush.gml</script>
         <script>scripts\b_quintMelee.gml</script>
         <script>scripts\b_quintDesperate.gml</script>
+      </scripts>
+      <scripts name="MetalMan">
+        <script>scripts\b_metalManJump.gml</script>
       </scripts>
     </scripts>
     <scripts name="AnimatedTileSystem">
@@ -552,6 +556,7 @@
     <rooms name="DemoStages">
       <room>rooms\rmSimulationSelect</room>
       <room>rooms\stgDemoMetal</room>
+      <room>rooms\stgDemoCut</room>
     </rooms>
   </rooms>
   <help>

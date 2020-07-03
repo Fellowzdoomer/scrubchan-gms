@@ -83,6 +83,11 @@ if timer &gt;= 150
         alphaVal = 1; 
         room_goto(stgDemoMetal);
     }
+    else if menuChoice == 2
+    {
+        alphaVal = 1;
+        room_goto(stgDemoCut);
+    }
     else room_restart();
 }
 
