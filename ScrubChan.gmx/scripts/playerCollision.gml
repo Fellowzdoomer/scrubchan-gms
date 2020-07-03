@@ -96,11 +96,13 @@ if !freeformMode
         if (kUp) || (kDown) image_speed=5/60; else image_speed=0;  
     }
     
+    // Jumping code
     if (place_meeting(x,y+1,objSolid))
     {
         vsp = kJump * -jumpspeed;
     }
     
+    // Climbing down code
     if (kDown)
     {
         if (place_meeting(x,y+1,objLadder))

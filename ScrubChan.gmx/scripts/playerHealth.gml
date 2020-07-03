@@ -62,6 +62,20 @@ if (place_meeting(x,y,objMetalBlade))
     invulnerable = true;
 }
 
+// Metal Man himself
+else if (place_meeting(x,y,objMetalMan))
+{
+    if objMetalMan.isAlive
+    {
+        if invulnerable == false
+        {
+            audio_play_sound(sndPlayerHit,9,false);
+            global.playerHP -= 4;
+        }
+        invulnerable = true;
+    }
+}
+
 // == QUINT SPECIFIC == \\
 // Quint's WhipShot
 if (place_meeting(x,y,objQuintChargeShot))

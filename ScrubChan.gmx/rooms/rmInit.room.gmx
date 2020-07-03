@@ -91,9 +91,15 @@
     <instance objName="objIngameSolid" x="96" y="80" name="inst_22296723" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objIngameSolid" x="96" y="96" name="inst_04D5B376" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objIngameSolid" x="112" y="96" name="inst_732FBC31" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objIngameSolid" x="64" y="160" name="inst_29AA8D98" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objIngameSolid" x="64" y="176" name="inst_17AEDBBA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objIngameSolid" x="80" y="176" name="inst_72CE0FB3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objIngameSolid" x="96" y="176" name="inst_700EB728" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objIngameSolid" x="96" y="160" name="inst_104DA5A6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tstMetal" x="16" y="16" w="112" h="112" xo="0" yo="0" id="10001134" name="inst_6EA48CA5" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tstDemo" x="64" y="160" w="48" h="32" xo="0" yo="0" id="10001362" name="inst_11876F7D" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
   </tiles>
   <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>

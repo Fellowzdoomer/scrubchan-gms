@@ -53,8 +53,8 @@ draw_sprite(sprHealthBarEmpty,0,view_xview[0]+7+8+5+208,view_yview[0]+17);
 
 for(i = 1; i &lt;= global.bossHP; i += 1)
 {
-    draw_sprite_ext(sprEnergyPrimary, 0, view_xview[0]+7+8+1+5+208, view_yview[0]+17+(sprite_get_height(sprHealthBarEmpty)-i*2), 1, 1, 0, make_color_rgb(252, 228, 160), 1);
-    draw_sprite_ext(sprEnergySecondary, 0, view_xview[0]+7+8+1+5+208, view_yview[0]+17+(sprite_get_height(sprHealthBarEmpty)-i*2), 1, 1, 0, make_color_rgb(248, 248, 248), 1);
+    draw_sprite_ext(sprEnergyPrimary, 0, view_xview[0]+7+8+1+5+208, view_yview[0]+17+(sprite_get_height(sprHealthBarEmpty)-i*2), 1, 1, 0, global.hpBar_rgb1, 1);
+    draw_sprite_ext(sprEnergySecondary, 0, view_xview[0]+7+8+1+5+208, view_yview[0]+17+(sprite_get_height(sprHealthBarEmpty)-i*2), 1, 1, 0, global.hpBar_rgb2, 1);
 }
 
 </string>

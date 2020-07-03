@@ -24,6 +24,7 @@
       <sound>sound\sndSpear</sound>
       <sound>sound\sndTeleport</sound>
       <sound>sound\sndTeleportOut</sound>
+      <sound>sound\sndBuzz</sound>
     </sounds>
     <sounds name="Music">
       <sound>sound\bgmBoss</sound>
@@ -200,6 +201,7 @@
         <sprite>sprites\sprMetalRun</sprite>
         <sprite>sprites\sprMetalBlade</sprite>
         <sprite>sprites\sprMetalJump</sprite>
+        <sprite>sprites\sprMetalRain</sprite>
         <sprite>sprites\sprMetalThrow</sprite>
       </sprites>
       <sprites name="Quint">
@@ -237,6 +239,7 @@
     <sprite>sprites\sprFloorGuardian</sprite>
     <sprite>sprites\sprite134</sprite>
     <sprite>sprites\blackScreenTransition</sprite>
+    <sprite>sprites\sprAttackWarning</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="Tilesets">
@@ -271,6 +274,7 @@
     <background>background\background11</background>
     <background>background\bgmWilyFortress</background>
     <background>background\metalman</background>
+    <background>background\tstDemo</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -305,12 +309,6 @@
       <script>scripts\enemyGravity.gml</script>
     </scripts>
     <scripts name="BossAI">
-      <scripts name="MetalManTestDummy">
-        <script>scripts\b_metalManLowJump.gml</script>
-        <script>scripts\b_metalManMidJump.gml</script>
-        <script>scripts\b_metalManHighJump.gml</script>
-        <script>scripts\b_metalManDesperation.gml</script>
-      </scripts>
       <scripts name="Quint">
         <script>scripts\b_quintCharge.gml</script>
         <script>scripts\b_quintNormalShots.gml</script>
@@ -320,6 +318,10 @@
       </scripts>
       <scripts name="MetalMan">
         <script>scripts\b_metalManJump.gml</script>
+        <script>scripts\b_metalManChaseJump.gml</script>
+        <script>scripts\b_metalManHighJump.gml</script>
+        <script>scripts\b_metalManHopAway.gml</script>
+        <script>scripts\b_metalManDesperation.gml</script>
       </scripts>
     </scripts>
     <scripts name="AnimatedTileSystem">
@@ -385,6 +387,7 @@
         <objects name="MetalManTestDummy">
           <object>objects\objMetalMan</object>
           <object>objects\objMetalBlade</object>
+          <object>objects\objMetalBladeVertical</object>
         </objects>
         <objects name="Quint">
           <object>objects\objQuint</object>
@@ -520,6 +523,7 @@
     <object>objects\transitionControl</object>
     <object>objects\objWeaponIcon</object>
     <object>objects\objWeaponSelectRThumb</object>
+    <object>objects\objMetalBladeVerticalSpawner</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rmInit</room>
@@ -546,6 +550,7 @@
       <room>rooms\rmDoesNotExist</room>
       <room>rooms\rmBossDoorTest</room>
       <room>rooms\rmBossTestingChamber</room>
+      <room>rooms\rmMetalManTest</room>
       <room>rooms\rmScreenTest1</room>
       <room>rooms\rmTestingChamber</room>
     </rooms>

@@ -1,8 +1,9 @@
-show_debug_message(string(enemyTimer))
+//show_debug_message(string(enemyTimer))
 if enemyTimer == 51
 {
     sprite_index = sprMetalJump;
-    vsp = -8;
+    hsp = 2 * image_xscale;
+    vsp = -7;
 }
 else if enemyTimer == 60
 {
@@ -21,22 +22,34 @@ else if enemyTimer == 65
     }
     else 
     {
-        enemyTimer = 74;
+        enemyTimer = 69;
     }
 }
-else if enemyTimer == 75
+else if enemyTimer == 70
 {
     if !place_meeting(x,y+vsp,objSolid)
     {
         image_index = 0;
-        enemyTimer = 70;
+        enemyTimer = 60;
     }   
     else
     {
         sprite_index = sprMetalRun;
         image_speed = 10/60;
-        vsp = 0;
-        attack = 0;
-        enemyTimer = 0;
+        if metalJump != 2
+        {
+            metalJump += 1;
+            enemyTimer = 51;
+            b_metalManChaseJump();
+        }
+        else 
+        {
+            enemyTimer = 0;
+            hsp = 0;
+            vsp = 0;
+            attack = 0;
+            metalJump = 0;
+            enemyTimer = 0;
+        }
     }
 }
