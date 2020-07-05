@@ -107,6 +107,10 @@
         <sprite>sprites\sprDPadLR</sprite>
         <sprite>sprites\sprDPadUD</sprite>
       </sprites>
+      <sprites name="Simulation">
+        <sprite>sprites\blackScreenTransition</sprite>
+        <sprite>sprites\sprMetalSimulation</sprite>
+      </sprites>
       <sprite>sprites\sprFont</sprite>
       <sprite>sprites\sprOpeningCutsceneTemplate</sprite>
       <sprite>sprites\sprMenuArrow</sprite>
@@ -114,9 +118,6 @@
       <sprite>sprites\sprLogo</sprite>
       <sprite>sprites\sprConsole</sprite>
       <sprite>sprites\sprScrnBorder</sprite>
-      <sprites name="Simulation">
-        <sprite>sprites\sprMetalSimulation</sprite>
-      </sprites>
     </sprites>
     <sprites name="Collision">
       <sprite>sprites\sprSolid</sprite>
@@ -203,6 +204,7 @@
         <sprite>sprites\sprMetalJump</sprite>
         <sprite>sprites\sprMetalRain</sprite>
         <sprite>sprites\sprMetalThrow</sprite>
+        <sprite>sprites\sprAttackWarning</sprite>
       </sprites>
       <sprites name="Quint">
         <sprite>sprites\sprQuintTeleportIn</sprite>
@@ -222,7 +224,16 @@
         <sprite>sprites\sprLimboPose</sprite>
         <sprite>sprites\sprLimboIdle</sprite>
       </sprites>
-      <sprite>sprites\cutmansprites</sprite>
+      <sprites name="Cutman">
+        <sprite>sprites\sprCutmanRun</sprite>
+        <sprite>sprites\sprCutmanJump</sprite>
+        <sprite>sprites\sprCutmanPose</sprite>
+        <sprite>sprites\sprCutmanJumpBald</sprite>
+        <sprite>sprites\sprCutmanPoseBald</sprite>
+        <sprite>sprites\sprCutmanRunBald</sprite>
+        <sprite>sprites\sprCutmanToss</sprite>
+        <sprite>sprites\sprCutmanScissors</sprite>
+      </sprites>
     </sprites>
     <sprites name="BossTemp">
       <sprite>sprites\sprFillerLimboBox</sprite>
@@ -237,9 +248,6 @@
     <sprite>sprites\sprCrossNailTest</sprite>
     <sprite>sprites\sprBlankWeapon</sprite>
     <sprite>sprites\sprFloorGuardian</sprite>
-    <sprite>sprites\sprite134</sprite>
-    <sprite>sprites\blackScreenTransition</sprite>
-    <sprite>sprites\sprAttackWarning</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="Tilesets">
@@ -275,6 +283,7 @@
     <background>background\bgmWilyFortress</background>
     <background>background\metalman</background>
     <background>background\tstDemo</background>
+    <background>background\tstCutMan</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -322,6 +331,11 @@
         <script>scripts\b_metalManHighJump.gml</script>
         <script>scripts\b_metalManHopAway.gml</script>
         <script>scripts\b_metalManDesperation.gml</script>
+      </scripts>
+      <scripts name="CutMan">
+        <script>scripts\b_genericCutmanCheck.gml</script>
+        <script>scripts\b_cutManRunTowardsPlayer.gml</script>
+        <script>scripts\b_cutManJumpTowardsPlayer.gml</script>
       </scripts>
     </scripts>
     <scripts name="AnimatedTileSystem">
@@ -397,6 +411,9 @@
         <objects name="FillerAI">
           <object>objects\objLimboWoman</object>
           <object>objects\objLimboWomanAI</object>
+        </objects>
+        <objects name="Cutman">
+          <object>objects\objCutMan</object>
         </objects>
       </objects>
       <objects name="TestEnemies">

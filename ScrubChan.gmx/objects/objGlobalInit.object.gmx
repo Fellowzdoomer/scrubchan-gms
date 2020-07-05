@@ -143,7 +143,7 @@ global.wRight = ord("D");
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if room = rmInit { room_goto(rmSimulationSelect); }
+            <string>if room = rmInit { room_goto(rmBossTestingChamber); }
 </string>
           </argument>
         </arguments>

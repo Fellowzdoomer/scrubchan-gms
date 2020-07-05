@@ -141,6 +141,15 @@ audio_play_sound(bgmDemoMetal,9,true);</code>
     <tile bgName="tstMetal" x="976" y="208" w="16" h="16" xo="32" yo="0" id="10001358" name="inst_F6ADEA33" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tstMetal" x="992" y="208" w="16" h="16" xo="32" yo="0" id="10001359" name="inst_41B9D9C7" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tstMetal" x="1008" y="208" w="16" h="16" xo="32" yo="0" id="10001360" name="inst_608B2911" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tstMetal" x="768" y="192" w="32" h="32" xo="16" yo="64" id="10001414" name="inst_C1D65FED" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tstMetal" x="560" y="160" w="16" h="16" xo="16" yo="48" id="10001416" name="inst_A3D5CF06" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tstMetal" x="560" y="176" w="16" h="16" xo="16" yo="48" id="10001417" name="inst_D1C3409A" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tstMetal" x="560" y="192" w="16" h="16" xo="16" yo="48" id="10001418" name="inst_6290903A" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tstMetal" x="560" y="208" w="16" h="16" xo="16" yo="48" id="10001419" name="inst_99FDC93C" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tstMetal" x="608" y="160" w="16" h="16" xo="32" yo="48" id="10001451" name="inst_81E7A3DB" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tstMetal" x="608" y="176" w="16" h="16" xo="32" yo="48" id="10001452" name="inst_48EDD82F" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tstMetal" x="608" y="192" w="16" h="16" xo="32" yo="48" id="10001453" name="inst_BC196BED" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tstMetal" x="608" y="208" w="16" h="16" xo="32" yo="48" id="10001454" name="inst_FE028853" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
   </tiles>
   <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>

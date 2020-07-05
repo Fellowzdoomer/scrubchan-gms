@@ -46,6 +46,23 @@ else if (place_meeting(x,y,objHitByMelee))
     }
 }*/
 
+// Contact with any boss that doesnt have a predefined attack thing
+// Knockback code is really bugged. No wonder I commented it out
+
+if (place_meeting(x,y,prtBossParent))
+{
+    if prtBossParent.isAlive
+    {
+        if invulnerable == false
+        {
+            audio_play_sound(sndPlayerHit,9,false);
+            global.playerHP -= 4;
+        }
+        invulnerable = true;
+    }
+}
+
+
 // == METAL MAN SPECIFIC == \\
 // Metal Blade
 if (place_meeting(x,y,objMetalBlade))
@@ -106,7 +123,6 @@ else if (place_meeting(x,y,objQuintShot))
     }
     invulnerable = true;
 }
-
 
 // Quint himself
 else if (place_meeting(x,y,objQuint))
