@@ -93,6 +93,17 @@ else if (place_meeting(x,y,objMetalMan))
     }
 }
 
+// == CUTMAN SPECIFIC == \\
+// Cutman's Scissors
+if (place_meeting(x,y,objCutmanScissors))
+{
+    if invulnerable == false
+    {
+        audio_play_sound(sndPlayerHit,9,false);
+        global.playerHP -= 3;
+    }
+    invulnerable = true;
+}
 // == QUINT SPECIFIC == \\
 // Quint's WhipShot
 if (place_meeting(x,y,objQuintChargeShot))
@@ -174,7 +185,18 @@ if global.playerHP <= 0
     visible = false;
     
     deathTimer += 1;
-    if deathTimer == 1 { audio_stop_all(); instance_create(x,y,objExplosionSpawner); global.playerLives -= 1; }
+    if deathTimer == 1 { 
+        audio_stop_all(); 
+        instance_create(x,y,objExplosionSpawner); 
+        global.playerLives -= 1; 
+        if instance_exists(prtBossParent)
+        {
+            with prtBossParent facePlayer = false;
+        }
+        x = view_xview[0]+256;
+        y = view_yview[0];
+    }
+    
     else if deathTimer == 210
     {
         if global.playerLives > 0 room_restart();

@@ -179,13 +179,13 @@ if isAlive == true &amp; !global.inMenu
             {
                 if global.bossHP &gt; 9
                 {
-                    attack = irandom_range(1,3);
+                    attack = irandom_range(1,6);
                 }
                 
                 else
                 {
-                    if didDesperation == false attack = 4;
-                    else attack = irandom_range(1,3);
+                    if didDesperation == false attack = 6;
+                    else attack = irandom_range(1,6);
                 }
             }
         }
@@ -239,8 +239,8 @@ if !global.inMenu and isAlive
         case 2: b_cutManJumpTowardsPlayer(); break;
         case 3: b_cutManRunTowardsPlayer(); break;
         case 4: b_cutManJumpTowardsPlayer(); break;
-        case 5: b_cutManRunTowardsPlayer(); break;
-        case 6: b_cutManRunTowardsPlayer(); break;
+        case 5: b_cutManThrowScissors(); break;
+        case 6: b_cutManThrowScissors(); break;
         case 7: b_cutManRunTowardsPlayer(); break;
     }
 }

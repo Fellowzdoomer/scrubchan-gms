@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>/// Enemy Metal Blade
 
-audio_play_sound(sndSpear,9,false);
+audio_play_sound(sndMetalBlade,9,false);
 image_speed = 15/60
 move_towards_point(objPlayer.x,objPlayer.y,5)
 
@@ -55,8 +55,11 @@ prevY = y;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>prevX = x;
+            <string>if !global.inMenu
+{
+prevX = x;
 prevY = y;
+}
 
 if place_meeting(x,y,objPlayer)
 {

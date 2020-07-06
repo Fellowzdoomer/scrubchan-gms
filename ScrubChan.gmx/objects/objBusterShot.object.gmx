@@ -76,6 +76,11 @@ if place_meeting(x,y,objReflect)
     vsp = -5;
 }
 
+if place_meeting(x,y,objCutmanScissors)
+{   
+    audio_play_sound(sndEnemyHit, 9, false);
+    with self.id instance_destroy();
+}
 
 x += hsp;
 y += vsp;

@@ -25,6 +25,10 @@
       <sound>sound\sndTeleport</sound>
       <sound>sound\sndTeleportOut</sound>
       <sound>sound\sndBuzz</sound>
+      <sounds name="DemoSpecific">
+        <sound>sound\sndRollingCutter</sound>
+        <sound>sound\sndMetalBlade</sound>
+      </sounds>
     </sounds>
     <sounds name="Music">
       <sound>sound\bgmBoss</sound>
@@ -336,6 +340,7 @@
         <script>scripts\b_genericCutmanCheck.gml</script>
         <script>scripts\b_cutManRunTowardsPlayer.gml</script>
         <script>scripts\b_cutManJumpTowardsPlayer.gml</script>
+        <script>scripts\b_cutManThrowScissors.gml</script>
       </scripts>
     </scripts>
     <scripts name="AnimatedTileSystem">
@@ -390,6 +395,8 @@
       <object>objects\objHealthBar</object>
       <object>objects\objMarker</object>
       <object>objects\objStageSelect</object>
+      <object>objects\objWeaponIcon</object>
+      <object>objects\objWeaponSelectRThumb</object>
     </objects>
     <objects name="Enemy">
       <objects name="Parent">
@@ -402,6 +409,7 @@
           <object>objects\objMetalMan</object>
           <object>objects\objMetalBlade</object>
           <object>objects\objMetalBladeVertical</object>
+          <object>objects\objMetalBladeVerticalSpawner</object>
         </objects>
         <objects name="Quint">
           <object>objects\objQuint</object>
@@ -413,6 +421,7 @@
           <object>objects\objLimboWomanAI</object>
         </objects>
         <objects name="Cutman">
+          <object>objects\objCutmanScissors</object>
           <object>objects\objCutMan</object>
         </objects>
       </objects>
@@ -430,6 +439,7 @@
         <object>objects\objTelly</object>
         <object>objects\objCrossNail</object>
         <object>objects\objShieldBoi</object>
+        <object>objects\objFloorGuardian</object>
       </objects>
       <objects name="GeneralProjectiles">
         <object>objects\objEnemyShot</object>
@@ -448,6 +458,8 @@
       <object>objects\objPoison</object>
       <object>objects\objLadder</object>
       <object>objects\objBossDoor</object>
+      <object>objects\objEnemyPathBarrier</object>
+      <object>objects\objSpikePit</object>
     </objects>
     <objects name="WeaponFX">
       <object>objects\objClockworkAnim</object>
@@ -484,8 +496,12 @@
       <object>objects\switchGrav</object>
       <object>objects\objReflect</object>
       <object>objects\objLoadDataObj</object>
+      <object>objects\transitionControl</object>
+      <object>objects\objSimulationControl</object>
       <object>objects\objSaveDataObj</object>
       <object>objects\diffTest</object>
+      <object>objects\objSectionSwitch</object>
+      <object>objects\objScrnBorder</object>
     </objects>
     <objects name="Items">
       <object>objects\objBigHealth</object>
@@ -531,16 +547,6 @@
       <object>objects\objStartingCutscene</object>
       <object>objects\objDemoCutscene</object>
     </objects>
-    <object>objects\objSectionSwitch</object>
-    <object>objects\objScrnBorder</object>
-    <object>objects\objSpikePit</object>
-    <object>objects\objFloorGuardian</object>
-    <object>objects\objEnemyPathBarrier</object>
-    <object>objects\objSimulationControl</object>
-    <object>objects\transitionControl</object>
-    <object>objects\objWeaponIcon</object>
-    <object>objects\objWeaponSelectRThumb</object>
-    <object>objects\objMetalBladeVerticalSpawner</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rmInit</room>

@@ -268,9 +268,9 @@ if currentArea == "main"
     draw_text(view_xview[0]+4,view_yview[0]+77,"ITEMS");
     draw_text(view_xview[0]+4,view_yview[0]+101,"SETTINGS");
     
-    /*// Player + Lives
+    // Player + Lives
     draw_sprite(sprPlayer,0,view_xview[0] + 24, view_yview[0] + 28);
-    draw_text(view_xview[0] + 40, view_yview[0] + 28, string(global.playerLives));*/
+    draw_text(view_xview[0] + 40, view_yview[0] + 28, string(global.playerLives));
 }
 
 else
