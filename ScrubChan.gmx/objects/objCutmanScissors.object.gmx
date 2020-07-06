@@ -63,7 +63,6 @@ returning = false;
 {
 prevX = x;
 prevY = y;
-}
 
 timer += 1;
 
@@ -90,6 +89,7 @@ if timer &gt; 50 || projHP &lt;= 0
 
 
 if place_meeting(x,y,objBusterShot) projHP -= 1;
+}
 
 if global.inMenu
 {

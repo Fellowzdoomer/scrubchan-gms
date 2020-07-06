@@ -1,5 +1,8 @@
 // Enemy Projectile checks
 
+if !global.inMenu
+{
+
 // == GENERIC CHECKS == \\
 // Normal enemy shot
 if (place_meeting(x,y,objEnemyShot))
@@ -176,6 +179,7 @@ if isKnockedBack
     }
 }
 
+}
 
 // Game over code
 

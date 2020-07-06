@@ -147,6 +147,7 @@
       <sprite>sprites\sprFatThunk</sprite>
       <sprite>sprites\sprTestEnemy</sprite>
       <sprite>sprites\sprTarget</sprite>
+      <sprite>sprites\sprOctoBattery</sprite>
       <sprites name="Telly">
         <sprite>sprites\sprTelly</sprite>
       </sprites>
@@ -252,6 +253,8 @@
     <sprite>sprites\sprCrossNailTest</sprite>
     <sprite>sprites\sprBlankWeapon</sprite>
     <sprite>sprites\sprFloorGuardian</sprite>
+    <sprite>sprites\mmEnemySprites</sprite>
+    <sprite>sprites\twofifysixtwotwentyfour</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="Tilesets">
@@ -440,6 +443,7 @@
         <object>objects\objCrossNail</object>
         <object>objects\objShieldBoi</object>
         <object>objects\objFloorGuardian</object>
+        <object>objects\objOctoBattery</object>
       </objects>
       <objects name="GeneralProjectiles">
         <object>objects\objEnemyShot</object>
@@ -547,6 +551,7 @@
       <object>objects\objStartingCutscene</object>
       <object>objects\objDemoCutscene</object>
     </objects>
+    <object>objects\screen</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rmInit</room>

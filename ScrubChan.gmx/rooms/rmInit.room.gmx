@@ -99,7 +99,6 @@
     <instance objName="objIngameSolid" x="64" y="240" name="inst_772B7A80" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objIngameSolid" x="80" y="240" name="inst_66A9E122" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objIngameSolid" x="96" y="240" name="inst_1A9FF83F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objIngameSolid" x="32" y="256" name="inst_A1075F37" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objIngameSolid" x="144" y="256" name="inst_5E41239F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objIngameSolid" x="96" y="256" name="inst_08E8B76C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objIngameSolid" x="16" y="272" name="inst_AB0EBBBE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -109,6 +108,7 @@
     <instance objName="objIngameSolid" x="144" y="288" name="inst_D49EB14B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objIngameSolid" x="128" y="288" name="inst_415BAE80" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objSpikePit" x="48" y="256" name="inst_1039A574" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objLadder" x="32" y="256" name="inst_91AE3745" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tstMetal" x="16" y="16" w="112" h="112" xo="0" yo="0" id="10001134" name="inst_6EA48CA5" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
