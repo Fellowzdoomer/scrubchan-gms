@@ -78,6 +78,11 @@ if timer == 30 instance_create(0,0,transitionControl); simulationText = "";
 if timer &gt;= 150
 {
     if menuChoice == 3 game_end();
+    else if menuChoice == 0
+    {
+        alphaVal = 1;
+        room_goto(rmDemoSettings);
+    }
     else if menuChoice == 1
     {
         alphaVal = 1; 

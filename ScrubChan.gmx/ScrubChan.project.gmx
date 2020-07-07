@@ -452,6 +452,7 @@
     <objects name="Menu">
       <object>objects\objMainMenu</object>
       <object>objects\objKeyboardBinding</object>
+      <object>objects\objDemoSettings</object>
       <object>objects\objPauseMenu</object>
     </objects>
     <objects name="Collision">
@@ -588,6 +589,7 @@
     </rooms>
     <rooms name="DemoStages">
       <room>rooms\rmSimulationSelect</room>
+      <room>rooms\rmDemoSettings</room>
       <room>rooms\stgDemoMetal</room>
       <room>rooms\stgDemoCut</room>
     </rooms>

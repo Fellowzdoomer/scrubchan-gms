@@ -34,7 +34,7 @@ global.debugMode = false;
 // Controller specifics
 gamepad_set_axis_deadzone(0,0.5);
 gamepad_set_button_threshold(0,0.1);
-
+global.controlSchemeDisplay = "xbox" // default xbox
 // Fonts
 global.Font = font_add_sprite(sprFont, ord("!"), true, 1);
 global.readyText = false;
@@ -143,7 +143,7 @@ global.wRight = ord("D");
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if room = rmInit { room_goto(stgDemoCut); }
+            <string>if room = rmInit { room_goto(rmSimulationSelect); }
 </string>
           </argument>
         </arguments>
