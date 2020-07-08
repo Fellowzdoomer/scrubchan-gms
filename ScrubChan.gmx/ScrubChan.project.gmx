@@ -270,6 +270,7 @@
       <background>background\bkg_animtile_water_3</background>
       <background>background\tstLimboBeta</background>
       <background>background\tstMetal</background>
+      <background>background\tstMetalBG</background>
     </backgrounds>
     <backgrounds name="Backgrounds">
       <backgrounds name="GUI">
@@ -553,6 +554,7 @@
       <object>objects\objDemoCutscene</object>
     </objects>
     <object>objects\screen</object>
+    <object>objects\rotateyBoi</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rmInit</room>

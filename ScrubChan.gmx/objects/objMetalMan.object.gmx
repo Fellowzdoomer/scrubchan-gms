@@ -102,7 +102,7 @@ if !didIntroduction
     
     if !landed 
     {
-        if (!place_meeting(x,y,objSolid))
+        if (!place_meeting(x,y,objSolid) || y != tDestY)
         {
             sprite_index = sprMetalJump;
             y += 8;

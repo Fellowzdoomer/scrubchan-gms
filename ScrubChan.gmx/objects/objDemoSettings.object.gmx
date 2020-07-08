@@ -91,7 +91,7 @@ else if arrowTimerMode == 1
 // Recognize input
 if kDown
 {
-if menuChoice &lt; 4 { menuChoice += 1 }
+if menuChoice &lt; 6 { menuChoice += 1 }
 }
 
 if kUp
@@ -99,92 +99,57 @@ if kUp
 if menuChoice &gt; 1 { menuChoice -= 1 }
 }
 
-// Update flavor text
-if menuArea == "main" // MAIN MENU
-{
-    if menuChoice == 1 { flavorText = "START A NEW GAME!" }
-    else if menuChoice == 2 { flavorText = "LOAD A PREVIOUS SAVE!" }
-    else if menuChoice == 3 { flavorText = "MODIFY GAME SETTINGS!" }
-    else if menuChoice == 4 { flavorText = "EXIT TO OS!" }
-}
-else if menuArea == "options" // OPTIONS
-{
-    if menuChoice == 1 { flavorText = "CUSTOMIZE CONTROLS!" }
-    else if menuChoice == 2
-    { 
-        if window_get_fullscreen() flavorText = "FULLSCREEN : TRUE"
-        else flavorText = "FULLSCREEN : FALSE" 
-    }
-    else if menuChoice == 3 { flavorText = "???" }
-    else if menuChoice == 4 { flavorText = "BACK TO MAIN MENU!" }
-}
-else if menuArea == "controls" // OPTIONS &gt; CONTROL SCHEME
-{
-    if menuChoice == 1 { flavorText = "FOR KEYBOARDS" }
-    else if menuChoice == 2 { flavorText = "FOR CONTROLLERS" }
-    else if menuChoice == 3 { flavorText = "???" }
-    else if menuChoice == 4 { flavorText = "BACK TO MAIN MENU!" }
-}
+    if menuChoice == 1 { flavorText = "Windowed or fullscreen (F5)" }
+    else if menuChoice == 2 { flavorText = "Load saved data" }
+    else if menuChoice == 3 { flavorText = "Save loaded data" }
+    else if menuChoice == 4 { flavorText = "What controller buttons to show" }
+    else if menuChoice == 5 { flavorText = "Whether to stretch or scale the screen" }
+    else if menuChoice == 6 { flavorText = "Back to the stage select" }
+
 
 // Arrow Y
-if menuChoice == 1 { arrowY = 48 }
-else if menuChoice == 2 { arrowY = 64 }
-else if menuChoice == 3 { arrowY = 80 }
-else if menuChoice == 4 { arrowY = 96 }
+if menuChoice == 1 { arrowY = 64+2 }
+else if menuChoice == 2 { arrowY = 80+2 }
+else if menuChoice == 3 { arrowY = 96+2 }
+else if menuChoice == 4 { arrowY = 112+2 }
+else if menuChoice == 5 { arrowY = 128+2 }
+else if menuChoice == 6 { arrowY = 144+2 }
 
 // Confirm
 if kConfirm
 {
+    audio_play_sound(sndMenuNavigate,9,false);
     if menuChoice == 1
     {
-        if menuArea == "main"
-        {
-            audio_stop_all();
-            room_goto(rmStageSelect)
-        }
-        else if menuArea == "options"
-        {
-            menuArea = "controls"
-        }
+        if window_get_fullscreen() window_set_fullscreen(false);
+        else window_set_fullscreen(true);
     }
     else if menuChoice == 2
     {
-        if menuArea == "options"
-        {
-            if !window_get_fullscreen() window_set_fullscreen(true);
-            else window_set_fullscreen(false);
-        }
-        else audio_play_sound(sndDeny,9,false);
+        instance_create(0,0,objLoadDataObj);
+        flavorText = "Data loaded!"
     }
     else if menuChoice == 3
     {
-        if menuArea == "main"
-        {
-            audio_play_sound(sndMenuSelect,9,false);
-            menuArea = "options";
-            menuChoice = 1;
-        }
-        else audio_play_sound(sndDeny,9,false);
+        instance_create(0,0,objSaveDataObj);
+        flavorText = "Data saved!"
     }
-    
     else if menuChoice == 4
     {
-        if menuArea == "main" game_end();
-        else if menuArea == "options"
-        {
-            audio_play_sound(sndMenuSelect,9,false);
-            menuArea = "main";
-            menuChoice = 1;
-        }
-        else if menuArea == "controls"
-        {
-            audio_play_sound(sndMenuSelect,9,false);
-            menuArea = "options";
-            menuChoice = 1;
-        }
+        if global.controlSchemeDisplay == "xbox" global.controlSchemeDisplay = "playstation"
+        else global.controlSchemeDisplay = "xbox"
     }
-    
-    else audio_play_sound(sndDeny,9,false);
+    else if menuChoice == 5
+    {
+        if application_surface_is_enabled() application_surface_enable(false);
+        else application_surface_enable(true);
+    }
+    else if menuChoice == 6
+    {
+        audio_stop_all();
+        audio_play_sound(sndMenuNavigate,9,false);
+        room_goto(rmSimulationSelect);
+    }
 }
 
 // Sound
@@ -192,12 +157,6 @@ if kConfirm
 if kUp || kDown
 {
     audio_play_sound(sndMenuNavigate, 9, false)
-}
-
-if keyboard_check_released(ord("V"))
-{
-    if application_surface_is_enabled() application_surface_enable(false);
-    else application_surface_enable(true);
 }
 </string>
           </argument>
@@ -241,18 +200,23 @@ draw_text(view_xview[0]/2+128, (view_yview[0]/2)+96, "Save data");
 
 // Control scheme display
 draw_text(view_xview[0]/2+128-32, (view_yview[0]/2)+112, "Control display scheme:");
-draw_text(view_xview[0]/2+208-16, (view_yview[0]/2)+112, "XBox");
+if global.controlSchemeDisplay == "xbox" draw_text(view_xview[0]/2+208-16, (view_yview[0]/2)+112, "XBox");
+else draw_text(view_xview[0]/2+208-16, (view_yview[0]/2)+112, "Playstation");
 
 // Window aspect ratio display
 draw_text(view_xview[0]/2+128-16, (view_yview[0]/2)+128, "Aspect ratio scale: ");
 if application_surface_is_enabled() draw_text(view_xview[0]/2+208-16, (view_yview[0]/2)+128, "On");
 else draw_text(view_xview[0]/2+208-16, (view_yview[0]/2)+128, "Off");
 
+// Back to main menu
+draw_text(view_xview[0]/2+128-16, (view_yview[0]/2)+144, "Back to stage select");
+
 draw_set_halign(fa_center);
 draw_text(view_xview[0]/2+128, (view_yview[0]/2)+208, flavorText);
 
 draw_set_halign(fa_left);
-draw_sprite(sprMenuArrow, 0, (view_xview[0]+48) + arrowTimer, view_yview[0] + arrowY);
+if menuChoice == 4 draw_sprite(sprMenuArrow, 0, (view_xview[0]+16) + arrowTimer, view_yview[0] + arrowY);
+else draw_sprite(sprMenuArrow, 0, (view_xview[0]+48) + arrowTimer, view_yview[0] + arrowY);
 </string>
           </argument>
         </arguments>

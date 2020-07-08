@@ -96,7 +96,7 @@ if !didIntroduction
     
     if !landed 
     {
-        if (!place_meeting(x,y+8,objSolid))
+        if (!place_meeting(x,y+8,objSolid) || y != tDestY)
         {
             sprite_index = sprCutmanJump;
             y += 8;
