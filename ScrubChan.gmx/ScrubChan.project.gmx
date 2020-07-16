@@ -558,7 +558,6 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\rmInit</room>
-    <room>rooms\rmCheckpointRedirect</room>
     <room>rooms\rmDisclaimer</room>
     <rooms name="Menu">
       <room>rooms\rmMainMenu</room>
@@ -594,6 +593,24 @@
       <room>rooms\rmDemoSettings</room>
       <room>rooms\stgDemoMetal</room>
       <room>rooms\stgDemoCut</room>
+    </rooms>
+    <rooms name="Outlines">
+      <room>rooms\outLimbo</room>
+      <room>rooms\outSurge</room>
+      <room>rooms\outCode</room>
+      <room>rooms\outPrismarine</room>
+      <room>rooms\outPoison</room>
+      <room>rooms\outGasoline</room>
+      <room>rooms\outShred</room>
+      <room>rooms\outContrivance</room>
+      <room>rooms\outFortress1</room>
+      <room>rooms\outFortress2</room>
+      <room>rooms\outFortress3</room>
+      <room>rooms\outFortress4</room>
+      <room>rooms\outFortress5</room>
+      <room>rooms\outFortress6</room>
+      <room>rooms\outFortress7</room>
+      <room>rooms\outFortress8</room>
     </rooms>
   </rooms>
   <help>
