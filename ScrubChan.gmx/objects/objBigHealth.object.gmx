@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>prtItem</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_speed = 1/6;
+            <string>event_inherited();
+
+
 </string>
           </argument>
         </arguments>
@@ -48,7 +50,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if place_meeting(x,y,objPlayer)
+            <string>event_inherited();
+
+if place_meeting(x,y,objPlayer)
 {
     global.playerHP += 10;
     if global.playerHP &gt; 28 global.playerHP = 28;

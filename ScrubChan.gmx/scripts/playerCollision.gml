@@ -99,7 +99,7 @@ if !freeformMode
     // Jumping code
     if (place_meeting(x,y+1,objSolid))
     {
-        vsp = kJump * -jumpspeed;
+            vsp = kJump * -jumpspeed;
     }
     
     // Climbing down code
@@ -125,13 +125,13 @@ if !freeformMode
         }
     }
     
-    mySolid = instance_place(x, y+vsp, objSolid);
-    if mySolid >= 0 && vsp > 0 {
+    // megaengine collision code
+    var mySolid = instance_place(x, y+vsp, objSolid);
+    if mySolid >= 0 && vsp > 0
+    {
         y = mySolid.y - (sprite_get_height(mask_index) - sprite_get_yoffset(mask_index));
-        isGrounded = true;
-    
-        vsp = 0;
-        if isGrounded == true audio_play_sound(sndPlayerLand,1,false);
+        ground = true;
+        vsp = 0;    
     }
     
     // Top of Ladder
@@ -186,7 +186,7 @@ if !freeformMode
         mask_index = sprPlayerSlideMask;
         
         hsp = (image_xscale * slidespeed);
-        if (place_meeting(x+hsp+(1*image_xscale),y,objSolid))
+        if (place_meeting(x+hsp,y,objSolid))
         {
             while (!place_meeting(x+sign(hsp),y,objSolid))
             {
@@ -195,6 +195,16 @@ if !freeformMode
         hsp = 0;
         }
         
+        nearestDoor = instance_nearest(x,y,objBossDoor);
+        if (place_meeting(x+hsp,y,nearestDoor)) && nearestDoor.image_index == 8
+        {
+            sprite_index = sprPlayer;
+            mask_index = sprPlayerMask;
+            hsp = 0;
+            isSliding = false;
+            slideTimer = 0;
+        }
+                
         if (!place_meeting(x,y+1,objSolid))
         {
             if (place_meeting(x,y-4,objSolid))
@@ -209,21 +219,80 @@ if !freeformMode
         
         if slideTimer > 25
         {
-            if (place_meeting(x,y-4, objSolid))
+            if (place_meeting(x-(4*image_xscale),y-4, objSolid))
             {
                 slideTimer = 23;
             }
             else
-            {
+            {   
                 sprite_index = sprPlayer;
                 mask_index = sprPlayerMask;
-                hsp = move * movespeed;
-                isSliding = false;
-                slideTimer = 0;
+                if (place_meeting(x+(1*image_xscale), y, objSolid))
+                {
+                    x -= 1*image_xscale;
+                }
+                else
+                {
+                    hsp = move * movespeed;
+                    isSliding = false;
+                    slideTimer = 0;
+                }
             }
         }    
     }
 
+    // Dashing code for surge dash
+    if isDashing
+    {
+        objPlayer.vsp = 0;
+        dashTimer += 1;
+        sprite_index = sprPlayerSlide;
+        mask_index = sprPlayerSlideMask;
+        
+        hsp = (image_xscale * (slidespeed+1.5));
+        if (place_meeting(x+hsp+(1.5*image_xscale),y,objSolid))
+        {
+            while (!place_meeting(x+sign(hsp),y,objSolid))
+            {
+                x += sign(hsp)
+            }
+        hsp = 0;
+        }
+        
+        nearestDoor = instance_nearest(x,y,objBossDoor);
+        if (place_meeting(x+(1*image_xscale),y,nearestDoor)) && nearestDoor.image_index == 8
+        {
+            sprite_index = sprPlayer;
+            mask_index = sprPlayerMask;
+            hsp = 0;
+            isDashing = false;
+            dashTimer = 0;
+        }
+                
+        
+        if dashTimer > 25
+        {
+            if (place_meeting(x-(4*image_xscale),y-4, objSolid)) && (place_meeting(x-(4*image_xscale),y+4, objSolid))
+            {
+                dashTimer = 23;
+            }
+            else
+            {   
+                sprite_index = sprPlayer;
+                mask_index = sprPlayerMask;
+                if (place_meeting(x+(1*image_xscale), y, objSolid))
+                {
+                    x -= 1*image_xscale;
+                }
+                else
+                {
+                    hsp = move * movespeed;
+                    isDashing = false;
+                    dashTimer = 0;
+                }
+            }
+        }    
+    }
     x += hsp;
     y += vsp;
 }

@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>enemyHP = 1;
-
+initialEnemyHP = 1;
 // [Damage Values]]
 
 dmg_BusterShot = 1;
@@ -45,6 +45,9 @@ isActive = false;
 isAlive = true;
 didDeathExplosion = false;
 isHit = false;
+isHitByLimbo = false; //for combo
+limboHitter = 0;
+
 hitTimer = 5;
 
 isSideReflective = false;
@@ -54,6 +57,9 @@ enemyTimer = 0;
 
 origX = x;
 origY = y;
+
+droppedItem = false;
+facePlayer = false;
 </string>
           </argument>
         </arguments>
@@ -100,8 +106,14 @@ if enemyHP &lt;= 0
     visible = false;
 }
 
-if isAlive == true
+if isAlive
 {
+    if facePlayer
+    {
+        if x &gt; objPlayer.x { image_xscale = -1; }
+        else { image_xscale = 1; }
+    }
+    
     if (place_meeting(x+(1*image_xscale),y,objBusterShot))
     {
         if !isSideReflective
@@ -116,8 +128,32 @@ if isAlive == true
             with objBusterShot.id
             {
                 hsp = -hsp;
-                vsp = -5;
+                vsp = -6;
             }
+        }
+    }
+    
+    if (place_meeting(x,y,objLimboMelee))
+    {
+         audio_play_sound(sndEnemyHit, 9, false);
+         enemyHP -= 1;
+         if !isHitByLimbo isHitByLimbo = true;
+    }
+    
+    if isHitByLimbo
+    {
+        if (limboHitter &lt; global.limboCount)
+        {
+            isHit = false;
+            audio_play_sound(sndEnemyHit, 9, false);
+            limboHitter += 1;
+            enemyHP -= 1;
+            isHit = true;
+        }
+        else
+        {
+            isHit = true;
+            isHitByLimbo = false;
         }
     }
     
@@ -135,6 +171,26 @@ else
 {
     hsp = 0;
     image_index = 0;
+    if !droppedItem
+    {
+        var roll = irandom(9);
+        var itemToDrop = objSmallHealth;
+        switch roll
+        {
+            case 1: itemToDrop = objSmallHealth; break;
+            case 2: itemToDrop = objBigHealth; break;
+            case 3: itemToDrop = objSmallWeaponEnergy; break;
+            case 4: itemToDrop = objBigWeaponEnergy; break;
+            case 5: itemToDrop = objSmallBolt; break;
+            case 6: itemToDrop = objBigBolt; break;
+            case 9: itemToDrop = objLife; break;
+        }
+        
+        var createItem = instance_create(x,y,itemToDrop);
+        createItem.isDropped = true;
+        
+        droppedItem = true;
+    }
 }
 </string>
           </argument>
@@ -158,7 +214,7 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>enemyHP = 1;
+            <string>enemyHP = initialEnemyHP;
 enemyTimer = 0;
 isAlive = true;
 didDeathExplosion = false;

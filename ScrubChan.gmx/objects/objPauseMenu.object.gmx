@@ -30,6 +30,8 @@ global.inMenu = false;
 global.menuChoice = 1;
 global.subMenuChoice = 1;
 
+player = objPlayer;
+
 currentArea = "main" // either "weapon", "item", or "settings"
 currentSide = "left"
 frameWait = 0;
@@ -40,7 +42,14 @@ arrowY = 0;
 arrowTimer = 0;
 arrowDir = 1
 
-screenres = "1X";
+drawBox = false; // for abilities menu
+boxRow = 1;
+boxColumn = 0;
+abilityName = "ABILITY";
+abilityDesc = "DESCRIPTION";
+
+screenMode = 2; // Default is 512x448
+screenres = "2X";
 </string>
           </argument>
         </arguments>
@@ -63,7 +72,9 @@ screenres = "1X";
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if global.inMenu
+            <string>/// Set up the keybinds
+
+if global.inMenu
 {
     kConfirm = keyboard_check_released(ord("X"));
     kGoBack = keyboard_check_released(ord("Z"));
@@ -94,91 +105,27 @@ screenres = "1X";
         audio_play_sound(sndMenuNavigate, 9, false);
     }
     
-    if kDown 
-    {
-        if currentSide == "left"
-        {
-            if currentArea == "main"
-            {
-                if global.menuChoice == 3 global.menuChoice = 1
-                else global.menuChoice += 1;
-            }
-            else
-            {
-                if global.menuChoice == 9 global.menuChoice = 1
-                else global.menuChoice += 1;
-            }
-        }
-        
-        show_debug_message(string(global.menuChoice))
-    }
-    if kUp
-    {
-        if currentSide == "left"
-        {
-            if currentArea == "main"
-            {
-                if global.menuChoice == 1 global.menuChoice = 3
-                else global.menuChoice -= 1;
-            }
-            else
-            {
-                if global.menuChoice == 1 global.menuChoice = 9
-                else global.menuChoice -= 1;
-            }
-        }
-        show_debug_message(string(global.menuChoice))
-    }
-    
     // Left/Right
     
-    if kLeft || kRight
+    /*if kLeft || kRight
     {
-        if currentSide == "left" {
-            currentSide = "right"
-            drawArrow = true;
-        }
-        else if currentSide == "right" {
-            currentSide = "left"
-            drawArrow = false;
-        }
+        if currentSide == "left" 
+        currentSide = "right"
+            
+        if global.menuChoice &lt;= 3 drawArrow = true;
+        else drawBox = true;
     }
+    else if currentSide == "right" {
+                currentSide = "left"
+                drawArrow = false;
+                drawBox = false;
+        }*/  
     
-    // kConfirm
-    if kConfirm
-    {
-        audio_play_sound(sndMenuToggle,9,false);
-        if currentSide == "left"
-        {
-            if currentArea == "main"
-            {
-                if global.menuChoice == 1
-                {
-                    currentArea = "weapons"
-                }
-                else if global.menuChoice == 2
-                {
-                    currentArea = "utility"
-                }
-                else if global.menuChoice == 3
-                {
-                    currentArea = "settings"
-                }
-                else if global.menuChoice == 4
-                {
-                    audio_stop_all();
-                    room_goto(arbitraryCode);
-                }
-            }
-            else
-            {
-                if global.menuChoice == 1 or global.menuChoice == 2 or global.menuChoice == 3
-                {
-                    currentArea = "main"
-                }
-            }
-        }
-    }
+    pauseHandleLeft();
+    pauseHandleRightWeapons();
+    pauseHandleRightItems();
+    pauseHandleRightAbilities();
+    pauseHandleRightSettings();
     
     if kGoBack
     {
@@ -187,8 +134,8 @@ screenres = "1X";
         {
             global.inMenu = false;
         }
-        currentArea = "main";
-        if global.menuChoice &gt; 3 global.menuChoice = 3;
+        // currentArea = "main";
+        if global.menuChoice &gt; 4 global.menuChoice = 4;
     }
 }
 
@@ -231,6 +178,55 @@ visible = global.inMenu;
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Right side -- dependent on menu (template)
+/*
+if (currentSide == "right")
+{
+    if kDown 
+    {
+        {
+            // do stuff
+        }
+        show_debug_message(string(global.menuChoice))
+    }
+    if kUp
+    { 
+        {
+            // do stuff
+        }
+        show_debug_message(string(global.menuChoice))
+    }
+    
+    
+    // kConfirm
+    if kConfirm
+    {
+        audio_play_sound(sndMenuToggle,9,false);
+        {
+            // do stuff
+        }
+    }
+}*/
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="8" enumb="0">
       <action>
@@ -249,7 +245,9 @@ visible = global.inMenu;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_font(global.Font);
+            <string>/// Main Menu Script
+
+draw_set_font(global.Font);
 draw_set_halign(fa_left);
 draw_set_color(c_white);
 
@@ -263,19 +261,25 @@ if currentArea == "main"
     if global.menuChoice == 1 draw_sprite(sprPauseButton,image_index,view_xview[0],view_yview[0]+48); else draw_sprite(sprPauseButtonIdle,image_index,view_xview[0],view_yview[0]+48);
     if global.menuChoice == 2 draw_sprite(sprPauseButton,image_index,view_xview[0],view_yview[0]+72); else draw_sprite(sprPauseButtonIdle,image_index,view_xview[0],view_yview[0]+72);
     if global.menuChoice == 3 draw_sprite(sprPauseButton,image_index,view_xview[0],view_yview[0]+96); else draw_sprite(sprPauseButtonIdle,image_index,view_xview[0],view_yview[0]+96);
+    if global.menuChoice == 4 draw_sprite(sprPauseButton,image_index,view_xview[0],view_yview[0]+120); else draw_sprite(sprPauseButtonIdle,image_index,view_xview[0],view_yview[0]+120);
     
     draw_text(view_xview[0]+4,view_yview[0]+53,"WEAPONS");
     draw_text(view_xview[0]+4,view_yview[0]+77,"ITEMS");
     draw_text(view_xview[0]+4,view_yview[0]+101,"SETTINGS");
+    draw_text(view_xview[0]+4,view_yview[0]+125,"ABILITIES");
     
     // Player + Lives
     draw_sprite(sprPlayer,0,view_xview[0] + 24, view_yview[0] + 28);
     draw_text(view_xview[0] + 40, view_yview[0] + 28, string(global.playerLives));
+    
+    // Bolts
+    draw_sprite(sprBigBolt,0,view_xview[0] + 96, view_yview[0] + 28);
+    draw_text(view_xview[0] + 112, view_yview[0] + 28, string(global.boltCurrency));
 }
 
 else
 {
-    if global.menuChoice == 1 or global.menuChoice == 2 or global.menuChoice == 3 
+    if global.menuChoice == 1 or global.menuChoice == 2 or global.menuChoice == 3
     {
         if currentSide == "left"
         {
@@ -287,127 +291,166 @@ else
         }
     draw_text(view_xview[0]+4,view_yview[0]+53,"BACK");
     }
+    else if global.menuChoice == 4
+    {
+        if currentSide == "left"
+        {
+            draw_sprite(sprPauseButton,image_index,view_xview[0]-40,view_yview[0]+48); 
+        }
+        else 
+        {
+            draw_sprite(sprPauseButtonIdle,image_index,view_xview[0]-40,view_yview[0]+48)
+        }
+    draw_text(view_xview[0]+4,view_yview[0]+53,"BACK");
+    }
 }
 
-// Drawing weapon energy
+// Drawing arrow
+if drawArrow
+{
+    draw_sprite(sprMenuArrow,0,view_xview[0] + arrowX, view_yview[0] + arrowY);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Drawing weapon energy
 if currentArea == "weapons"
 {
     draw_sprite(sprEnergyPauseEmpty,0,view_xview[0]+144,view_yview[0]+37);
+    draw_sprite(sprWeaponIcons, 0, view_xview[0] +116, view_yview[0] + 28) 
     
     for (i = 1; i &lt;= global.playerHP; i += 1)
     {
-        draw_sprite(sprWeaponIcons, 0, view_xview[0] +116, view_yview[0] + 28)
         draw_sprite_ext(sprEnergyPausePrimary,0,view_xview[0]+87+(sprite_get_width(sprEnergyPauseEmpty)+i*2),view_yview[0]+38, image_xscale,image_yscale,image_angle,make_color_rgb(252, 228, 160),image_alpha);
         draw_sprite_ext(sprEnergyPauseSecondary,0,view_xview[0]+87+(sprite_get_width(sprEnergyPauseEmpty)+i*2),view_yview[0]+38, image_xscale,image_yscale,image_angle,c_white,image_alpha);
     }
     
-    draw_text(view_xview[0] + 144, view_yview[0] + 28, "BUSTER");
+    draw_text(view_xview[0] + 144, view_yview[0] + 28, "S. BUSTER");
     
     if !global.weplocked1
     {
         draw_sprite(sprEnergyPauseEmpty,0,view_xview[0]+144,view_yview[0]+57);
+        draw_sprite(sprWeaponIcons, 1, view_xview[0] + 116, view_yview[0] + 48)
         
         for (i = 1; i &lt;= global.wpe_weapon1; i += 1)
         {
-            draw_sprite(sprWeaponIcons, 0, view_xview[0] + 116, view_yview[0] + 48)
             draw_sprite_ext(sprEnergyPausePrimary,0,view_xview[0]+87+(sprite_get_width(sprEnergyPauseEmpty)+i*2),view_yview[0]+58, image_xscale,image_yscale,image_angle,make_color_rgb(252, 228, 160),image_alpha);
             draw_sprite_ext(sprEnergyPauseSecondary,0,view_xview[0]+87+(sprite_get_width(sprEnergyPauseEmpty)+i*2),view_yview[0]+58, image_xscale,image_yscale,image_angle,c_white,image_alpha);
         }
         
-        draw_text(view_xview[0] + 144, view_yview[0] + 48, "VWS 01");
+        draw_text(view_xview[0] + 144, view_yview[0] + 48, "CLOCKWORK");
     }
 
     if !global.weplocked2
     {
         draw_sprite(sprEnergyPauseEmpty,0,view_xview[0]+144,view_yview[0]+77);
+        draw_sprite(sprWeaponIcons, 2, view_xview[0] + 116, view_yview[0] + 68)
         
         for (i = 1; i &lt;= global.wpe_weapon2; i += 1)
         {
-            draw_sprite(sprWeaponIcons, 0, view_xview[0] + 116, view_yview[0] + 68)
             draw_sprite_ext(sprEnergyPausePrimary,0,view_xview[0]+87+(sprite_get_width(sprEnergyPauseEmpty)+i*2),view_yview[0]+78, image_xscale,image_yscale,image_angle,make_color_rgb(252, 228, 160),image_alpha);
             draw_sprite_ext(sprEnergyPauseSecondary,0,view_xview[0]+87+(sprite_get_width(sprEnergyPauseEmpty)+i*2),view_yview[0]+78, image_xscale,image_yscale,image_angle,c_white,image_alpha);
         }
         
-        draw_text(view_xview[0] + 144, view_yview[0] + 68, "VWS 02");
+        draw_text(view_xview[0] + 144, view_yview[0] + 68, "E. SURGE");
     }
     
     if !global.weplocked3
     {
         draw_sprite(sprEnergyPauseEmpty,0,view_xview[0]+144,view_yview[0]+97);
+        draw_sprite(sprWeaponIcons, 3, view_xview[0] + 116, view_yview[0] + 88)
         
         for (i = 1; i &lt;= global.wpe_weapon3; i += 1)
         {
-            draw_sprite(sprWeaponIcons, 0, view_xview[0] + 116, view_yview[0] + 88)
             draw_sprite_ext(sprEnergyPausePrimary,0,view_xview[0]+87+(sprite_get_width(sprEnergyPauseEmpty)+i*2),view_yview[0]+98, image_xscale,image_yscale,image_angle,make_color_rgb(252, 228, 160),image_alpha);
             draw_sprite_ext(sprEnergyPauseSecondary,0,view_xview[0]+87+(sprite_get_width(sprEnergyPauseEmpty)+i*2),view_yview[0]+98, image_xscale,image_yscale,image_angle,c_white,image_alpha);
         }
         
-        draw_text(view_xview[0] + 144, view_yview[0] + 88, "VWS 03");
+        draw_text(view_xview[0] + 144, view_yview[0] + 88, "L. SABER");
     }
 
     if !global.weplocked4
     {
         draw_sprite(sprEnergyPauseEmpty,0,view_xview[0]+144,view_yview[0]+117);
+        draw_sprite(sprWeaponIcons, 4, view_xview[0] + 116, view_yview[0] + 108)
         
         for (i = 1; i &lt;= global.wpe_weapon4; i += 1)
         {
-            draw_sprite(sprWeaponIcons, 0, view_xview[0] + 116, view_yview[0] + 108)
             draw_sprite_ext(sprEnergyPausePrimary,0,view_xview[0]+87+(sprite_get_width(sprEnergyPauseEmpty)+i*2),view_yview[0]+118, image_xscale,image_yscale,image_angle,make_color_rgb(252, 228, 160),image_alpha);
             draw_sprite_ext(sprEnergyPauseSecondary,0,view_xview[0]+87+(sprite_get_width(sprEnergyPauseEmpty)+i*2),view_yview[0]+118, image_xscale,image_yscale,image_angle,c_white,image_alpha);
         }
         
-        draw_text(view_xview[0] + 144, view_yview[0] + 108, "VWS 04");
+        draw_text(view_xview[0] + 144, view_yview[0] + 108, "P. MINE");
     }
 
     if !global.weplocked5
     {
         draw_sprite(sprEnergyPauseEmpty,0,view_xview[0]+144,view_yview[0]+137);
+        draw_sprite(sprWeaponIcons, 5, view_xview[0] + 116, view_yview[0] + 128)
         
         for (i = 1; i &lt;= global.wpe_weapon5; i += 1)
         {
-            draw_sprite(sprWeaponIcons, 0, view_xview[0] + 116, view_yview[0] + 128)
+            
             draw_sprite_ext(sprEnergyPausePrimary,0,view_xview[0]+87+(sprite_get_width(sprEnergyPauseEmpty)+i*2),view_yview[0]+138, image_xscale,image_yscale,image_angle,make_color_rgb(252, 228, 160),image_alpha);
             draw_sprite_ext(sprEnergyPauseSecondary,0,view_xview[0]+87+(sprite_get_width(sprEnergyPauseEmpty)+i*2),view_yview[0]+138, image_xscale,image_yscale,image_angle,c_white,image_alpha);
         }
         
-        draw_text(view_xview[0] + 144, view_yview[0] + 128, "VWS 05");
+        draw_text(view_xview[0] + 144, view_yview[0] + 128, "OIL BUBBLE");
     }
 
     if !global.weplocked6
     {
         draw_sprite(sprEnergyPauseEmpty,0,view_xview[0]+144,view_yview[0]+157);
+        draw_sprite(sprWeaponIcons, 6, view_xview[0] + 116, view_yview[0] + 148)
         
         for (i = 1; i &lt;= global.wpe_weapon6; i += 1)
         {
-            draw_sprite(sprWeaponIcons, 0, view_xview[0] + 116, view_yview[0] + 148)
             draw_sprite_ext(sprEnergyPausePrimary,0,view_xview[0]+87+(sprite_get_width(sprEnergyPauseEmpty)+i*2),view_yview[0]+158, image_xscale,image_yscale,image_angle,make_color_rgb(252, 228, 160),image_alpha);
             draw_sprite_ext(sprEnergyPauseSecondary,0,view_xview[0]+87+(sprite_get_width(sprEnergyPauseEmpty)+i*2),view_yview[0]+158, image_xscale,image_yscale,image_angle,c_white,image_alpha);
         }
         
-        draw_text(view_xview[0] + 144, view_yview[0] + 148, "VWS 06");
+        draw_text(view_xview[0] + 144, view_yview[0] + 148, "R. BEAM");
     }
     
     if !global.weplocked7
     {
         draw_sprite(sprEnergyPauseEmpty,0,view_xview[0]+144,view_yview[0]+177);
-        
+        draw_sprite(sprWeaponIcons, 7, view_xview[0] + 116, view_yview[0] + 168)
+                    
         for (i = 1; i &lt;= global.wpe_weapon7; i += 1)
         {
-            draw_sprite(sprWeaponIcons, 0, view_xview[0] + 116, view_yview[0] + 168)
+
             draw_sprite_ext(sprEnergyPausePrimary,0,view_xview[0]+87+(sprite_get_width(sprEnergyPauseEmpty)+i*2),view_yview[0]+178, image_xscale,image_yscale,image_angle,make_color_rgb(252, 228, 160),image_alpha);
             draw_sprite_ext(sprEnergyPauseSecondary,0,view_xview[0]+87+(sprite_get_width(sprEnergyPauseEmpty)+i*2),view_yview[0]+178, image_xscale,image_yscale,image_angle,c_white,image_alpha);
         }
         
-        draw_text(view_xview[0] + 144, view_yview[0] + 168, "VWS 07");
+        draw_text(view_xview[0] + 144, view_yview[0] + 168, "M. MACHETTE");
     }
 
     if !global.weplocked8
     {
         draw_sprite(sprEnergyPauseEmpty,0,view_xview[0]+144,view_yview[0]+197);
-        
+        draw_sprite(sprWeaponIcons, 8, view_xview[0] + 116, view_yview[0] + 188) 
+               
         for (i = 1; i &lt;= global.wpe_weapon8; i += 1)
         {
-            draw_sprite(sprWeaponIcons, 0, view_xview[0] + 116, view_yview[0] + 188)
             draw_sprite_ext(sprEnergyPausePrimary,0,view_xview[0]+87+(sprite_get_width(sprEnergyPauseEmpty)+i*2),view_yview[0]+198, image_xscale,image_yscale,image_angle,make_color_rgb(252, 228, 160),image_alpha);
             draw_sprite_ext(sprEnergyPauseSecondary,0,view_xview[0]+87+(sprite_get_width(sprEnergyPauseEmpty)+i*2),view_yview[0]+198, image_xscale,image_yscale,image_angle,c_white,image_alpha);
         }
@@ -417,7 +460,28 @@ if currentArea == "weapons"
 
 }
 
-// Drawing weapon energy
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Drawing utility menu
+
 if currentArea == "utility"
 {
     draw_sprite(sprETank,0,view_xview[0]+144,view_yview[0]+37);
@@ -426,26 +490,156 @@ if currentArea == "utility"
     draw_text(view_xview[0]+176,view_yview[0]+53,"0");
 }
 
-// Settings
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Drawing settings menu
 if currentArea == "settings"
 {
     draw_text(view_xview[0]+128,view_yview[0]+36,"WINDOW SCALE");
-    if (window_get_fullscreen())
-    {
-        screenres = "FULLSCREEN";
-    }
-    else
-    {
-        screenres = "1X";
-    }
     draw_text(view_xview[0]+128,view_yview[0]+48,screenres);
+    
+    draw_text(view_xview[0]+128,view_yview[0]+66,"CONTROLLER");
+    draw_text(view_xview[0]+128,view_yview[0]+78,string_upper(global.controlSchemeDisplay));
+    
+    draw_text(view_xview[0]+128,view_yview[0]+96,"EXIT STAGE");
+    draw_text(view_xview[0]+128,view_yview[0]+126,"EXIT TO TITLE")
 }
 
-// Drawing arrow
-if drawArrow
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Drawing abilities menu
+
+if currentArea == "abilities"
 {
-    draw_sprite(sprMenuArrow,0,view_xview[0] + arrowX, view_yview[0] + arrowY);
+    var drawBoxHereX = 0;
+    var drawBoxHereY = 0;
+    var player = objPlayer;
+    
+    draw_text(view_xview[0]+112,view_yview[0]+24,"ABILITY SYSTEM");
+    
+    // Row 1
+    draw_sprite(sprAbilityIconCategory, 0, view_xview[0]+ 96 , view_yview[0] + 32 + 16)
+    
+    if player.canJump draw_sprite(sprWeaponIcons, 0, view_xview[0]+ 112+4 , view_yview[0] + 32 + 16)
+        else draw_sprite(sprAbilityIconTemplate, 0, view_xview[0]+ 112+4 , view_yview[0] + 32 + 16)
+        
+    if player.canSlide draw_sprite(sprWeaponIcons, 0, view_xview[0]+ 128+8 , view_yview[0] + 32 + 16)
+        else draw_sprite(sprAbilityIconTemplate, 0, view_xview[0]+ 128+8 , view_yview[0] + 32 + 16)
+    
+    if player.canShoot draw_sprite(sprWeaponIcons, 0, view_xview[0]+ 144+12 , view_yview[0] + 32 + 16)
+    
+    if player.canWalk draw_sprite(sprAbilityIconTemplate, 0, view_xview[0]+ 160+16 , view_yview[0] + 32 + 16)
+    
+    // Row 2
+    draw_sprite(sprAbilityIconCategory, 1, view_xview[0]+ 96 , view_yview[0] + 64 + 16)
+    if player.canRebirth draw_sprite(sprAbilityIconTemplate, 0, view_xview[0]+ 112+4 , view_yview[0] + 64 + 16)
+    if player.ab_airslide draw_sprite(sprAbilityIconTemplate, 0, view_xview[0]+ 128+8 , view_yview[0] + 64 + 16)
+    if player.ab_hptowep draw_sprite(sprAbilityIconTemplate, 0, view_xview[0]+ 144+12 , view_yview[0] + 64 + 16)
+    if player.ab_weptohp draw_sprite(sprAbilityIconTemplate, 0, view_xview[0]+ 160+16 , view_yview[0] + 64 + 16)
+    
+    
+    // Row 3
+    draw_sprite(sprAbilityIconCategory, 2, view_xview[0]+ 96 , view_yview[0] + 96 + 16)
+    if player.ab_energyconverter draw_sprite(sprAbilityIconTemplate, 0, view_xview[0]+ 112+4 , view_yview[0] + 96 + 16)
+    if player.ab_spikeguard draw_sprite(sprAbilityIconTemplate, 0, view_xview[0]+ 128+8 , view_yview[0] + 96 + 16)
+    if player.ab_pitguard draw_sprite(sprAbilityIconTemplate, 0, view_xview[0]+ 144+12 , view_yview[0] + 96 + 16)
+    if player.ab_halfdamage draw_sprite(sprAbilityIconTemplate, 0, view_xview[0]+ 160+16 , view_yview[0] + 96 + 16)
+    
+    // Row 4
+    // draw_sprite(sprAbilityIconCategory, 3, view_xview[0]+ 96 , view_yview[0] + 128 + 16)
+    if player.ab_rci draw_sprite(sprAbilityIconTemplate, 0, view_xview[0]+ 112+4 , view_yview[0] + 128 + 16)
+    if player.stk_extendslide draw_sprite(sprAbilityIconTemplate, 0, view_xview[0]+ 128+8 , view_yview[0] + 128 + 16)
+    if player.stk_boostslide draw_sprite(sprAbilityIconTemplate, 0, view_xview[0]+ 144+12 , view_yview[0] + 128 + 16)
+    
+    
+
+    // draw the box
+    if drawBox
+    {
+        switch boxColumn
+        {
+            case 1:
+                drawBoxHereX = view_xview[0] + 112 + 4;
+            break;
+            
+            case 2:
+                drawBoxHereX = view_xview[0] + 128 + 8;
+            break;
+            
+            case 3:
+                drawBoxHereX = view_xview[0] + 144 + 12;
+            break;
+            
+            case 4:
+                drawBoxHereX = view_xview[0] + 160 + 16;
+            break;
+        }
+        
+        switch boxRow
+        {
+            case 1:
+                drawBoxHereY = view_yview[0] + 32 + 16;
+            break;
+            
+            case 2:
+                drawBoxHereY = view_yview[0] + 64 + 16;
+            break;
+            
+            case 3:
+                drawBoxHereY = view_yview[0] + 96 + 16;
+            break;
+            
+            case 4:
+                drawBoxHereY = view_yview[0] + 128 + 16;
+            break;
+        }
+        
+        image_speed = 30/60;
+        draw_sprite(sprAbilityIconSelected,image_index,drawBoxHereX,drawBoxHereY);
+        
+    }
+    
+    draw_set_halign(fa_center);
+    draw_text(view_xview[0]+128,view_yview[0]+176,abilityName);
+    draw_text(view_xview[0]+128,view_yview[0]+192,abilityDesc);
 }
+
 </string>
           </argument>
         </arguments>

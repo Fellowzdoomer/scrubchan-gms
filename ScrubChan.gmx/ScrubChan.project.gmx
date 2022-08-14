@@ -25,6 +25,10 @@
       <sound>sound\sndTeleport</sound>
       <sound>sound\sndTeleportOut</sound>
       <sound>sound\sndBuzz</sound>
+      <sound>sound\sndPickupBolt</sound>
+      <sound>sound\sndPickupWeapon</sound>
+      <sound>sound\sndPickup1UP</sound>
+      <sound>sound\sndYokuBlock</sound>
       <sounds name="DemoSpecific">
         <sound>sound\sndRollingCutter</sound>
         <sound>sound\sndMetalBlade</sound>
@@ -32,10 +36,8 @@
     </sounds>
     <sounds name="Music">
       <sound>sound\bgmBoss</sound>
-      <sound>sound\bgmCalmCity</sound>
       <sound>sound\bgmDebug</sound>
       <sound>sound\bgmFillerWily</sound>
-      <sound>sound\bgmJingle</sound>
       <sound>sound\bgmLimbo</sound>
       <sound>sound\bgmMenuTheme</sound>
       <sound>sound\bgmMetalMan</sound>
@@ -44,15 +46,33 @@
       <sound>sound\bgmStageSelect</sound>
       <sound>sound\bgmVictory</sound>
       <sound>sound\musicSpecificallySelectedForABlankMenu</sound>
+      <sound>sound\bgmSurge</sound>
     </sounds>
     <sounds name="DemoMusic">
       <sound>sound\bgmSimulationSelection</sound>
       <sound>sound\bgmDemoMetal</sound>
       <sound>sound\bgmDemoCut</sound>
       <sound>sound\bgmDemoBoss</sound>
+      <sound>sound\bgmShop</sound>
+    </sounds>
+    <sounds name="ActualDemo">
+      <sound>sound\bgmJingle</sound>
+      <sound>sound\bgmCalmCity</sound>
+      <sound>sound\bgmSuddenSabotauge</sound>
+      <sound>sound\bgmBossTheme</sound>
+      <sound>sound\bgmStageStart</sound>
+      <sound>sound\bgmTitleScreen</sound>
+      <sound>sound\bgmMainMenu</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
+    <sprites name="AbilityIcon">
+      <sprite>sprites\sprAbilityIconTemplate</sprite>
+      <sprite>sprites\sprAbilityActivated</sprite>
+      <sprite>sprites\sprAbilityDeactivated</sprite>
+      <sprite>sprites\sprAbilityIconCategory</sprite>
+      <sprite>sprites\sprAbilityIconSelected</sprite>
+    </sprites>
     <sprites name="Player">
       <sprites name="Mask">
         <sprite>sprites\sprPlayerSlideMask</sprite>
@@ -71,6 +91,7 @@
       <sprite>sprites\sprMegamanClimbGetupShoot</sprite>
       <sprite>sprites\sprMegamanClimbShoot</sprite>
       <sprite>sprites\sprPlayerHurt</sprite>
+      <sprite>sprites\sprPlayerHitboxMarker</sprite>
     </sprites>
     <sprites name="EditorSpecific">
       <sprite>sprites\cam</sprite>
@@ -120,8 +141,11 @@
       <sprite>sprites\sprMenuArrow</sprite>
       <sprite>sprites\sprMenuArrow2</sprite>
       <sprite>sprites\sprLogo</sprite>
+      <sprite>sprites\sprLogoBetter</sprite>
       <sprite>sprites\sprConsole</sprite>
       <sprite>sprites\sprScrnBorder</sprite>
+      <sprite>sprites\sprReactionCommandBox</sprite>
+      <sprite>sprites\sprFadeSprite</sprite>
     </sprites>
     <sprites name="Collision">
       <sprite>sprites\sprSolid</sprite>
@@ -140,19 +164,38 @@
       <sprite>sprites\sprETankPrimary</sprite>
       <sprite>sprites\sprETankSecondary</sprite>
       <sprite>sprites\sprETankOutline</sprite>
+      <sprite>sprites\sprWeaponEnergy</sprite>
+      <sprite>sprites\sprSmallWeaponEnergy</sprite>
+      <sprite>sprites\sprLifeUp</sprite>
+      <sprite>sprites\sprBigBolt</sprite>
+      <sprite>sprites\sprSmallBolt</sprite>
     </sprites>
     <sprites name="Enemies">
-      <sprite>sprites\sprEnemyShot</sprite>
-      <sprite>sprites\sprWallHumper</sprite>
-      <sprite>sprites\sprFatThunk</sprite>
-      <sprite>sprites\sprTestEnemy</sprite>
-      <sprite>sprites\sprTarget</sprite>
-      <sprite>sprites\sprOctoBattery</sprite>
       <sprites name="Telly">
         <sprite>sprites\sprTelly</sprite>
+        <sprite>sprites\sprite190</sprite>
       </sprites>
       <sprites name="ShieldBoi">
         <sprite>sprites\sprShieldBoi</sprite>
+      </sprites>
+      <sprites name="OctoBattery">
+        <sprite>sprites\sprOctoBattery</sprite>
+      </sprites>
+      <sprites name="MetMM1">
+        <sprite>sprites\sprMetMM1</sprite>
+        <sprite>sprites\sprMetMM1Bullet</sprite>
+      </sprites>
+      <sprites name="Beta">
+        <sprite>sprites\sprTestEnemy</sprite>
+        <sprite>sprites\sprTarget</sprite>
+        <sprite>sprites\sprWallHumper</sprite>
+        <sprite>sprites\sprFatThunk</sprite>
+        <sprite>sprites\sprEnemyShot</sprite>
+      </sprites>
+      <sprites name="ElectricTelly">
+        <sprite>sprites\sprElectricTellyIdle</sprite>
+        <sprite>sprites\sprElectricTellyFire</sprite>
+        <sprite>sprites\sprElectricTellyAttack</sprite>
       </sprites>
     </sprites>
     <sprites name="Misc.">
@@ -170,9 +213,6 @@
       <sprite>sprites\sprWeaponIcons</sprite>
     </sprites>
     <sprites name="Weapons">
-      <sprite>sprites\sprTestWeapon2</sprite>
-      <sprite>sprites\sprBusterShot</sprite>
-      <sprite>sprites\sprClockwork</sprite>
       <sprites name="CodeWomanCoding">
         <sprite>sprites\sprWeapon</sprite>
         <sprite>sprites\sprCodeBlock1</sprite>
@@ -186,6 +226,21 @@
         <sprite>sprites\sprCodeWomanCursorSelected</sprite>
         <sprite>sprites\sprCodeWomanCursor</sprite>
       </sprites>
+      <sprites name="Saber">
+        <sprite>sprites\sprSaberHit1</sprite>
+        <sprite>sprites\sprSaberHit2</sprite>
+        <sprite>sprites\sprSaberHit3</sprite>
+        <sprite>sprites\sprSaberCircle</sprite>
+        <sprite>sprites\sprSaberPlayerDM</sprite>
+      </sprites>
+      <sprites name="MacheMachette">
+        <sprite>sprites\sprBladeRight</sprite>
+      </sprites>
+      <sprite>sprites\sprTestWeapon2</sprite>
+      <sprite>sprites\sprBusterShot</sprite>
+      <sprite>sprites\sprClockwork</sprite>
+      <sprite>sprites\sprSurgeDashParticle</sprite>
+      <sprite>sprites\sprSurgeDashParticleEnemy</sprite>
     </sprites>
     <sprites name="LevelSpecific">
       <sprites name="PoisonWoman">
@@ -193,12 +248,15 @@
         <sprite>sprites\sprPoisonBarrelExp</sprite>
       </sprites>
       <sprite>sprites\cloudTiles</sprite>
+      <sprite>sprites\sprDevYokuBlock</sprite>
     </sprites>
     <sprites name="Effects">
       <sprite>sprites\sprExplosion</sprite>
       <sprite>sprites\objExplosionReverse</sprite>
       <sprite>sprites\sprMeleeAttackMarker</sprite>
       <sprite>sprites\sprExplosion4</sprite>
+      <sprite>sprites\sprReadyTxt</sprite>
+      <sprite>sprites\sprSlideDust</sprite>
     </sprites>
     <sprites name="Bosses">
       <sprites name="MetalManTestDummy">
@@ -239,6 +297,20 @@
         <sprite>sprites\sprCutmanToss</sprite>
         <sprite>sprites\sprCutmanScissors</sprite>
       </sprites>
+      <sprites name="WeaponsArchive">
+        <sprite>sprites\sprWeaponsArchiveBossIdle</sprite>
+        <sprite>sprites\sprWeaponsArchiveTransition1</sprite>
+        <sprite>sprites\sprWeaponsArchiveTransition2</sprite>
+        <sprite>sprites\sprWeaponsArchiveTransition3</sprite>
+        <sprite>sprites\sprWeaponsArchiveTransition4</sprite>
+        <sprite>sprites\sprWeaponsArchiveTransition5</sprite>
+        <sprite>sprites\sprWeaponsArchivePopOutSpikes</sprite>
+        <sprite>sprites\sprWeaponsArchiveSpike</sprite>
+        <sprite>sprites\sprWeaponsArchivePurple</sprite>
+        <sprite>sprites\sprWeaponsArchiveRed</sprite>
+        <sprite>sprites\sprWeaponsArchiveBlue</sprite>
+        <sprite>sprites\sprWeaponsArchiveGrey</sprite>
+      </sprites>
     </sprites>
     <sprites name="BossTemp">
       <sprite>sprites\sprFillerLimboBox</sprite>
@@ -248,13 +320,30 @@
       <sprite>sprites\sprFillerPrismarineBox</sprite>
       <sprite>sprites\sprFillerShredBox</sprite>
       <sprite>sprites\sprFillerPoisonBox</sprite>
-      <sprite>sprites\sprFillerSurgeBox</sprite>
+      <sprites name="Surge">
+        <sprite>sprites\sprFillerSurgeBox</sprite>
+        <sprite>sprites\sprFillerSurgeDash</sprite>
+        <sprite>sprites\sprFillerSurgeBall</sprite>
+        <sprite>sprites\sprSurgeLightning</sprite>
+        <sprite>sprites\sprSurgeAttempt</sprite>
+        <sprite>sprites\sprSurgePose</sprite>
+        <sprite>sprites\sprSurgeIdle</sprite>
+        <sprite>sprites\sprSurgeWalk</sprite>
+        <sprite>sprites\sprSurgeZap</sprite>
+        <sprite>sprites\sprSurgeJump</sprite>
+        <sprite>sprites\sprSurgeJumpZap</sprite>
+        <sprite>sprites\sprSurgeDash</sprite>
+      </sprites>
     </sprites>
     <sprite>sprites\sprCrossNailTest</sprite>
     <sprite>sprites\sprBlankWeapon</sprite>
     <sprite>sprites\sprFloorGuardian</sprite>
     <sprite>sprites\mmEnemySprites</sprite>
     <sprite>sprites\twofifysixtwotwentyfour</sprite>
+    <sprite>sprites\sprite193</sprite>
+    <sprite>sprites\sprBorderBlock</sprite>
+    <sprite>sprites\sprDifficultyBox</sprite>
+    <sprite>sprites\sprQuitBox</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="Tilesets">
@@ -271,6 +360,7 @@
       <background>background\tstLimboBeta</background>
       <background>background\tstMetal</background>
       <background>background\tstMetalBG</background>
+      <background>background\fiverrTileset1</background>
     </backgrounds>
     <backgrounds name="Backgrounds">
       <backgrounds name="GUI">
@@ -292,6 +382,11 @@
     <background>background\metalman</background>
     <background>background\tstDemo</background>
     <background>background\tstCutMan</background>
+    <background>background\tstSurge</background>
+    <background>background\tstSurgeXTRA</background>
+    <background>background\tstSurgeBG</background>
+    <background>background\tstSpikes</background>
+    <background>background\thumbnailThing</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -308,6 +403,10 @@
     <scripts name="Weapons">
       <script>scripts\fireClockworkBeta.gml</script>
       <script>scripts\fireTestWeapon2.gml</script>
+      <script>scripts\playerLimboDeathScript.gml</script>
+      <script>scripts\fireLimboGround.gml</script>
+      <script>scripts\fireSurgeDash.gml</script>
+      <script>scripts\fireMacheMachette.gml</script>
     </scripts>
     <scripts name="GUI">
       <script>scripts\checkCommand.gml</script>
@@ -317,6 +416,7 @@
       <scripts name="Intro">
         <script>scripts\introCutscene0.gml</script>
         <script>scripts\introCutscene1.gml</script>
+        <script>scripts\introCutscene2.gml</script>
       </scripts>
       <scripts name="DemoIntro">
         <script>scripts\demoIntroCutscene0.gml</script>
@@ -346,6 +446,15 @@
         <script>scripts\b_cutManJumpTowardsPlayer.gml</script>
         <script>scripts\b_cutManThrowScissors.gml</script>
       </scripts>
+      <scripts name="SurgeWoman">
+        <script>scripts\b_genericSurgeCheck.gml</script>
+        <script>scripts\b_surgeRunTowardsPlayer.gml</script>
+        <script>scripts\b_surgeJumpTowardsPlayer.gml</script>
+        <script>scripts\b_surgeTossBoltJump.gml</script>
+        <script>scripts\b_surgeDash.gml</script>
+        <script>scripts\b_surgeDashDesperation.gml</script>
+        <script>scripts\b_surgeTossBoltGround.gml</script>
+      </scripts>
     </scripts>
     <scripts name="AnimatedTileSystem">
       <script>scripts\animated_tile_add.gml</script>
@@ -364,6 +473,13 @@
     </scripts>
     <scripts name="Misc">
       <script>scripts\playSFX.gml</script>
+    </scripts>
+    <scripts name="pauseMenu">
+      <script>scripts\pauseHandleLeft.gml</script>
+      <script>scripts\pauseHandleRightWeapons.gml</script>
+      <script>scripts\pauseHandleRightItems.gml</script>
+      <script>scripts\pauseHandleRightAbilities.gml</script>
+      <script>scripts\pauseHandleRightSettings.gml</script>
     </scripts>
     <script>scripts\readTileObjects.gml</script>
     <script>scripts\tile_get_type.gml</script>
@@ -401,9 +517,11 @@
       <object>objects\objStageSelect</object>
       <object>objects\objWeaponIcon</object>
       <object>objects\objWeaponSelectRThumb</object>
+      <object>objects\objFade</object>
     </objects>
     <objects name="Enemy">
       <objects name="Parent">
+        <object>objects\prtInteractable</object>
         <object>objects\prtEnemy</object>
         <object>objects\prtEnemyShot</object>
         <object>objects\prtBossParent</object>
@@ -428,6 +546,14 @@
           <object>objects\objCutmanScissors</object>
           <object>objects\objCutMan</object>
         </objects>
+        <objects name="SurgeWoman">
+          <object>objects\objSurgeWoman</object>
+          <object>objects\objSurgeWomanBoltWarning</object>
+          <object>objects\objSurgeLightning</object>
+          <object>objects\objSurgeBolt</object>
+          <object>objects\objSurgeDashParticleSpawnerBoss</object>
+          <object>objects\objSurgeDashHurtyParticleBoss</object>
+        </objects>
       </objects>
       <objects name="TestEnemies">
         <object>objects\objTestBoss</object>
@@ -441,20 +567,28 @@
       <objects name="Enemies">
         <object>objects\objBarrel</object>
         <object>objects\objTelly</object>
+        <object>objects\objElectricTelly</object>
+        <object>objects\objElectricTellyAttack</object>
         <object>objects\objCrossNail</object>
         <object>objects\objShieldBoi</object>
         <object>objects\objFloorGuardian</object>
         <object>objects\objOctoBattery</object>
+        <object>objects\objMetMM1</object>
       </objects>
       <objects name="GeneralProjectiles">
         <object>objects\objEnemyShot</object>
+        <object>objects\objMetMM1Bullet</object>
       </objects>
     </objects>
     <objects name="Menu">
       <object>objects\objMainMenu</object>
+      <object>objects\objShop</object>
+      <object>objects\objMainMenu_SelDifficulty</object>
+      <object>objects\objMainMenu_Quit</object>
       <object>objects\objKeyboardBinding</object>
       <object>objects\objDemoSettings</object>
       <object>objects\objPauseMenu</object>
+      <object>objects\objBossIntro</object>
     </objects>
     <objects name="Collision">
       <object>objects\objSolid</object>
@@ -468,14 +602,28 @@
       <object>objects\objSpikePit</object>
     </objects>
     <objects name="WeaponFX">
-      <object>objects\objClockworkAnim</object>
+      <objects name="BusterShot">
+        <object>objects\objBusterShot</object>
+        <object>objects\objBlade</object>
+      </objects>
+      <objects name="LimboSaber">
+        <object>objects\objLimboMelee</object>
+        <object>objects\objPlayerLimboDesperationAttack</object>
+      </objects>
+      <objects name="Clockwork">
+        <object>objects\objClockworkAnim</object>
+      </objects>
+      <objects name="SurgeDash">
+        <object>objects\objSurgeDashParticleSpawner</object>
+        <object>objects\objSurgeDashHurtyParticle</object>
+      </objects>
       <object>objects\objTestWeapon2Proj</object>
       <object>objects\objExplosion</object>
-      <object>objects\objBusterShot</object>
       <object>objects\objExplosion2</object>
       <object>objects\objExplosion3</object>
       <object>objects\objExplosionSpawner</object>
       <object>objects\objHitByMelee</object>
+      <object>objects\objSlideDust</object>
     </objects>
     <objects name="Music">
       <object>objects\objStgMusic</object>
@@ -510,8 +658,14 @@
       <object>objects\objScrnBorder</object>
     </objects>
     <objects name="Items">
+      <object>objects\prtItem</object>
       <object>objects\objBigHealth</object>
       <object>objects\objSmallHealth</object>
+      <object>objects\objBigWeaponEnergy</object>
+      <object>objects\objSmallWeaponEnergy</object>
+      <object>objects\objLife</object>
+      <object>objects\objBigBolt</object>
+      <object>objects\objSmallBolt</object>
     </objects>
     <objects name="Camera">
       <object>objects\goRight</object>
@@ -524,12 +678,15 @@
     </objects>
     <objects name="Misc">
       <object>objects\objGlobalInit</object>
+      <object>objects\rotateyBoi</object>
+      <object>objects\objMugshot</object>
+      <object>objects\screen</object>
+      <object>objects\objTestController</object>
+      <object>objects\objPlayerHitboxMarker</object>
       <object>objects\objConclusion</object>
       <object>objects\objEnemyHPBar</object>
       <object>objects\objEnemyHPBar2</object>
       <object>objects\objEnemyHPBar3</object>
-      <object>objects\objMugshot</object>
-      <object>objects\objBossIntro</object>
       <object>objects\objText</object>
       <object>objects\objSBorderML</object>
       <object>objects\objSBorderMR</object>
@@ -546,23 +703,34 @@
       <object>objects\spriteThing</object>
       <object>objects\objTeleportMarker</object>
       <object>objects\objDisclaimerText</object>
-      <object>objects\objTestController</object>
       <object>objects\redirect</object>
+      <objects name="FirstTimePlaying">
+        <object>objects\objFirstTimePlaying</object>
+        <object>objects\objFirstTime_ControllerType</object>
+        <object>objects\objFirstTime_ScreenSize</object>
+        <object>objects\objFirstTime_AllSet</object>
+      </objects>
     </objects>
     <objects name="Cutscenes">
       <object>objects\objStartingCutscene</object>
       <object>objects\objDemoCutscene</object>
     </objects>
-    <object>objects\screen</object>
-    <object>objects\rotateyBoi</object>
+    <object>objects\objCountUp</object>
+    <object>objects\logo</object>
+    <objects name="Gimmicks">
+      <object>objects\objYokuBlock</object>
+    </objects>
+    <object>objects\prtOverlayMenu</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rmInit</room>
     <room>rooms\rmDisclaimer</room>
+    <room>rooms\rmFirstTimePlaying</room>
     <rooms name="Menu">
-      <room>rooms\rmMainMenu</room>
-      <room>rooms\rmKeyboardBind</room>
       <room>rooms\rmTitleScreen</room>
+      <room>rooms\rmMainMenu</room>
+      <room>rooms\rmShop</room>
+      <room>rooms\rmKeyboardBind</room>
       <room>rooms\rmStageSelect</room>
       <room>rooms\rmCodeWomanWeapon</room>
     </rooms>
@@ -575,18 +743,19 @@
     <rooms name="Misc">
       <room>rooms\rmStarting</room>
       <room>rooms\rmStart</room>
-      <room>rooms\rmBossIntro</room>
       <room>rooms\rmConclusion</room>
       <room>rooms\rmDoesNotExist</room>
       <room>rooms\rmBossDoorTest</room>
       <room>rooms\rmBossTestingChamber</room>
       <room>rooms\rmMetalManTest</room>
+      <room>rooms\rmCutmanTest</room>
       <room>rooms\rmScreenTest1</room>
       <room>rooms\rmTestingChamber</room>
     </rooms>
     <rooms name="Cutscenes">
       <room>rooms\rmIntroCutscene</room>
       <room>rooms\rmDemoIntroCutscene</room>
+      <room>rooms\rmBossIntro</room>
     </rooms>
     <rooms name="DemoStages">
       <room>rooms\rmSimulationSelect</room>
@@ -595,6 +764,7 @@
       <room>rooms\stgDemoCut</room>
     </rooms>
     <rooms name="Outlines">
+      <room>rooms\outIntroStage</room>
       <room>rooms\outLimbo</room>
       <room>rooms\outSurge</room>
       <room>rooms\outCode</room>
@@ -612,6 +782,13 @@
       <room>rooms\outFortress7</room>
       <room>rooms\outFortress8</room>
     </rooms>
+    <rooms name="Challenges">
+      <room>rooms\chWalk</room>
+      <room>rooms\chJumpOne</room>
+      <room>rooms\chJumpTwo</room>
+      <room>rooms\chFall</room>
+    </rooms>
+    <room>rooms\rmMenuTest</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

@@ -62,8 +62,8 @@ if isAlive == true
     
     if enemyTimer == 25
     {
-    instance_create(x,y,objEnemyShot)
-    enemyTimer = 0;
+        instance_create(x,y,objEnemyShot)
+        enemyTimer = 0;
     }
     
     if x &gt; objPlayer.x { image_xscale = -1; }

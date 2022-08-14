@@ -131,14 +131,30 @@ for(i = 1; i &lt;= weaponEnergy; i += 1)
 // Toxin bar
 if (instance_exists(objPoison))
 {
-draw_sprite(sprHealthBarEmpty,0,view_xview[0]+7+5,view_yview[0]+17);
+    draw_sprite(sprHealthBarEmpty,0,view_xview[0]+7+5,view_yview[0]+17);
 
-for(i = 1; i &lt;= global.toxinAmt i += 1)
+    for(i = 1; i &lt;= global.toxinAmt i += 1)
+    {
+        draw_sprite_ext(sprEnergyPrimary, 0, view_xview[0]+7+1+5, view_yview[0]+17+(sprite_get_height(sprHealthBarEmpty)-i*2), 1, 1, 0, make_color_rgb(0, 200, 0), 1);
+        draw_sprite_ext(sprEnergySecondary, 0, view_xview[0]+7+1+5, view_yview[0]+17+(sprite_get_height(sprHealthBarEmpty)-i*2), 1, 1, 0, make_color_rgb(0, 255, 0), 1);
+    }
+}
+
+
+// Reaction Commands
+
+if global.playerTouchingInteractable
 {
-    draw_sprite_ext(sprEnergyPrimary, 0, view_xview[0]+7+1+5, view_yview[0]+17+(sprite_get_height(sprHealthBarEmpty)-i*2), 1, 1, 0, make_color_rgb(0, 200, 0), 1);
-    draw_sprite_ext(sprEnergySecondary, 0, view_xview[0]+7+1+5, view_yview[0]+17+(sprite_get_height(sprHealthBarEmpty)-i*2), 1, 1, 0, make_color_rgb(0, 255, 0), 1);
-}
-}
+    draw_sprite(sprReactionCommandBox,0,view_xview[0]+64,view_yview[0]+208);
+    draw_sprite_ext(sprControllerPlaystation,3,view_xview[0]+68,view_yview[0]+210, 0.75, 0.75, 1, make_color_rgb(255,255,255),1);
+
+    draw_set_font(global.Font);
+    draw_set_color(c_white);
+    draw_set_halign(fa_left);
+    draw_set_alpha(1);
+
+    draw_text(view_xview[0]+92, view_yview[0]/2 + 213,"DEFLECT");
+    }
 }
 </string>
           </argument>

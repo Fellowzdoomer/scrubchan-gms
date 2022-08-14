@@ -168,6 +168,9 @@
     <instance objName="objSolid" x="336" y="48" name="inst_84886566" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objSolid" x="368" y="48" name="inst_5E1FC883" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objSolid" x="352" y="48" name="inst_0BC866CE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objCamera" x="0" y="0" name="inst_83AF07A5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="smoothStop" x="112" y="0" name="inst_B9A18C3A" locked="0" code="snapToX = 0;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="smoothStart" x="144" y="0" name="inst_BB9425B4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

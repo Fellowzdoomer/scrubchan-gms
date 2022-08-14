@@ -25,19 +25,18 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.inMenu = false;
+            <string>/// General create code
+
+global.inMenu = false;
 global.underwater = false;
 global.toxinAmt = 0;
+instance_create(0,0,objPlayerHitboxMarker);
 toxinTimer = 0;
 
 freeformMode = false;
 screenCount = 0;
 
 prevY = y;
-
-playLandSound = true; 
-playLandSoundTimer = 2; 
-playLandSoundTimerCount = 0;
 
 // Important variables
 hsp = 0;
@@ -103,22 +102,37 @@ if global.checkpointY == noone tdestY = 0; else
     y = global.checkpointY - 16;
 }
 
-kDown = 0;
+
 h_move = gamepad_axis_value(0,gp_axislh);
 v_move = gamepad_axis_value(0,gp_axislv);
 move = 0;
 
+kUp = 0;
+kDown = 0;
+kLeft = 0;
+kRight = 0;
+kJump = 0;
+kJumpHold = 0;
+
 rh_move = gamepad_axis_value(0,gp_axisrh);
 rv_move = gamepad_axis_value(0,gp_axisrv);
 
+// limbo womans weapon variables
+global.playerDidLimboDm = false; // this attack should only be doable once
+global.limboComboCount = 0; // DM counter
+global.limboCount = 0;
+global.enemyRevengeCounter = 8; // how many hits from a melee weapon before retaliating
 
+// surge womans weapon variables
+isDashing = false;
+dashTimer = 0;
+
+// place tiles
 placeTileObjects();
 </string>
           </argument>
         </arguments>
       </action>
-    </event>
-    <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -135,16 +149,65 @@ placeTileObjects();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if place_meeting(x,y+1,objSolid)
-{
-    if !isGrounded
-    {
-        audio_play_sound(sndPlayerLand,1,false);
-        isGrounded = true;
-    }
-}
+            <string>/// Abilities list
 
-alarm[0] = 2;
+// Basic actions
+canJump = true;  // Your basic jump ability.
+canSlide = true; // Your basic slide ability.
+canShoot = true; // Your basic shoot ability.
+canWalk = true; // You can move around normally.
+
+// Weapon specific
+canRebirth = true; // Activates a special attack with Limbo Saber when hit with one HP.
+                   // can only be activated once and does not apply to hazards.
+
+// Ability specific
+ab_airslide = true; // You can slide in midair.
+ab_hptowep = true; // Extra health from pickups is converted to your current weapon's energy.
+ab_weptohp = true; // Extra energy from weapon pickups is converted to HP.
+ab_energyconverter = true; // Extra energy from weapon pickups is converted to your
+                            // lowest weapon's energy.
+
+ab_spikeguard = true; // Protect you from spikes. Can only be activated once.
+ab_pitguard = true; // Teleport you to the nearest on-screen platform.
+                     // Can only be activated once.
+
+ab_halfdamage = true; // Halve all damage taken, or reduce to one when applicable.
+ab_powergear = true; // Your attacks will get stronger for a period of time.
+ab_speedgear = true; // Time around you will slow for a period of time.
+
+ab_rci = true; // You will be able to react to various hazards in real time.
+
+// Stackable
+stk_extendslide = true; // Extends your slide by 1/4. Stack to increase the effect.
+stk_extendslide_int = 1; // Max 3
+stk_boostslide = true; // Increases the speed of your slide. Stack to increase the effect.
+stk_boostslide_int = 1; // Max 3
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Limbo counter resetter
+
+global.limboCount = 0;
 </string>
           </argument>
         </arguments>
@@ -190,30 +253,29 @@ if rh_move &gt; 0.2 or rh_move &lt; -0.2 or rv_move &gt; 0.2 or rv_move &lt; -0.
     if !instance_exists(objWeaponSelectRThumb) instance_create(x,y,objWeaponSelectRThumb);
 }
 
-if (didTeleport == false) { 
+if (!didTeleport) { 
     playerTeleportInitial(); }
 else
 {
-    //view_object[0] = objPlayer;
     {
         if !global.isShifting
         {
             if !low_grav grav = 0.25;
             else grav = 0.05;
-            alarm[0] = 2;
+            alarm[0] = 1;
             if !lockInput
             {
                 if (global.inMenu == false) &amp; (global.playerHP &gt; 0)
                 {
-                    playerStep();
-                    playerTeleportStep();   
                     playerCheckGround();
                     playerCollision();
+                    playerStep();
+                    playerTeleportStep();   
                     playerCamera();
                     playerAnimation();
+                    playerHealth();
+                   
                 }
-                    
-                playerHealth();
             }
         }
     }

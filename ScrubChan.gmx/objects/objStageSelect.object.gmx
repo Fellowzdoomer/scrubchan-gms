@@ -35,6 +35,9 @@ menuSelectY = 0;
 selectedStage = "NOTHING HERE YET"
 
 finalStageLocked = true;
+
+startTimer = false;
+timer = 0;
 </string>
           </argument>
         </arguments>
@@ -57,145 +60,139 @@ finalStageLocked = true;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>kLeft = keyboard_check_released(vk_left);
-kRight = keyboard_check_released(vk_right);
-kUp = keyboard_check_released(vk_up);
-kDown = keyboard_check_released(vk_down);
-
-kConfirm = keyboard_check_released(ord("X"));
-
-kLeftGP = gamepad_button_check_released(0,gp_padl)
-kRightGP = gamepad_button_check_released(0,gp_padr)
-kUpGP = gamepad_button_check_released(0,gp_padu)
-kDownGP = gamepad_button_check_released(0,gp_padd)
-
-kConfirmGP = gamepad_button_check_released(0,gp_face1)
-
-if gamepad_is_connected(0)
+            <string>if (!startTimer)
 {
-    if kLeftGP kLeft = 1;
-    if kRightGP kRight = 1;
-    if kUpGP kUp = 1;
-    if kDownGP kDown = 1;
-    if kConfirmGP kConfirm = 1;
-}
-
-if kLeft | kRight | kUp | kDown audio_play_sound(sndMenuNavigate, 9, false);
-if kLeft
-{
-    if x == 128 { x = 64; }
-    else if x == 64 { x = 192; }
-    else if x == 192 { x = 128; }
-}
-
-if kRight
-{
-    if x == 128 { x = 192; }
-    else if x == 192 { x = 64; }
-    else if x == 64 { x = 128; }
-}
-
-if kUp
-{
-    if y == 112 { y = 48; }
-    else if y == 48 { y = 176; }
-    else if y == 176 { y = 112; }
-}
-
-if kDown
-{
-    if y == 112 { y = 176; }
-    else if y == 176 { y = 48; }
-    else if y == 48 { y = 112; }
-}
-
-if keyboard_check_released(ord("E"))
-{
-    if !finalStageLocked finalStageLocked = true;
-    else finalStageLocked = false;
-}
-
-// Stage select grid row
-/*
-[1] [2] [3]
-[4] [5] [6]
-[7] [8] [9]
-*/
-
-// Stage Select positions
-if x == 128 and y == 112 // 5
-{
-    if finalStageLocked == true selectedStage = "STAGE SELECT"
-    else selectedStage = "OCCUPIED FORTRESS"
+    kLeft = keyboard_check_released(vk_left);
+    kRight = keyboard_check_released(vk_right);
+    kUp = keyboard_check_released(vk_up);
+    kDown = keyboard_check_released(vk_down);
     
-    global.stageSelection = 5;
-}
-else if x == 128 and y == 48 // 2
-{
-    selectedStage = "PROGRESS 2"
-    global.stageSelection = 2;
-}
-else if x == 128 and y == 176 // 8
-{
-    selectedStage = "PROGRESS 8"
-    global.stageSelection = 8;
-}
-
-else if x == 64 and y == 112 // 4
-{
-    selectedStage = "CODE WOMAN"
-    global.stageSelection = 4;
+    kConfirm = keyboard_check_released(ord("X"));
     
-}
-else if x == 192 and y == 112 // 6
-{
-    selectedStage = "POISON WOMAN"
-    global.stageSelection = 6;
-}
-else if x == 192 and y == 176 // 9
-{
-    selectedStage = "SURGE WOMAN"
-    global.stageSelection = 9;
-}
-else if x == 64 and y == 176 // 7
-{
-    selectedStage = "LIMBO WOMAN"
-    global.stageSelection = 7;
-}
-else if x == 64 and y == 48 // 1
-{
-    selectedStage = "TESTING CHAMBER DEMO"
-    global.stageSelection = 1;
-}
-
-
-else if x == 192 and y == 48 // 3
-{
-    selectedStage = "GASOLINE MAN"
-    global.stageSelection = 3;
-}
-
-else
-{
-    selectedStage = "???"
-}
-
-if kConfirm
-{
-    switch global.stageSelection
+    kLeftGP = gamepad_button_check_released(0,gp_padl)
+    kRightGP = gamepad_button_check_released(0,gp_padr)
+    kUpGP = gamepad_button_check_released(0,gp_padu)
+    kDownGP = gamepad_button_check_released(0,gp_padd)
+    
+    kConfirmGP = gamepad_button_check_released(0,gp_face1)
+    
+    if gamepad_is_connected(0)
     {
-        case 1: room_goto(rmTestingChamber); break;
-        case 2: /* goto stage*/ break;
-        case 3: /* goto stage*/ break;
-        case 4: /* goto stage*/ break;
-        case 5: /* goto stage*/ break;
-        case 6: /* goto stage*/ break;
-        case 7: room_goto(stgLimbo); break;
-        case 8: /* goto stage*/ break;
-        case 9: /* goto stage*/ break;
-        default: audio_play_sound(sndDeny,9,false);
+        if kLeftGP kLeft = 1;
+        if kRightGP kRight = 1;
+        if kUpGP kUp = 1;
+        if kDownGP kDown = 1;
+        if kConfirmGP kConfirm = 1;
     }
     
+    if kLeft | kRight | kUp | kDown audio_play_sound(sndMenuNavigate, 9, false);
+    if kLeft
+    {
+        if x == 128 { x = 64; }
+        else if x == 64 { x = 192; }
+        else if x == 192 { x = 128; }
+    }
+    
+    if kRight
+    {
+        if x == 128 { x = 192; }
+        else if x == 192 { x = 64; }
+        else if x == 64 { x = 128; }
+    }
+    
+    if kUp
+    {
+        if y == 112 { y = 48; }
+        else if y == 48 { y = 176; }
+        else if y == 176 { y = 112; }
+    }
+    
+    if kDown
+    {
+        if y == 112 { y = 176; }
+        else if y == 176 { y = 48; }
+        else if y == 48 { y = 112; }
+    }
+    
+    if keyboard_check_released(ord("E"))
+    {
+        finalStageLocked = !finalStageLocked;
+    }
+    
+    // Stage select grid row
+    /*
+    [1] [2] [3]
+    [4] [5] [6]
+    [7] [8] [9]
+    */
+    
+    // Stage Select positions
+    if x == 128 and y == 112 // 5
+    {
+        if finalStageLocked == true selectedStage = "STAGE SELECT"
+        else selectedStage = "OCCUPIED FORTRESS"
+        
+        global.stageSelection = 5;
+    }
+    else if x == 128 and y == 48 // 2
+    {
+        selectedStage = "PROGRESS 2"
+        global.stageSelection = 2;
+    }
+    else if x == 128 and y == 176 // 8
+    {
+        selectedStage = "PROGRESS 8"
+        global.stageSelection = 8;
+    }
+    
+    else if x == 64 and y == 112 // 4
+    {
+        selectedStage = "CODE WOMAN"
+        global.stageSelection = 4;
+        
+    }
+    else if x == 192 and y == 112 // 6
+    {
+        selectedStage = "POISON WOMAN"
+        global.stageSelection = 6;
+    }
+    else if x == 192 and y == 176 // 9
+    {
+        selectedStage = "SURGE WOMAN"
+        global.stageSelection = 9;
+    }
+    else if x == 64 and y == 176 // 7
+    {
+        selectedStage = "LIMBO WOMAN"
+        global.stageSelection = 7;
+    }
+    else if x == 64 and y == 48 // 1
+    {
+        selectedStage = "TESTING CHAMBER DEMO"
+        global.stageSelection = 1;
+    }
+    
+    else if x == 192 and y == 48 // 3
+    {
+        selectedStage = "GASOLINE MAN"
+        global.stageSelection = 3;
+    }
+    
+    else selectedStage = "???";
+    
+    if kConfirm
+    {
+        audio_play_sound(sndTeleportOut, 1, false);
+        startTimer = true;
+    }
+}
+
+if (startTimer)
+{
+    var fadeObj = instance_create(x,y,objFade);
+    timer += 1;
+    if (timer == 2) with fadeObj fade = "out";
+    if (timer &gt;= 90) room_goto(rmBossIntro);
 }
 
 if keyboard_check_released(vk_enter) and objConsole.visible = false

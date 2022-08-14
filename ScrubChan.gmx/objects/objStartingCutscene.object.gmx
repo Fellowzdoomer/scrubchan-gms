@@ -69,14 +69,15 @@ alphaVal = 0;
             <string>// Modulating the intro cutscene code because I thought it was a good idea
 // to put the different frames in different scripts.
 
-kSkip = keyboard_check_released(ord("Z")) || keyboard_check_released(ord("X"))
+//kSkip = keyboard_check(ord("Z")) || keyboard_check(ord("X"))
 
-if kSkip room_goto(rmTitleScreen);
+//if kSkip audio_stop_all(); room_goto(rmTitleScreen);
 
 slideTimer += 1;
 
 introCutscene0();
 introCutscene1();
+introCutscene2();
 </string>
           </argument>
         </arguments>

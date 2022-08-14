@@ -3,7 +3,7 @@
   <caption></caption>
   <width>256</width>
   <height>448</height>
-  <vsnap>16</vsnap>
+  <vsnap>8</vsnap>
   <hsnap>16</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
@@ -82,6 +82,8 @@
     <instance objName="objLadder" x="208" y="384" name="inst_769CD850" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objLadder" x="208" y="400" name="inst_44ECC11B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objSolid" x="80" y="288" name="inst_86FF9A27" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objCamera" x="0" y="0" name="inst_661A83A7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="goDown" x="80" y="216" name="inst_92DCBC57" locked="0" code="" scaleX="6" scaleY="2" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

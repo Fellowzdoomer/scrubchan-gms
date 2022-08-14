@@ -1,6 +1,6 @@
 // Enemy Projectile checks
 
-if !global.inMenu
+if !global.inMenu || !isDashing
 {
 
 // == GENERIC CHECKS == \\
@@ -32,22 +32,20 @@ else if (place_meeting(x,y,objHitByMelee))
     invulnerable = true;
 }
 
-// Contact with any enemy itself
-/*if (place_meeting(x,y,prtEnemy))
+// Contact with any LIVE enemy itself
+checkAlive = instance_nearest(x,y,prtEnemy)
+if (place_meeting(x,y,checkAlive)) && checkAlive.isAlive
 {
-    if invulnerable == false
+    if !invulnerable
     {
         audio_play_sound(sndPlayerHit,9,false);
         global.playerHP -= 2;
-    }
-    invulnerable = true;
-    if !isKnockedBack
-    {
         knockbackSpeed = 0.5;
-        hsp = knockbackSpeed;
+        hsp = knockbackSpeed * image_xscale;
         isKnockedBack = true;
     }
-}*/
+    invulnerable = true;
+}
 
 // Contact with any boss that doesnt have a predefined attack thing
 // Knockback code is really bugged. No wonder I commented it out
@@ -92,6 +90,60 @@ else if (place_meeting(x,y,objMetalMan))
             audio_play_sound(sndPlayerHit,9,false);
             global.playerHP -= 4;
         }
+        invulnerable = true;
+    }
+}
+
+// == SURGE WOMAN SPECIFIC == \\
+// Surge Woman's hurty particles
+if (place_meeting(x,y,objSurgeDashHurtyParticleBoss))
+{
+    if !invulnerable
+    {
+        audio_play_sound(sndPlayerHit,9,false);
+        global.playerHP -= 3;
+        knockbackSpeed = 0.5;
+        hsp = knockbackSpeed * image_xscale;
+        isKnockedBack = true;
+    }
+    
+    with objSurgeDashHurtyParticleBoss.id instance_destroy();
+    invulnerable = true;
+}
+
+// Surge Woman's bolt ball
+if (place_meeting(x,y,objSurgeBolt))
+{
+    if !invulnerable
+    {
+        audio_play_sound(sndPlayerHit,9,false);
+        global.playerHP -= 3;
+        knockbackSpeed = 0.5;
+        hsp = knockbackSpeed * image_xscale;
+        isKnockedBack = true;
+    }
+    
+    with objSurgeBolt.id instance_destroy();
+    invulnerable = true;
+}
+
+// Surge Woman's Lightning DM attack
+if (place_meeting(x,y,objSurgeLightning))
+{
+    if objSurgeLightning.id.image_index == 0
+    {
+        if !invulnerable
+        {
+            audio_play_sound(sndPlayerHit,9,false);
+            
+            if global.playerHP == 1 global.playerHP -= 1;
+            else if global.playerHP >= 13 global.playerHP -= 12;
+            else global.playerHP = 1;
+            knockbackSpeed = 0.5;
+            hsp = knockbackSpeed * image_xscale;
+            isKnockedBack = true;
+        }
+    
         invulnerable = true;
     }
 }
@@ -185,6 +237,14 @@ if isKnockedBack
 
 if global.playerHP <= 0
 {
+    // Limbo Woman's weapon gets special handling first because of its unique nature
+    if (global.weapon == 3)
+    {
+        playerLimboDeathScript();
+    }
+    else
+    {
+    
     if global.playerHP < 0 global.playerHP = 0;
     visible = false;
     
@@ -212,6 +272,8 @@ if global.playerHP <= 0
         invulnTimer = 0;
         didTeleport = false;
         visible = true;
+    }
+    
     }
 }
 

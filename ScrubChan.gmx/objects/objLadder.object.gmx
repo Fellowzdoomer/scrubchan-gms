@@ -30,7 +30,7 @@
     instance_create(x,y,spaldingTopSolid);
 }
 
-visible=false;
+//visible=false;
 </string>
           </argument>
         </arguments>

@@ -49,7 +49,7 @@
           <argument>
             <kind>1</kind>
             <string>timer += 1;
-if timer == 240 room_goto(arbitraryCode);
+if timer == 200 room_goto(rmMainMenu);
 </string>
           </argument>
         </arguments>

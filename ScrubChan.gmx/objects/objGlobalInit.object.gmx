@@ -31,6 +31,8 @@ randomize();
 instance_create(0,0,objGameControl);
 global.debugMode = false;
 
+global.screenMode = 0;
+
 // Controller specifics
 gamepad_set_axis_deadzone(0,0.5);
 gamepad_set_button_threshold(0,0.1);
@@ -59,9 +61,9 @@ global.playerLives = 2;
 global.followPlayer = false;
 
 // Weapon energy variables
-global.wpe_weapon1 = 1;
-global.wpe_weapon2 = 3;
-global.wpe_weapon3 = 4;
+global.wpe_weapon1 = 28;
+global.wpe_weapon2 = 28;
+global.wpe_weapon3 = 28;
 global.wpe_weapon4 = 5;
 global.wpe_weapon5 = 6;
 global.wpe_weapon6 = 7;
@@ -81,11 +83,14 @@ global.weplocked8 = true;
 //Specifics
 global.maxBusterShot = 3;
 global.gameDifficulty = "easy";
+global.boltCurrency = 0;
 
 readTileObjects();
 
 window_set_caption("Scrub-Chan: The Fight for Scrubville!");
-
+view_wport[0] = 512;
+view_hport[0] = 448;
+window_set_size(view_wport[0], view_hport[0]);
 
 </string>
           </argument>
@@ -121,6 +126,34 @@ global.wShoot = ord("X");
 global.wLeft = ord("A");
 global.wRight = ord("D");
 
+// == ds map attempt ==
+
+controls = ds_map_create();
+if file_exists("settings.ini")
+{
+    ini_open("settings.ini")
+    ds_map_add(controls, vk_left, "keyLeft");
+    ds_map_add(controls, vk_right, "keyRight");
+    ds_map_add(controls, vk_up, "keyUp");
+    ds_map_add(controls, vk_down, "keyDown");
+    ds_map_add(controls, ord("Z"), "keyJump");
+    ds_map_add(controls, ord("X"), "keyShoot");
+    ds_map_add(controls, ord("C"), "keySlide");
+    ds_map_add(controls, ord("A"), "keyWepLeft");
+    ds_map_add(controls, ord("D"), "keyWepRight");
+    ini_write_string("ControlSettings",vk_left, "keyLeft");
+    ini_write_string("ControlSettings",vk_right, "keyRight");
+    ini_write_string("ControlSettings",vk_up, "keyUp");
+    ini_write_string("ControlSettings",vk_down, "keyDown");
+    ini_write_string("ControlSettings",ord("Z"), "keyJump");
+    ini_write_string("ControlSettings",ord("X"), "keyShoot");
+    ini_write_string("ControlSettings",ord("C"), "keySlide");
+    ini_write_string("ControlSettings",ord("A"), "keyWepLeft");
+    ini_write_string("ControlSettings",ord("D"), "keyWepRight");
+    
+    ini_close();
+}
+
 </string>
           </argument>
         </arguments>
@@ -143,7 +176,56 @@ global.wRight = ord("D");
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if room = rmInit { room_goto(rmSimulationSelect); }
+            <string>// Load everything up and get to where we're headed
+
+if file_exists("settings.ini")
+{
+    ini_open("settings.ini");
+    
+    // set saved screensize
+    global.screenMode = ini_read_real("Display","screenres",2);
+    var screenMode = global.screenMode;
+    
+    if (view_wport[0] != surface_get_width(application_surface)) ||(view_hport[0] != surface_get_height(application_surface))
+    {
+        surface_resize(application_surface,view_wport[0], view_hport[0]);
+    }
+    switch screenMode
+    {
+        case 1: 
+            if window_get_fullscreen() window_set_fullscreen(false); 
+            view_wport[0] = 256;
+            view_hport[0] = 224;
+            window_set_size(view_wport[0], view_hport[0]);
+            window_center();  
+        break;
+        case 2: 
+            view_wport[0] = 512;
+            view_hport[0] = 448;
+            window_set_size(view_wport[0], view_hport[0]);
+            window_center();
+        break;
+        case 3: 
+            view_wport[0] = 768;
+            view_hport[0] = 672;
+            window_set_size(view_wport[0], view_hport[0]);
+            window_center();
+        break;
+        case 4: 
+            window_set_fullscreen(true); 
+        break;
+    }
+    
+    ini_close();
+    //room_goto(rmBossTestingChamber);
+}
+
+else
+{
+    //if room = rmInit { room_goto(rmBossTestingChamber); }
+}
+if room = rmInit { room_goto(rmMainMenu); }
+
 </string>
           </argument>
         </arguments>

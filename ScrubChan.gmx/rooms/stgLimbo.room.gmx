@@ -3,8 +3,8 @@
   <caption></caption>
   <width>7168</width>
   <height>1344</height>
-  <vsnap>16</vsnap>
-  <hsnap>16</hsnap>
+  <vsnap>224</vsnap>
+  <hsnap>256</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
   <persistent>0</persistent>
@@ -228,8 +228,8 @@ audio_play_sound(bgmLimbo,0,true);</code>
     <instance objName="goRight" x="248" y="1120" name="inst_AC67633B" locked="0" code="" scaleX="1" scaleY="10" colour="4294967295" rotation="0"/>
     <instance objName="goLeft" x="256" y="1120" name="inst_21AB159C" locked="0" code="" scaleX="1" scaleY="10" colour="4294967295" rotation="0"/>
     <instance objName="smoothStart" x="400" y="1120" name="inst_EEE3C713" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="smoothStop" x="368" y="1120" name="inst_8705BE93" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="smoothStop" x="1424" y="1120" name="inst_D3CD569F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="smoothStop" x="368" y="1120" name="inst_8705BE93" locked="0" code="snapToX = 256;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="smoothStop" x="1424" y="1120" name="inst_D3CD569F" locked="0" code="snapToX = 1280;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="smoothStart" x="1392" y="1120" name="inst_E8BA429F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="goUp" x="1504" y="1120" name="inst_96B34437" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="goDown" x="1280" y="1112" name="inst_2161B5C6" locked="0" code="" scaleX="15" scaleY="1" colour="4294967295" rotation="0"/>

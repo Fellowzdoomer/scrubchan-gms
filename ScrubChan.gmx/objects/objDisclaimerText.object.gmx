@@ -95,7 +95,7 @@ if allowPress
 {
     if keyboard_check_released(ord("X")) or gamepad_button_check_released(0,gp_face1)
         {
-            room_goto(arbitraryCode);
+            room_goto(rmMainMenu);
         }
 }
 </string>
@@ -142,8 +142,8 @@ if showContinue==true
     draw_text(room_width/2-40,(room_height/2)+48, "X")
     draw_text(room_width/2 + 16,(room_height/2)+48, "or")
         
-    draw_sprite_ext(sprControllerButton, 0, room_width/2-16,(room_height/2)+48,image_xscale,image_yscale,image_angle,c_white,continueAlphaVal)
-    draw_sprite_ext(sprControllerButton, 1, room_width/2+32,(room_height/2)+48,image_xscale,image_yscale,image_angle,c_white,continueAlphaVal)
+    draw_sprite_ext(sprControllerPlaystation, 0, room_width/2-16,(room_height/2)+48,image_xscale,image_yscale,image_angle,c_white,continueAlphaVal)
+    draw_sprite_ext(sprControllerPlaystation, 1, room_width/2+32,(room_height/2)+48,image_xscale,image_yscale,image_angle,c_white,continueAlphaVal)
     draw_text(room_width/2,(room_height/2)+64, "to continue.")
 }
 </string>

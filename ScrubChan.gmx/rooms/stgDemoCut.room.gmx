@@ -97,7 +97,7 @@ global.checkpointY = 0;</code>
     <instance objName="objSolid" x="2304" y="1104" name="inst_01E8035B" locked="0" code="" scaleX="47" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="smoothStart" x="2448" y="896" name="inst_F13771F7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="smoothStart" x="2928" y="1008" name="inst_B88FC040" locked="0" code="" scaleX="1" scaleY="0.449999988079071" colour="4294967295" rotation="0"/>
-    <instance objName="smoothStop" x="2960" y="896" name="inst_4E24E811" locked="0" code="snapToX = 2816;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="smoothStop" x="2960" y="896" name="inst_4E24E811" locked="0" code="snapToX = 2816;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="smoothStop" x="2416" y="896" name="inst_45BD41F2" locked="0" code="snapToX = 2304;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="goRight" x="3320" y="224" name="inst_AE3A9276" locked="0" code="" scaleX="1" scaleY="12" colour="4294967295" rotation="0"/>
     <instance objName="goLeft" x="3328" y="224" name="inst_12450BEE" locked="0" code="" scaleX="1" scaleY="12" colour="4294967295" rotation="0"/>

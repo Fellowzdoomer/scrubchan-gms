@@ -25,15 +25,6 @@ if mySolid >= 0 && vsp > 0 {
         //if isGrounded == true audio_play_sound(sndPlayerLand,1,false);
     }
     
-if (place_meeting(x+hsp,y,objSolid))
-    {
-        while (!place_meeting(x+sign(hsp), y, objSolid))
-        {
-            x += sign(hsp)
-        }
-        hsp = 0;
-    }
-    
 /*if (vsp < 0)
 {
     vsp = max(vsp,-jumpspeed/4)

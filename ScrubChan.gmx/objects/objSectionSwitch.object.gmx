@@ -61,7 +61,8 @@ nearestDoor = noone;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// right
+            <string>var player = objPlayer;
+// right
 if (global.shiftDir == "right")
 {
     if screenCur &lt; SCREEN_HORZ_GOAL
@@ -137,6 +138,7 @@ if (global.shiftDir == "down")
     else
     {
         global.isShifting = false;
+        objPlayer.vsp = objPlayer.vsp / 2;
         with self instance_destroy();
     }
     
@@ -166,6 +168,8 @@ if (global.shiftDir == "right-door")
     }
     
     else if nearestDoor.activated doorTimer += 1;
+    
+    // opening
     if doorTimer == 7
     {
         switch nearestDoor.image_index
@@ -190,21 +194,49 @@ if (global.shiftDir == "right-door")
             nearestDoor.image_index = 4;
             doorTimer = 8;
             break;
+            
+            case 5:
+            audio_play_sound(sndDoor,9,false);
+            nearestDoor.image_index = 6;
+            doorTimer = 0;
+            break;
+            
+            case 6:
+            nearestDoor.image_index = 7;
+            doorTimer = 0;
+            break;
+            
+            case 7:
+            nearestDoor.image_index = 8;
+            doorTimer = 0;
+            break;
+            
+            case 8:
+            nearestDoor.image_index = 8;
+            global.isShifting = false;
+            audio_stop_all();
+            audio_play_sound(bgmBossTheme, 9, true);
+                if nearestDoor.spawnBoss == "surge" instance_create(view_xview[0]+192, view_yview[0]+192, objSurgeWoman);
+            with self instance_destroy();
+            break;
         }
     }
+    
     else if doorTimer &gt; 8
     {
         if screenCur &lt; SCREEN_HORZ_GOAL
         {
             view_xview[0] += 4;
             screenCur += 4;
+            //doorTimer = 9;
         }
         else
         {
-            nearestDoor.image_index = 8;
+            nearestDoor.image_index = 5;
+            doorTimer = 0;
             //nearestDoor.activated = false;
-            global.isShifting = false;
-            with self instance_destroy();
+            /*global.isShifting = false;
+            with self instance_destroy();*/
         }
         if playerCur &lt; PLAYER_GOAL
         {

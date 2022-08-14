@@ -33,6 +33,8 @@ arrowTimerMode = 0; // 0 - plus, 1 - minus
 arrowY = 16;
 
 menuArea = "main";
+
+screenres = "2X";
 </string>
           </argument>
         </arguments>
@@ -55,7 +57,14 @@ menuArea = "main";
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>kUp = keyboard_check_released(vk_up)
+            <string>var displayWidth = display_get_width();
+var displayHeight = display_get_height();
+var screenMode = global.screenMode;
+
+
+if !(instance_exists(prtOverlayMenu))
+{
+kUp = keyboard_check_released(vk_up)
 kDown = keyboard_check_released(vk_down)
 kConfirm = keyboard_check_released(ord("X"))
 
@@ -91,12 +100,14 @@ else if arrowTimerMode == 1
 // Recognize input
 if kDown
 {
-if menuChoice &lt; 4 { menuChoice += 1 }
+if menuChoice &lt; 7 { menuChoice += 1 }
+else menuChoice = 1;
 }
 
 if kUp
 {
 if menuChoice &gt; 1 { menuChoice -= 1 }
+else menuChoice = 7;
 }
 
 // Update flavor text
@@ -104,16 +115,18 @@ if menuArea == "main" // MAIN MENU
 {
     if menuChoice == 1 { flavorText = "START A NEW GAME!" }
     else if menuChoice == 2 { flavorText = "LOAD A PREVIOUS SAVE!" }
-    else if menuChoice == 3 { flavorText = "MODIFY GAME SETTINGS!" }
-    else if menuChoice == 4 { flavorText = "EXIT TO OS!" }
+    else if menuChoice == 3 { flavorText = "LOOK AT YOUR##ACHIEVMENTS!" }
+    else if menuChoice == 4 { flavorText = "PLAY SPECIAL##CHALLENGES!" }
+    else if menuChoice == 5 { flavorText = "MODIFY GAME SETTINGS!" }
+    else if menuChoice == 6 { flavorText = "THANK YOU EVERYBODY!" }
+    else if menuChoice == 7 { flavorText = "EXIT TO OS!" }
 }
 else if menuArea == "options" // OPTIONS
 {
     if menuChoice == 1 { flavorText = "CUSTOMIZE CONTROLS!" }
     else if menuChoice == 2
     { 
-        if window_get_fullscreen() flavorText = "FULLSCREEN : TRUE"
-        else flavorText = "FULLSCREEN : FALSE" 
+        flavorText = "SCREEN RESOLUTION";
     }
     else if menuChoice == 3 { flavorText = "???" }
     else if menuChoice == 4 { flavorText = "BACK TO MAIN MENU!" }
@@ -131,6 +144,9 @@ if menuChoice == 1 { arrowY = 48 }
 else if menuChoice == 2 { arrowY = 64 }
 else if menuChoice == 3 { arrowY = 80 }
 else if menuChoice == 4 { arrowY = 96 }
+else if menuChoice == 5 { arrowY = 112 }
+else if menuChoice == 6 { arrowY = 128 }
+else if menuChoice == 7 { arrowY = 144 }
 
 // Confirm
 if kConfirm
@@ -139,8 +155,7 @@ if kConfirm
     {
         if menuArea == "main"
         {
-            audio_stop_all();
-            room_goto(rmStageSelect)
+            instance_create(0,0,objMainMenu_SelDifficulty);
         }
         else if menuArea == "options"
         {
@@ -151,10 +166,48 @@ if kConfirm
     {
         if menuArea == "options"
         {
-            if !window_get_fullscreen() window_set_fullscreen(true);
-            else window_set_fullscreen(false);
+            global.screenMode += 1;
+            
+            switch global.screenMode
+            {
+                case 1: 
+                    if window_get_fullscreen() window_set_fullscreen(false); 
+                    view_wport[0] = 256;
+                    view_hport[0] = 224;
+                    window_set_size(view_wport[0], view_hport[0]);
+                    window_center();
+                    screenres = "1X";  
+                break;
+                case 2: 
+                    view_wport[0] = 512;
+                    view_hport[0] = 448;
+                    window_set_size(view_wport[0], view_hport[0]);
+                    window_center();
+                    screenres = "2X"; 
+                break;
+                case 3: 
+                    view_wport[0] = 768;
+                    view_hport[0] = 672;
+                    window_set_size(view_wport[0], view_hport[0]);
+                    window_center();
+                    screenres = "3X"; 
+                break;
+                case 4: 
+                    window_set_fullscreen(true); 
+                    screenres = "FULLSCREEN"; 
+                break;
+            }
+            
+            global.screenMode = screenMode;
+            flavorText = screenres;
         }
-        else audio_play_sound(sndDeny,9,false);
+        else
+        {
+            audio_play_sound(sndDeny,9,false);
+            ini_open("settings.ini")
+            ini_write_real("Display", "screenres", screenMode);
+            ini_close();
+        }
     }
     else if menuChoice == 3
     {
@@ -184,6 +237,11 @@ if kConfirm
         }
     }
     
+    else if menuChoice == 7
+    {
+        instance_create(0,0,objMainMenu_Quit);
+    }
+    
     else audio_play_sound(sndDeny,9,false);
 }
 
@@ -193,6 +251,9 @@ if kUp || kDown
 {
     audio_play_sound(sndMenuNavigate, 9, false)
 }
+}
+
+if instance_exists(objMainMenu_SelDifficulty) flavorText = "";
 </string>
           </argument>
         </arguments>
@@ -224,8 +285,12 @@ if menuArea == "main" // MAIN MENU
 {
     draw_text(view_xview[0]/2+64, (view_yview[0]/2)+48, "NEW GAME");
     draw_text(view_xview[0]/2+64, (view_yview[0]/2)+64, "LOAD GAME");
-    draw_text(view_xview[0]/2+64, (view_yview[0]/2)+80, "OPTIONS");
-    draw_text(view_xview[0]/2+64, (view_yview[0]/2)+96, "QUIT GAME");
+    draw_text(view_xview[0]/2+64, (view_yview[0]/2)+80, "ACHIEVEMENTS");
+    draw_text(view_xview[0]/2+64, (view_yview[0]/2)+96, "BONUS");
+    draw_text(view_xview[0]/2+64, (view_yview[0]/2)+112, "OPTIONS");
+    draw_text(view_xview[0]/2+64, (view_yview[0]/2)+128, "CREDITS");
+    draw_text(view_xview[0]/2+64, (view_yview[0]/2)+144, "QUIT GAME");
+    
 }
 else if menuArea == "options" // OPTIONS
 {

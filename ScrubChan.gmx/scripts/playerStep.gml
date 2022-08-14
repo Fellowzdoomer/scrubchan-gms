@@ -1,8 +1,8 @@
 // Keyboard
-kLeft = -keyboard_check(global.mLeftBind)
-kRight = keyboard_check(global.mRightBind)
-kJump = keyboard_check_pressed(global.mJump);
-kJumpHold = keyboard_check(global.mJump);
+if canWalk kLeft = -keyboard_check(global.mLeftBind)
+if canWalk kRight = keyboard_check(global.mRightBind)
+if canJump kJump = keyboard_check_pressed(global.mJump);
+if canJump kJumpHold = keyboard_check(global.mJump);
 kUp = keyboard_check(global.mUp)
 kUpPressed = keyboard_check_pressed(global.mUp);
 kDown = keyboard_check(global.mDown);
@@ -10,8 +10,8 @@ kDown = keyboard_check(global.mDown);
 kWepLeft = keyboard_check_pressed(global.wLeft);
 kWepRight = keyboard_check_pressed(global.wRight);
 
-kShoot = keyboard_check_pressed(global.wShoot);
-kSlide = keyboard_check_pressed(global.mSlide);
+if canShoot kShoot = keyboard_check_pressed(global.wShoot);
+if canSlide kSlide = keyboard_check_pressed(global.mSlide);
 
 // Controller (tested on Dualshock 3 - Aug 09, 2019)
 kJumpGP = gamepad_button_check_pressed(0,gp_face2);
@@ -26,10 +26,10 @@ kWepRightGP = gamepad_button_check_pressed(0,gp_shoulderr);
 // cheap workaround for controls
 if gamepad_is_connected(0)
 {
-    if kJumpGP kJump = 1;
-    if kJumpHoldGP kJumpHold = 1;
-    if gamepad_button_check(0,gp_padl) kLeft = -1;
-    if gamepad_button_check(0,gp_padr) kRight = 1;
+    if canJump { if kJumpGP kJump = 1; }
+    if canJump { if kJumpHoldGP kJumpHold = 1; }
+    if canWalk { if gamepad_button_check(0,gp_padl) kLeft = -1;
+                 if gamepad_button_check(0,gp_padr) kRight = 1; }
     if gamepad_button_check(0,gp_padu) kUp = 1;
     if gamepad_button_check_pressed(0,gp_padu) kUpPressed = 1;
     if gamepad_button_check(0,gp_padd) kDown = 1;
@@ -43,7 +43,10 @@ if (kShoot) && !isSliding or (kShootGP) && !isSliding
     isShooting = true;
     shootTimer = 0;
     if global.weapon == 1 fireClockworkBeta();
-    else if global.weapon == 2 fireTestWeapon2();
+    else if global.weapon == 2 && !isDashing fireSurgeDash();
+    else if global.weapon == 3 fireLimboGround();
+    else if global.weapon == 7 fireMacheMachette();
+    
     else 
     {
         instance_create(x,y-4,objBusterShot);
@@ -91,7 +94,7 @@ if (place_meeting(x,y-1,objPoison))
         if global.toxinAmt < 28 {
             global.toxinAmt += 1;
             // Make sure the toxin amount can't get higher than 28
-            if global.toxinAmt > 28 { global.toxinAmt = 28; }
+            //if global.toxinAmt > 28 { global.toxinAmt = 28; }
             toxinTimer = 0; 
             }
         else if global.toxinAmt == 28
@@ -118,22 +121,14 @@ if global.toxinAmt > 0
     }
 }
 
-if playLandSoundTimer < 2
-{
-    playLandSoundTimer += 1;
-}
-else
-{
-    playLandSound = true;
-}
-
 // Sliding code
 if (kSlide) || (kSlideGP)
 {
     if (place_meeting(x,y+1,objSolid))
     {
-        if (!place_meeting(x+16,y,objSolid)) or (!place_meeting(x-16,y,objSolid))
+        if (!place_meeting(x+(16*image_xscale),y,objSolid))
         {
+        instance_create(x-(8*image_xscale),y+4,objSlideDust);
         isSliding = true
         }
     }    

@@ -30,7 +30,7 @@
 image_speed = 0;
 image_index = 0;
 
-enemyHP = 3;
+enemyHP = 12;
 dir = "right"; // left, right, up, down
 
 maxTime = 50;
@@ -86,6 +86,11 @@ if enemyTimer &gt;= maxTime
                 enemyTimer = maxTime + 4
             }
         }
+        else if enemyTimer == maxTime + 50
+        {
+            dir = "up";
+            enemyTimer = 0;
+        }
     }
     
     // up
@@ -110,6 +115,11 @@ if enemyTimer &gt;= maxTime
             {
                 enemyTimer = maxTime + 4
             }
+        }
+        else if enemyTimer == maxTime + 50
+        {
+            dir = "down";
+            enemyTimer = 0;
         }
     }
     
@@ -136,6 +146,11 @@ if enemyTimer &gt;= maxTime
                 enemyTimer = maxTime + 4
             }
         }
+        else if enemyTimer == maxTime + 50
+        {
+            dir = "right";
+            enemyTimer = 0;
+        }
     }
     
     // right
@@ -160,6 +175,11 @@ if enemyTimer &gt;= maxTime
             {
                 enemyTimer = maxTime + 4
             }
+        }
+        else if enemyTimer == maxTime + 50
+        {
+            dir = "left";
+            enemyTimer = 0;
         }
     }
 }

@@ -15,23 +15,23 @@
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
   <makerSettings>
-    <isSet>0</isSet>
-    <w>0</w>
-    <h>0</h>
+    <isSet>-1</isSet>
+    <w>1008</w>
+    <h>600</h>
     <showGrid>0</showGrid>
-    <showObjects>0</showObjects>
-    <showTiles>0</showTiles>
-    <showBackgrounds>0</showBackgrounds>
-    <showForegrounds>0</showForegrounds>
+    <showObjects>-1</showObjects>
+    <showTiles>-1</showTiles>
+    <showBackgrounds>-1</showBackgrounds>
+    <showForegrounds>-1</showForegrounds>
     <showViews>0</showViews>
     <deleteUnderlyingObj>0</deleteUnderlyingObj>
-    <deleteUnderlyingTiles>0</deleteUnderlyingTiles>
-    <page>0</page>
+    <deleteUnderlyingTiles>-1</deleteUnderlyingTiles>
+    <page>1</page>
     <xoffset>0</xoffset>
     <yoffset>0</yoffset>
   </makerSettings>
   <backgrounds>
-    <background visible="-1" foreground="0" name="background7" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
+    <background visible="-1" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
@@ -51,9 +51,44 @@
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="640" hview="480" xport="0" yport="0" wport="640" hport="480" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
-    <instance objName="objBossIntro" x="0" y="0" name="inst_C0940B65" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objBossIntro" x="16" y="0" name="inst_C0940B65" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objGameControl" x="0" y="0" name="inst_CDBC1FD6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
-  <tiles/>
+  <tiles>
+    <tile bgName="thumbnailThing" x="0" y="192" w="32" h="32" xo="0" yo="0" id="10005704" name="inst_112CA7FE" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="thumbnailThing" x="32" y="192" w="32" h="32" xo="0" yo="0" id="10005705" name="inst_2FE4011D" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="thumbnailThing" x="64" y="192" w="32" h="32" xo="0" yo="0" id="10005706" name="inst_CA93FC65" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="thumbnailThing" x="96" y="192" w="32" h="32" xo="0" yo="0" id="10005707" name="inst_82E45A8E" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="thumbnailThing" x="128" y="192" w="32" h="32" xo="0" yo="0" id="10005708" name="inst_EF803A8C" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="thumbnailThing" x="160" y="192" w="32" h="32" xo="0" yo="0" id="10005709" name="inst_2DECD229" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="thumbnailThing" x="192" y="192" w="32" h="32" xo="0" yo="0" id="10005710" name="inst_29BF3096" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="thumbnailThing" x="224" y="192" w="32" h="32" xo="0" yo="0" id="10005711" name="inst_006CE4BF" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="thumbnailThing" x="0" y="0" w="32" h="32" xo="0" yo="0" id="10005712" name="inst_F63A9312" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="thumbnailThing" x="32" y="0" w="32" h="32" xo="0" yo="0" id="10005713" name="inst_BF401EC4" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="thumbnailThing" x="64" y="0" w="32" h="32" xo="0" yo="0" id="10005714" name="inst_828FA3CC" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="thumbnailThing" x="96" y="0" w="32" h="32" xo="0" yo="0" id="10005715" name="inst_4240D240" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="thumbnailThing" x="160" y="-32" w="32" h="32" xo="0" yo="0" id="10005716" name="inst_DEE44C1B" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="thumbnailThing" x="128" y="0" w="32" h="32" xo="0" yo="0" id="10005717" name="inst_3857EA09" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="thumbnailThing" x="160" y="0" w="32" h="32" xo="0" yo="0" id="10005718" name="inst_288067FB" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="thumbnailThing" x="192" y="0" w="32" h="32" xo="0" yo="0" id="10005719" name="inst_805E1AE2" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="thumbnailThing" x="224" y="0" w="32" h="32" xo="0" yo="0" id="10005720" name="inst_8BCF661E" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="thumbnailThing" x="0" y="32" w="32" h="32" xo="32" yo="0" id="10005721" name="inst_DE6D8026" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="thumbnailThing" x="32" y="32" w="32" h="32" xo="32" yo="0" id="10005722" name="inst_876B48E5" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="thumbnailThing" x="64" y="32" w="32" h="32" xo="32" yo="0" id="10005723" name="inst_4ABA4835" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="thumbnailThing" x="96" y="32" w="32" h="32" xo="32" yo="0" id="10005724" name="inst_D01C34FA" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="thumbnailThing" x="128" y="32" w="32" h="32" xo="32" yo="0" id="10005725" name="inst_1519108B" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="thumbnailThing" x="192" y="32" w="32" h="32" xo="32" yo="0" id="10005726" name="inst_A72FE10F" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="thumbnailThing" x="160" y="32" w="32" h="32" xo="32" yo="0" id="10005727" name="inst_32F0DD54" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="thumbnailThing" x="224" y="32" w="32" h="32" xo="32" yo="0" id="10005728" name="inst_3089FB1A" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="thumbnailThing" x="224" y="160" w="32" h="32" xo="32" yo="0" id="10005729" name="inst_22522230" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="thumbnailThing" x="192" y="160" w="32" h="32" xo="32" yo="0" id="10005730" name="inst_0C050423" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="thumbnailThing" x="160" y="160" w="32" h="32" xo="32" yo="0" id="10005731" name="inst_BA643339" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="thumbnailThing" x="128" y="160" w="32" h="32" xo="32" yo="0" id="10005732" name="inst_3105C827" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="thumbnailThing" x="96" y="160" w="32" h="32" xo="32" yo="0" id="10005733" name="inst_CD11A10F" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="thumbnailThing" x="64" y="160" w="32" h="32" xo="32" yo="0" id="10005734" name="inst_020B0405" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="thumbnailThing" x="32" y="160" w="32" h="32" xo="32" yo="0" id="10005735" name="inst_331CA439" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="thumbnailThing" x="0" y="160" w="32" h="32" xo="32" yo="0" id="10005736" name="inst_B79133C6" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+  </tiles>
   <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>
   <PhysicsWorldLeft>0</PhysicsWorldLeft>

@@ -25,7 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.Font = font_add_sprite(sprFont, ord("!"), true, 1);
+            <string>audio_stop_all();
+audio_play_sound(bgmTitleScreen, 0, false);
+
+global.Font = font_add_sprite(sprFont, ord("!"), true, 1);
 
 alphaVal = 1;
 fadeTimer = 0;
@@ -65,10 +68,8 @@ if fadeSequence == true
 }
 
 if fadeTimer == 15 { room_goto(rmMainMenu) }
-if kSpace
-{
-fadeSequence = true;
-}
+if kSpace fadeSequence = true;
+
 </string>
           </argument>
         </arguments>
@@ -91,14 +92,14 @@ fadeSequence = true;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite(sprLogo, 0, view_xview[0] / 2, view_yview[0] / 2)
+            <string>draw_sprite(sprLogoBetter, 0, view_xview[0] / 2, view_yview[0] / 2)
 
 draw_set_font(global.Font);
 draw_set_color(c_white);
 draw_set_halign(fa_center);
 draw_set_alpha(alphaVal)
 
-draw_text(view_xview[0]/2 + 128, view_yview[0]/2 + 160,"PRESS SPACE TO BEGIN##TEST");
+draw_text(view_xview[0]/2 + 128, view_yview[0]/2 + 160,"PRESS SPACE TO##START GAME");
 </string>
           </argument>
         </arguments>
