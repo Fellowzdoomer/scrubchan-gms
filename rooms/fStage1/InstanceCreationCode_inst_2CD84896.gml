@@ -1,0 +1,1 @@
+camDir = "up";
