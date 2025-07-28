@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"GME_GetAuthor",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"GME_GetAuthor",
+  "parent":{
+    "name":"GME",
+    "path":"folders/Scripts/GME.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

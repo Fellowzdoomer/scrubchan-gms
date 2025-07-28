@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"GME_Pause",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"GME_Pause",
+  "parent":{
+    "name":"GME",
+    "path":"folders/Scripts/GME.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
